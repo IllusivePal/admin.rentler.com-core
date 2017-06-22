@@ -8,6 +8,7 @@ import { MaterialModule } from '@angular/material';
 
 import { AppHeaderModule } from '../app/app-header/app-header.module';
 import { AppFooterModule } from '../app/app-footer/app-footer.module';
+import { AppSidenavModule } from '../app/app-sidenav/app-sidenav.module';
 
 import 'hammerjs';
 
@@ -21,7 +22,8 @@ import 'hammerjs';
       BrowserAnimationsModule,
       MaterialModule,
       AppHeaderModule,
-      AppFooterModule
+      AppFooterModule,
+      AppSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]
