@@ -1,0 +1,9 @@
+C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Admin.Web\bin\Debug\netcoreapp1.1\Rentler.Admin.Web.dll
+C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Admin.Web\bin\Debug\netcoreapp1.1\Rentler.Admin.Web.deps.json
+C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Admin.Web\bin\Debug\netcoreapp1.1\Rentler.Admin.Web.runtimeconfig.json
+C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Admin.Web\bin\Debug\netcoreapp1.1\Rentler.Admin.Web.runtimeconfig.dev.json
+C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Admin.Web\obj\Debug\netcoreapp1.1\Rentler.Admin.Web.AssemblyInfo.cs
+C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Admin.Web\obj\Debug\netcoreapp1.1\Rentler.Admin.Web.dll
+C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Admin.Web\obj\Debug\netcoreapp1.1\Rentler.Admin.Web.pdb
+C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Admin.Web\obj\Debug\netcoreapp1.1\Rentler.Admin.Web.csprojResolveAssemblyReference.cache
+C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Admin.Web\bin\Debug\netcoreapp1.1\Rentler.Admin.Web.pdb
