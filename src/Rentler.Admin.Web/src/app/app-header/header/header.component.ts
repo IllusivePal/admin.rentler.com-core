@@ -2,7 +2,7 @@
 
 @Component({
     selector: 'app-header',
-    template:'TESTSTSTSTST',
+    templateUrl: './header.component.html',
     styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
