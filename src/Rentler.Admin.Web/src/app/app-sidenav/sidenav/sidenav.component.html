@@ -1,10 +1,45 @@
-﻿<md-sidenav-container class="docs-component-viewer-sidenav-container mat-sidenav-container mat-sidenav-transition mat-sidenav-opened">
-  <div class="mat-sidenav-backdrop mat-sidenav-shown"></div>
-  <div tabindex="-1" class="cdk-visually-hidden cdk-focus-trap-anchor"></div>
-  <md-sidenav  class="docs-component-viewer-sidenav mat-sidenav mat-sidenav-side mat-sidenav-opened mat-sidenav-closed" tabindex="-1">
+﻿<md-sidenav-container class="docs-component-viewer-sidenav-container">
+  <!--<div class="mat-sidenav-backdrop"></div>-->
+  <!--<div tabindex="-1" class="cdk-visually-hidden cdk-focus-trap-anchor"></div>
+  <md-sidenav mode="side" opened="true" class="docs-component-viewer-sidenav mat-sidenav mat-sidenav-side mat-sidenav-opened" tabindex="-1">
     <nav>
       sdasdasda
     </nav>
   </md-sidenav>
+  <div tabindex="-1" class="cdk-visually-hidden cdk-focus-trap-anchor"></div>
+  <div cdk-scrollable="" class="mat-sidenav-content" style="margin-left: 240px; margin-right: 0px; transform: translate3d(0px, 0px, 0px);">
+      <div class="docs-component-sidenav-content">
+        TEESTTTTT
+      </div>
+  </div>-->
+  <md-sidenav mode="side" [opened]="true" class="docs-component-viewer-sidenav">
+    <nav>
+      <h3></h3>
+      <ul>
+        <li>
+            <a [routerLink]="['/admin/dashboard']" routerlinkactive="docs-component-viewer-sidenav-item-selected" href="/components/autocomplete">
+             <span><md-icon class="mt-icn">dashboard</md-icon></span> Dashboard
+            </a>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <a routerlinkactive="docs-component-viewer-sidenav-item-selected" href="/components/autocomplete">
+            <span><md-icon class="mt-icn">account_box</md-icon></span>Subscription
+          </a>
+        </li>
+      </ul>
+    </nav>
+   
+  </md-sidenav>
+  <div class="docs-component-sidenav-content">
+    <!--<app-component-header></app-component-header>-->
+    <!--<app-component-viewer></app-component-viewer>-->
+    <router-outlet></router-outlet>
+    <app-component-viewer></app-component-viewer>
+    <app-footer></app-footer>
+    
+  </div>
+  
 </md-sidenav-container>
 <!--<app-footer></app-footer>-->
