@@ -1,4 +1,4 @@
-﻿.docs-footer[_ngcontent-c12] {
+﻿.docs-footer {
   margin-top: 40px;
   padding: 12px;
   font-size: 12px;
@@ -20,4 +20,20 @@
   -ms-flex-flow: row wrap;
   flex-flow: row wrap;
   padding: 8px;
+}
+.docs-footer-copyright {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+.docs-footer-links ul {
+  list-style: none;
+  margin: 0 40px;
+  padding: 0;
 }
