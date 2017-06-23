@@ -47,6 +47,10 @@ app-component-viewer {
   margin: 20px 70px 50px 70px;
 }
 
+app-footer .docs-footer-links a {
+  color: rgba(255, 255, 255, 0.87);
+}
+
 
 
 

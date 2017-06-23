@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
     ngOnInit() {
         this._httpService.get('/api/Test').subscribe(values => {
             this.apiValues = values.json() as string[];
+            console.log("Result from API", this.apiValues);
         });
     }
 }

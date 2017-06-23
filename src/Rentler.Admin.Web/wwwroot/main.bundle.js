@@ -60,7 +60,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".docs-footer[_ngcontent-c12] {\r\n  margin-top: 40px;\r\n  padding: 12px;\r\n  font-size: 12px;\r\n}\r\n.docs-footer {\r\n  background: #673ab7;\r\n  color: rgba(255, 255, 255, 0.87);\r\n}\r\n\r\n.docs-footer-list {\r\n  -webkit-box-align: center;\r\n  -ms-flex-align: center;\r\n  align-items: center;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: normal;\r\n  -ms-flex-flow: row wrap;\r\n  flex-flow: row wrap;\r\n  padding: 8px;\r\n}", ""]);
+exports.push([module.i, ".docs-footer {\r\n  margin-top: 40px;\r\n  padding: 12px;\r\n  font-size: 12px;\r\n}\r\n.docs-footer {\r\n  background: #673ab7;\r\n  color: rgba(255, 255, 255, 0.87);\r\n}\r\n\r\n.docs-footer-list {\r\n  -webkit-box-align: center;\r\n  -ms-flex-align: center;\r\n  align-items: center;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: normal;\r\n  -ms-flex-flow: row wrap;\r\n  flex-flow: row wrap;\r\n  padding: 8px;\r\n}\r\n.docs-footer-copyright {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-flex: 1;\r\n  -ms-flex: 1;\r\n  flex: 1;\r\n  -webkit-box-pack: end;\r\n  -ms-flex-pack: end;\r\n  justify-content: flex-end;\r\n}\r\n.docs-footer-links ul {\r\n  list-style: none;\r\n  margin: 0 40px;\r\n  padding: 0;\r\n}", ""]);
 
 // exports
 
@@ -73,7 +73,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app-footer/footer/footer.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<footer class=\"docs-footer\">\r\n  <div class=\"docs-footer-list\">\r\n    <div _ngcontent-c12=\"\" class=\"footer-logo\">\r\n      <img _ngcontent-c12=\"\" alt=\"angular\" class=\"docs-footer-angular-logo\" src=\"../../../assets/img/homepage/angular-white-transparent.svg\">\r\n    </div>\r\n  </div>\r\n</footer>"
+module.exports = "<footer class=\"docs-footer\">\r\n  <div class=\"docs-footer-list\">\r\n    <div class=\"docs-footer-links\">\r\n      <ul>\r\n        <li > <a href=\"https://wwww.angular.io\">Learn Angular</a> </li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"docs-footer-copyright\">\r\n      <p>Powered by Google ©2010-2017. Code licensed under an MIT-style License. Documentation licensed under CC BY 4.0.</p>\r\n    </div>\r\n  </div>\r\n</footer>"
 
 /***/ }),
 
@@ -389,6 +389,7 @@ var AppComponent = (function () {
         var _this = this;
         this._httpService.get('/api/Test').subscribe(function (values) {
             _this.apiValues = values.json();
+            console.log("Result from API", _this.apiValues);
         });
     };
     return AppComponent;
@@ -645,7 +646,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/component-viewer/component-viewer/component-viewer.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"docs-component-viewer-content\">\r\n  Component Viewr works\r\n</div>"
+module.exports = "<nav class=\"docs-component-viewer-tabbed-content mat-tab-nav-bar\" md-tab-nav-bar>\r\n  <div class=\"mat-tab-links\">\r\n    <!----><a class=\"docs-component-viewer-section-tab mat-tab-link\" md-tab-link=\"\" routerlinkactive=\"\" href=\"/components/tabs/overview\">Overview</a>\r\n    <a class=\"docs-component-viewer-section-tab mat-tab-link\" md-tab-link=\"\" routerlinkactive=\"\" href=\"/components/tabs/api\">API</a>\r\n    <a class=\"docs-component-viewer-section-tab mat-tab-link\" md-tab-link=\"\" routerlinkactive=\"\" href=\"/components/tabs/examples\">Examples</a>\r\n    \r\n  </div>\r\n\r\n</nav>\r\n\r\n<div class=\"docs-component-viewer-content\">\r\n  Component Viewr works\r\n</div>"
 
 /***/ }),
 
