@@ -1,5 +1,4 @@
 ﻿
-
 .docs-component-viewer-sidenav-container {
   width: 100%;
 }
@@ -13,13 +12,13 @@
 
 .docs-component-viewer-sidenav {
   padding-bottom: 72px;
-  width: 240px;
+  width: 280px;
   bottom: 0;
   overflow: auto;
   height: 100%;
 }
 
-/*SideNav*/
+
   .docs-component-viewer-sidenav h3 {
     border: none;
     font-size: 10px;
@@ -29,10 +28,10 @@
     font-weight: 400;
     margin: 0;
     padding: 0 16px;
-    height:20px;
+    height:65px;
   }
   .docs-component-viewer-sidenav h3 {
-    background: rgba(0,0,0,.32);
+    background: rgba(27, 27, 27, 0.85);
     color: hsla(0,0%,100%,.87);
   }
 
@@ -67,6 +66,8 @@
   }
   .docs-component-viewer-sidenav li > a.docs-component-viewer-sidenav-item-selected {
     font-weight: 600;
+    background-color: rgba(224, 224, 224, 0.68);
+    color: #3f51b5;
   }
   .docs-component-viewer-sidenav li>a:hover {
     background-color: rgba(0,0,0,.04);

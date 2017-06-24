@@ -14,16 +14,20 @@ import { ComponentHeaderModule } from '../app/component-header/component-header.
 import { ComponentViewerModule } from '../app/component-viewer/component-viewer.module';
 import { SidenavComponent } from '../app/app-sidenav/sidenav/sidenav.component';
 
+
 import 'hammerjs';
+import { AppLoginComponent } from '../app/app_component/app-login/app-login.component';
 
 const appRoutes: Routes = [
-    { path: '', redirectTo: '/admin', pathMatch: 'full' },
-    { path: 'admin', component: SidenavComponent },
+    { path: '', redirectTo: '/login', pathMatch: 'full' },
+    { path: 'login', component: AppLoginComponent },
+   
 ];
 
 @NgModule({
   declarations: [
-      AppComponent
+      AppComponent,
+      AppLoginComponent
   ],
   imports: [
       BrowserModule,
@@ -41,4 +45,8 @@ const appRoutes: Routes = [
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+    constructor() {
+        console.log("App Module");
+    }
+}

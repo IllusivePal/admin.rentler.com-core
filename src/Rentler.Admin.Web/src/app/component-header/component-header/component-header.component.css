@@ -1,4 +1,4 @@
-﻿.component-page-header[_ngcontent-c11] {
+﻿.component-page-header{
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8,16 +8,18 @@
 }
 
 .docs-primary-header {
-  background: #673ab7;
+  background: #3f3b46;
+  height: 65px;
 }
 
 .docs-primary-header {
   padding-left: 20px;
 }
-  .docs-primary-header h1 {
+.docs-primary-header h1 {
     color: rgba(255, 255, 255, 0.87);
-    font-size: 30px;
-    font-weight: 300;
+    font-size: 16px;
+    font-weight: 100;
     margin: 0;
-    padding: 50px;
-  }
+    padding: 10px;
+    text-transform:uppercase;
+}

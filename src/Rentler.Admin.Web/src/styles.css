@@ -28,7 +28,7 @@ app-header {
 }
 
 app-header .docs-navbar {
-  background: rgb(103, 58, 183);
+  background: rgb(220, 22, 22);
 }
 
 app-root > app-sidenav {
@@ -44,7 +44,7 @@ app-sidenav {
 
 app-component-viewer {
   font-weight: 400;
-  margin: 20px 70px 50px 70px;
+  margin: 20px 30px 50px 30px;
 }
 
 app-footer .docs-footer-links a {
