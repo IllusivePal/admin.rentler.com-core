@@ -12,19 +12,21 @@
         TEESTTTTT
       </div>
   </div>-->
-  <md-sidenav mode="side" [opened]="true" class="docs-component-viewer-sidenav">
+  <md-sidenav #sidenav mode="{{mode}}"
+              [opened]="isOpen" class="docs-component-viewer-sidenav">
+    <ng-content select="[sidenav-content]"></ng-content>
     <nav>
       <h3></h3>
       <ul>
         <li>
-            <a [routerLink]="['/admin/dashboard']" routerlinkactive="docs-component-viewer-sidenav-item-selected" href="/components/autocomplete">
+            <a [routerLink]="['/admin/home/dashboard']" routerLinkActive="docs-component-viewer-sidenav-item-selected" href="/components/autocomplete">
              <span><md-icon class="mt-icn">dashboard</md-icon></span> Dashboard
             </a>
         </li>
       </ul>
       <ul>
         <li>
-          <a routerlinkactive="docs-component-viewer-sidenav-item-selected" href="/components/autocomplete">
+          <a [routerLink]="['/admin/home/subscription']" routerLinkActive="docs-component-viewer-sidenav-item-selected" href="/components/autocomplete">
             <span><md-icon class="mt-icn">account_box</md-icon></span>Subscription
           </a>
         </li>
@@ -32,11 +34,23 @@
     </nav>
    
   </md-sidenav>
+  <div class="main-content"
+       (click)="toggleSideNav()" fxLayout="row">
+    <button md-button
+            style="margin-bottom:50px;"
+            *ngIf="media.isActive('xs')">
+      {{ isOpen ? 'Close' : 'Open' }} SideNav
+    </button>
+
+    <ng-content select="[main-content]"></ng-content>
+
+  
+  </div>
   <div class="docs-component-sidenav-content">
-    <!--<app-component-header></app-component-header>-->
+    <app-component-header></app-component-header>
+    <!--<app-component-viewer></app-component-viewer>-->
     <!--<app-component-viewer></app-component-viewer>-->
     <router-outlet></router-outlet>
-    <app-component-viewer></app-component-viewer>
     <app-footer></app-footer>
     
   </div>

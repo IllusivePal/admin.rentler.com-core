@@ -65768,7 +65768,7 @@ var ResponsiveActivation = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__flexbox_index__ = __webpack_require__("../../../flex-layout/flexbox/index.js");
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__flexbox_index__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__media_query_index__ = __webpack_require__("../../../flex-layout/media-query/index.js");
-/* unused harmony namespace reexport */
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__media_query_index__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_index__ = __webpack_require__("../../../flex-layout/utils/index.js");
 /* unused harmony namespace reexport */
 /**
@@ -66153,7 +66153,7 @@ var ORIENTATION_BREAKPOINTS = [
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__breakpoints_break_point_registry__ = __webpack_require__("../../../flex-layout/media-query/breakpoints/break-point-registry.js");
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__observable_media__ = __webpack_require__("../../../flex-layout/media-query/observable-media.js");
-/* unused harmony namespace reexport */
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_4__observable_media__["b"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__match_media__ = __webpack_require__("../../../flex-layout/media-query/match-media.js");
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__media_change__ = __webpack_require__("../../../flex-layout/media-query/media-change.js");

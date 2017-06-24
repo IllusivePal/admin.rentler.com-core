@@ -60,7 +60,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".docs-footer {\r\n  margin-top: 40px;\r\n  padding: 12px;\r\n  font-size: 12px;\r\n}\r\n.docs-footer {\r\n  background: #673ab7;\r\n  color: rgba(255, 255, 255, 0.87);\r\n}\r\n\r\n.docs-footer-list {\r\n  -webkit-box-align: center;\r\n  -ms-flex-align: center;\r\n  align-items: center;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: normal;\r\n  -ms-flex-flow: row wrap;\r\n  flex-flow: row wrap;\r\n  padding: 8px;\r\n}\r\n.docs-footer-copyright {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-flex: 1;\r\n  -ms-flex: 1;\r\n  flex: 1;\r\n  -webkit-box-pack: end;\r\n  -ms-flex-pack: end;\r\n  justify-content: flex-end;\r\n}\r\n.docs-footer-links ul {\r\n  list-style: none;\r\n  margin: 0 40px;\r\n  padding: 0;\r\n}", ""]);
+exports.push([module.i, ".docs-footer {\r\n  margin-top: 40px;\r\n  padding: 12px;\r\n  font-size: 12px;\r\n}\r\n.docs-footer {\r\n  background: rgba(27, 27, 27, 0.85);\r\n  color: rgba(255, 255, 255, 0.87);\r\n}\r\n\r\n.docs-footer-list {\r\n  -webkit-box-align: center;\r\n  -ms-flex-align: center;\r\n  align-items: center;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-orient: horizontal;\r\n  -webkit-box-direction: normal;\r\n  -ms-flex-flow: row wrap;\r\n  flex-flow: row wrap;\r\n  padding: 8px;\r\n}\r\n.docs-footer-copyright {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-flex: 1;\r\n  -ms-flex: 1;\r\n  flex: 1;\r\n  -webkit-box-pack: end;\r\n  -ms-flex-pack: end;\r\n  justify-content: flex-end;\r\n}\r\n.docs-footer-links ul {\r\n  list-style: none;\r\n  margin: 0 40px;\r\n  padding: 0;\r\n}\r\n", ""]);
 
 // exports
 
@@ -73,7 +73,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app-footer/footer/footer.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<footer class=\"docs-footer\">\r\n  <div class=\"docs-footer-list\">\r\n    <div class=\"docs-footer-links\">\r\n      <ul>\r\n        <li > <a href=\"https://wwww.angular.io\">Learn Angular</a> </li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"docs-footer-copyright\">\r\n      <p>Powered by Google ©2010-2017. Code licensed under an MIT-style License. Documentation licensed under CC BY 4.0.</p>\r\n    </div>\r\n  </div>\r\n</footer>"
+module.exports = "<footer class=\"docs-footer\">\r\n  <div class=\"docs-footer-list\">\r\n    <div class=\"docs-footer-links\">\r\n      <ul>\r\n        <li > <a href=\"www.rentler.com\">Rentler Admin</a> </li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"docs-footer-copyright\">\r\n      <p>Powered by Rentler. Copyright 2017</p>\r\n    </div>\r\n  </div>\r\n</footer>"
 
 /***/ }),
 
@@ -225,7 +225,10 @@ HeaderComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__component_header_component_header_module__ = __webpack_require__("../../../../../src/app/component-header/component-header.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__component_viewer_component_viewer_module__ = __webpack_require__("../../../../../src/app/component-viewer/component-viewer.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__component_header_component_header_component_header_component__ = __webpack_require__("../../../../../src/app/component-header/component-header/component-header.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_flex_layout__ = __webpack_require__("../../../flex-layout/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__component_viewer_dashboard_dashboard_component__ = __webpack_require__("../../../../../src/app/component-viewer/dashboard/dashboard.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__component_viewer_subscription_subscription_component__ = __webpack_require__("../../../../../src/app/component-viewer/subscription/subscription.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__component_viewer_component_viewer_component_viewer_component__ = __webpack_require__("../../../../../src/app/component-viewer/component-viewer/component-viewer.component.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppSidenavModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -233,6 +236,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
 
 
 
@@ -244,15 +253,29 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 var appRoutes = [
     {
+        path: 'admin', redirectTo: '/admin/home/dashboard', pathMatch: 'full'
+    },
+    {
+        path: 'admin/home', redirectTo: '/admin/home/dashboard', pathMatch: 'full'
+    },
+    {
         path: 'admin', component: __WEBPACK_IMPORTED_MODULE_2__sidenav_sidenav_component__["a" /* SidenavComponent */],
         children: [{
-                path: 'dashboard',
-                component: __WEBPACK_IMPORTED_MODULE_8__component_header_component_header_component_header_component__["a" /* ComponentHeaderComponent */]
+                path: 'home',
+                component: __WEBPACK_IMPORTED_MODULE_11__component_viewer_component_viewer_component_viewer_component__["a" /* ComponentViewerComponent */],
+                children: [{
+                        path: 'dashboard',
+                        component: __WEBPACK_IMPORTED_MODULE_9__component_viewer_dashboard_dashboard_component__["a" /* DashboardComponent */]
+                    }, {
+                        path: 'subscription',
+                        component: __WEBPACK_IMPORTED_MODULE_10__component_viewer_subscription_subscription_component__["a" /* SubscriptionComponent */]
+                    }]
             }]
     }
 ];
 var AppSidenavModule = (function () {
     function AppSidenavModule() {
+        console.log("Side Nav Module");
     }
     return AppSidenavModule;
 }());
@@ -264,11 +287,13 @@ AppSidenavModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_4__app_footer_app_footer_module__["a" /* AppFooterModule */],
             __WEBPACK_IMPORTED_MODULE_5__component_header_component_header_module__["a" /* ComponentHeaderModule */],
             __WEBPACK_IMPORTED_MODULE_6__component_viewer_component_viewer_module__["a" /* ComponentViewerModule */],
-            __WEBPACK_IMPORTED_MODULE_7__angular_router__["a" /* RouterModule */].forChild(appRoutes)
+            __WEBPACK_IMPORTED_MODULE_7__angular_router__["a" /* RouterModule */].forChild(appRoutes),
+            __WEBPACK_IMPORTED_MODULE_8__angular_flex_layout__["a" /* FlexLayoutModule */]
         ],
         declarations: [__WEBPACK_IMPORTED_MODULE_2__sidenav_sidenav_component__["a" /* SidenavComponent */]],
         exports: [__WEBPACK_IMPORTED_MODULE_2__sidenav_sidenav_component__["a" /* SidenavComponent */]]
-    })
+    }),
+    __metadata("design:paramtypes", [])
 ], AppSidenavModule);
 
 //# sourceMappingURL=app-sidenav.module.js.map
@@ -283,7 +308,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "\r\n\r\n.docs-component-viewer-sidenav-container {\r\n  width: 100%;\r\n}\r\n\r\n\r\n\r\n.docs-component-viewer-sidenav, .docs-component-viewer-sidenav.mat-sidenav-opened {\r\n  box-shadow: 3px 0 6px rgba(0,0,0,.24);\r\n}\r\n\r\n\r\n.docs-component-viewer-sidenav {\r\n  padding-bottom: 72px;\r\n  width: 240px;\r\n  bottom: 0;\r\n  overflow: auto;\r\n  height: 100%;\r\n}\r\n\r\n/*SideNav*/\r\n  .docs-component-viewer-sidenav h3 {\r\n    border: none;\r\n    font-size: 10px;\r\n    letter-spacing: 1px;\r\n    line-height: 24px;\r\n    text-transform: uppercase;\r\n    font-weight: 400;\r\n    margin: 0;\r\n    padding: 0 16px;\r\n    height:20px;\r\n  }\r\n  .docs-component-viewer-sidenav h3 {\r\n    background: rgba(0,0,0,.32);\r\n    color: hsla(0,0%,100%,.87);\r\n  }\r\n\r\n  .docs-component-viewer-sidenav ul {\r\n    list-style-type: none;\r\n    margin: 0;\r\n    padding: 0;\r\n  }\r\n  .docs-component-viewer-sidenav li {\r\n    border-bottom-width: 1px;\r\n    border-bottom-style: solid;\r\n    margin: 0;\r\n    padding: 0;\r\n  }\r\n  .docs-component-viewer-sidenav li {\r\n    border-color: rgba(0,0,0,.06);\r\n    color: rgba(0,0,0,.54);\r\n  }\r\n  .docs-component-viewer-sidenav li > a {\r\n    box-sizing: border-box;\r\n    display: block;\r\n    font-size: 14px;\r\n    font-weight: 400;\r\n    line-height: 47px;\r\n    text-decoration: none;\r\n    transition: all .3s;\r\n    padding: 0 60px;\r\n    position: relative;\r\n  }\r\n  .docs-component-viewer-sidenav li > a {\r\n    color: rgba(0,0,0,.54);\r\n  }\r\n  .docs-component-viewer-sidenav li > a.docs-component-viewer-sidenav-item-selected {\r\n    font-weight: 600;\r\n  }\r\n  .docs-component-viewer-sidenav li>a:hover {\r\n    background-color: rgba(0,0,0,.04);\r\n    color: #3f51b5;\r\n  }\r\nmd-icon {\r\n\r\n  position:absolute;\r\n  left:0;\r\n  right:0;\r\n  top:10px;\r\n  bottom:0;\r\n  padding:0 28px;\r\n}\r\n\r\n.docs-component-sidenav-content {\r\n  min-height: 100%;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n  -ms-flex-direction: column;\r\n  flex-direction: column;\r\n}\r\n\r\n\r\n\r\n\r\n", ""]);
+exports.push([module.i, "\r\n.docs-component-viewer-sidenav-container {\r\n  width: 100%;\r\n}\r\n\r\n\r\n\r\n.docs-component-viewer-sidenav, .docs-component-viewer-sidenav.mat-sidenav-opened {\r\n  box-shadow: 3px 0 6px rgba(0,0,0,.24);\r\n}\r\n\r\n\r\n.docs-component-viewer-sidenav {\r\n  padding-bottom: 72px;\r\n  width: 280px;\r\n  bottom: 0;\r\n  overflow: auto;\r\n  height: 100%;\r\n}\r\n\r\n\r\n  .docs-component-viewer-sidenav h3 {\r\n    border: none;\r\n    font-size: 10px;\r\n    letter-spacing: 1px;\r\n    line-height: 24px;\r\n    text-transform: uppercase;\r\n    font-weight: 400;\r\n    margin: 0;\r\n    padding: 0 16px;\r\n    height:65px;\r\n  }\r\n  .docs-component-viewer-sidenav h3 {\r\n    background: rgba(27, 27, 27, 0.85);\r\n    color: hsla(0,0%,100%,.87);\r\n  }\r\n\r\n  .docs-component-viewer-sidenav ul {\r\n    list-style-type: none;\r\n    margin: 0;\r\n    padding: 0;\r\n  }\r\n  .docs-component-viewer-sidenav li {\r\n    border-bottom-width: 1px;\r\n    border-bottom-style: solid;\r\n    margin: 0;\r\n    padding: 0;\r\n  }\r\n  .docs-component-viewer-sidenav li {\r\n    border-color: rgba(0,0,0,.06);\r\n    color: rgba(0,0,0,.54);\r\n  }\r\n  .docs-component-viewer-sidenav li > a {\r\n    box-sizing: border-box;\r\n    display: block;\r\n    font-size: 14px;\r\n    font-weight: 400;\r\n    line-height: 47px;\r\n    text-decoration: none;\r\n    transition: all .3s;\r\n    padding: 0 60px;\r\n    position: relative;\r\n  }\r\n  .docs-component-viewer-sidenav li > a {\r\n    color: rgba(0,0,0,.54);\r\n  }\r\n  .docs-component-viewer-sidenav li > a.docs-component-viewer-sidenav-item-selected {\r\n    font-weight: 600;\r\n    background-color: rgba(224, 224, 224, 0.68);\r\n    color: #3f51b5;\r\n  }\r\n  .docs-component-viewer-sidenav li>a:hover {\r\n    background-color: rgba(0,0,0,.04);\r\n    color: #3f51b5;\r\n  }\r\nmd-icon {\r\n\r\n  position:absolute;\r\n  left:0;\r\n  right:0;\r\n  top:10px;\r\n  bottom:0;\r\n  padding:0 28px;\r\n}\r\n\r\n.docs-component-sidenav-content {\r\n  min-height: 100%;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n  -ms-flex-direction: column;\r\n  flex-direction: column;\r\n}\r\n\r\n\r\n\r\n\r\n", ""]);
 
 // exports
 
@@ -296,7 +321,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app-sidenav/sidenav/sidenav.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<md-sidenav-container class=\"docs-component-viewer-sidenav-container\">\r\n  <!--<div class=\"mat-sidenav-backdrop\"></div>-->\r\n  <!--<div tabindex=\"-1\" class=\"cdk-visually-hidden cdk-focus-trap-anchor\"></div>\r\n  <md-sidenav mode=\"side\" opened=\"true\" class=\"docs-component-viewer-sidenav mat-sidenav mat-sidenav-side mat-sidenav-opened\" tabindex=\"-1\">\r\n    <nav>\r\n      sdasdasda\r\n    </nav>\r\n  </md-sidenav>\r\n  <div tabindex=\"-1\" class=\"cdk-visually-hidden cdk-focus-trap-anchor\"></div>\r\n  <div cdk-scrollable=\"\" class=\"mat-sidenav-content\" style=\"margin-left: 240px; margin-right: 0px; transform: translate3d(0px, 0px, 0px);\">\r\n      <div class=\"docs-component-sidenav-content\">\r\n        TEESTTTTT\r\n      </div>\r\n  </div>-->\r\n  <md-sidenav mode=\"side\" [opened]=\"true\" class=\"docs-component-viewer-sidenav\">\r\n    <nav>\r\n      <h3></h3>\r\n      <ul>\r\n        <li>\r\n            <a [routerLink]=\"['/admin/dashboard']\" routerlinkactive=\"docs-component-viewer-sidenav-item-selected\" href=\"/components/autocomplete\">\r\n             <span><md-icon class=\"mt-icn\">dashboard</md-icon></span> Dashboard\r\n            </a>\r\n        </li>\r\n      </ul>\r\n      <ul>\r\n        <li>\r\n          <a routerlinkactive=\"docs-component-viewer-sidenav-item-selected\" href=\"/components/autocomplete\">\r\n            <span><md-icon class=\"mt-icn\">account_box</md-icon></span>Subscription\r\n          </a>\r\n        </li>\r\n      </ul>\r\n    </nav>\r\n   \r\n  </md-sidenav>\r\n  <div class=\"docs-component-sidenav-content\">\r\n    <!--<app-component-header></app-component-header>-->\r\n    <!--<app-component-viewer></app-component-viewer>-->\r\n    <router-outlet></router-outlet>\r\n    <app-component-viewer></app-component-viewer>\r\n    <app-footer></app-footer>\r\n    \r\n  </div>\r\n  \r\n</md-sidenav-container>\r\n<!--<app-footer></app-footer>-->"
+module.exports = "<md-sidenav-container class=\"docs-component-viewer-sidenav-container\">\r\n  <!--<div class=\"mat-sidenav-backdrop\"></div>-->\r\n  <!--<div tabindex=\"-1\" class=\"cdk-visually-hidden cdk-focus-trap-anchor\"></div>\r\n  <md-sidenav mode=\"side\" opened=\"true\" class=\"docs-component-viewer-sidenav mat-sidenav mat-sidenav-side mat-sidenav-opened\" tabindex=\"-1\">\r\n    <nav>\r\n      sdasdasda\r\n    </nav>\r\n  </md-sidenav>\r\n  <div tabindex=\"-1\" class=\"cdk-visually-hidden cdk-focus-trap-anchor\"></div>\r\n  <div cdk-scrollable=\"\" class=\"mat-sidenav-content\" style=\"margin-left: 240px; margin-right: 0px; transform: translate3d(0px, 0px, 0px);\">\r\n      <div class=\"docs-component-sidenav-content\">\r\n        TEESTTTTT\r\n      </div>\r\n  </div>-->\r\n  <md-sidenav #sidenav mode=\"{{mode}}\"\r\n              [opened]=\"isOpen\" class=\"docs-component-viewer-sidenav\">\r\n    <ng-content select=\"[sidenav-content]\"></ng-content>\r\n    <nav>\r\n      <h3></h3>\r\n      <ul>\r\n        <li>\r\n            <a [routerLink]=\"['/admin/home/dashboard']\" routerLinkActive=\"docs-component-viewer-sidenav-item-selected\" href=\"/components/autocomplete\">\r\n             <span><md-icon class=\"mt-icn\">dashboard</md-icon></span> Dashboard\r\n            </a>\r\n        </li>\r\n      </ul>\r\n      <ul>\r\n        <li>\r\n          <a [routerLink]=\"['/admin/home/subscription']\" routerLinkActive=\"docs-component-viewer-sidenav-item-selected\" href=\"/components/autocomplete\">\r\n            <span><md-icon class=\"mt-icn\">account_box</md-icon></span>Subscription\r\n          </a>\r\n        </li>\r\n      </ul>\r\n    </nav>\r\n   \r\n  </md-sidenav>\r\n  <div class=\"main-content\"\r\n       (click)=\"toggleSideNav()\" fxLayout=\"row\">\r\n    <button md-button\r\n            style=\"margin-bottom:50px;\"\r\n            *ngIf=\"media.isActive('xs')\">\r\n      {{ isOpen ? 'Close' : 'Open' }} SideNav\r\n    </button>\r\n\r\n    <ng-content select=\"[main-content]\"></ng-content>\r\n\r\n  \r\n  </div>\r\n  <div class=\"docs-component-sidenav-content\">\r\n    <app-component-header></app-component-header>\r\n    <!--<app-component-viewer></app-component-viewer>-->\r\n    <!--<app-component-viewer></app-component-viewer>-->\r\n    <router-outlet></router-outlet>\r\n    <app-footer></app-footer>\r\n    \r\n  </div>\r\n  \r\n</md-sidenav-container>\r\n<!--<app-footer></app-footer>-->"
 
 /***/ }),
 
@@ -305,6 +330,9 @@ module.exports = "<md-sidenav-container class=\"docs-component-viewer-sidenav-co
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_filter__ = __webpack_require__("../../../../rxjs/add/operator/filter.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_filter___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_filter__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_flex_layout__ = __webpack_require__("../../../flex-layout/index.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SidenavComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -316,12 +344,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var SidenavComponent = (function () {
-    function SidenavComponent() {
-        console.log("Sidenav constructor");
+    function SidenavComponent(media) {
+        var _this = this;
+        this.media = media;
+        this.isOpen = true;
+        console.log("this.mode", this.mode);
+        this.mode = "side";
+        this._subscription = media.subscribe(function (change) {
+            _this.isOpen = (change.mqAlias !== 'xs');
+            _this.mediaChange = change;
+            (change.mqAlias != 'xs') ? _this.mode = "side" : _this.mode = "over";
+        });
     }
-    SidenavComponent.prototype.ngOnInit = function () {
+    SidenavComponent.prototype.toggleSideNav = function () {
+        this.isOpen = !this.isOpen;
+        this.mode = "over";
+        console.log("is open", this.isOpen);
     };
+    SidenavComponent.prototype.ngOnDestroy = function () { this._subscription.unsubscribe(); console.log("Destroy"); };
     return SidenavComponent;
 }());
 SidenavComponent = __decorate([
@@ -330,9 +373,10 @@ SidenavComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/app-sidenav/sidenav/sidenav.component.html"),
         styles: [__webpack_require__("../../../../../src/app/app-sidenav/sidenav/sidenav.component.css")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_flex_layout__["b" /* ObservableMedia */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_flex_layout__["b" /* ObservableMedia */]) === "function" && _a || Object])
 ], SidenavComponent);
 
+var _a;
 //# sourceMappingURL=sidenav.component.js.map
 
 /***/ }),
@@ -345,7 +389,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "app-root {\r\n  position: absolute;\r\n  top: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  right: 0;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n  -ms-flex-direction: column;\r\n  flex-direction: column;\r\n}\r\n\r\n.fill-remaining-space {\r\n  /*This fills the remaining space, by using flexbox.  \r\n  Every toolbar row uses a flexbox row layout. */\r\n  -webkit-box-flex: 1;\r\n      -ms-flex: 1 1 auto;\r\n          flex: 1 1 auto;\r\n}", ""]);
+exports.push([module.i, "app-root {\r\n  position: absolute;\r\n  top: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  right: 0;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n  -ms-flex-direction: column;\r\n  flex-direction: column;\r\n}\r\n\r\n.fill-remaining-space {\r\n  This fills the remaining space, by using flexbox.  \r\n  Every toolbar row uses a flexbox row layout. \r\n  flex: 1 1 auto;\r\n}\r\n\r\n\r\n\r\n", ""]);
 
 // exports
 
@@ -358,7 +402,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-header class=\"mat-elevation-z6\"></app-header>\r\n<!--<app-sidenav></app-sidenav>!-->\r\n<router-outlet></router-outlet>\r\n\r\n<!--\r\n<md-toolbar color=\"primary\">\r\n\r\n  <button md-button routerLink=\"/\">\r\n    <md-icon>home</md-icon>\r\n    TEST\r\n  </button>\r\n\r\n  <span class=\"fill-remaining-space\"></span>\r\n  <div fxLayout=\"row\" fxShow=\"false\" fxShow.gt-sm>\r\n    <button md-button routerLink=\"/products\">Products</button>\r\n    <button md-button routerLink=\"/dashboard\">Dashboard</button>\r\n  </div>\r\n  <button md-button [md-menu-trigger-for]=\"menu\" fxHide=\"false\" fxHide.gt-sm>\r\n    <md-icon>menu</md-icon>\r\n  </button>\r\n\r\n</md-toolbar>\r\n<md-menu x-position=\"before\" #menu=\"mdMenu\">\r\n  <button md-menu-item routerLink=\"/products\">Products</button>\r\n  <button md-menu-item routerLink=\"/dashboard\">Dashboard</button>\r\n</md-menu>\r\n    -->\r\n\r\n\r\n\r\n"
+module.exports = "<app-header class=\"mat-elevation-z6\"></app-header>\r\n<router-outlet></router-outlet>\r\n\r\n\r\n\r\n\r\n<!--<md-toolbar color=\"primary\">Responsive SideNavs using Flex-Layout </md-toolbar>\r\n<md-sidenav-container>\r\n  <md-sidenav #sidenav\r\n              mode=\"{{mode}}\"\r\n              [opened]=\"isOpen\"\r\n              class=\"example-sidenav\">\r\n\r\n    <ng-content select=\"[sidenav-content]\"></ng-content>\r\n    dasdadasd\r\n  </md-sidenav>\r\n  <div class=\"main-content\"\r\n       (click)=\"toggleSideNav()\" fxLayout=\"row\">\r\n    <button md-button\r\n            style=\"margin-bottom:50px;\"\r\n            *ngIf=\"media.isActive('xs')\">\r\n      {{ isOpen ? 'Close' : 'Open' }} SideNav\r\n    </button>\r\n\r\n    <ng-content select=\"[main-content]\"></ng-content>\r\n\r\n    <span>\r\n      Current\r\n      '{{ mediaChange.mqAlias }}' = {{ mediaChange.mediaQuery }}\r\n    </span>\r\n  </div>\r\n</md-sidenav-container>!-->\r\n\r\n\r\n\r\n\r\n\r\n  <!--<md-toolbar color=\"primary\">\r\n\r\n    <button md-button routerLink=\"/\">\r\n      <md-icon>home</md-icon>\r\n      TEST\r\n    </button>\r\n\r\n    <span class=\"fill-remaining-space\"></span>\r\n    <div fxLayout=\"row\" fxShow=\"false\" fxShow.gt-sm>\r\n      <button md-button routerLink=\"/products\">Products</button>\r\n      <button md-button routerLink=\"/dashboard\">Dashboard</button>\r\n    </div>\r\n    <button md-button [md-menu-trigger-for]=\"menu\" fxHide=\"false\" fxHide.gt-sm>\r\n      <md-icon>menu</md-icon>\r\n    </button>\r\n\r\n  </md-toolbar>\r\n  <md-menu x-position=\"before\" #menu=\"mdMenu\">\r\n    <button md-menu-item routerLink=\"/products\">Products</button>\r\n    <button md-menu-item routerLink=\"/dashboard\">Dashboard</button>\r\n  </md-menu>-->\r\n\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -367,7 +411,9 @@ module.exports = "<app-header class=\"mat-elevation-z6\"></app-header>\r\n<!--<a
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_filter__ = __webpack_require__("../../../../rxjs/add/operator/filter.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_filter___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_filter__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_flex_layout__ = __webpack_require__("../../../flex-layout/index.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -380,18 +426,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var AppComponent = (function () {
-    function AppComponent(_httpService) {
-        this._httpService = _httpService;
-        this.apiValues = [];
-    }
-    AppComponent.prototype.ngOnInit = function () {
+    function AppComponent(media) {
         var _this = this;
-        this._httpService.get('/api/Test').subscribe(function (values) {
-            _this.apiValues = values.json();
-            console.log("Result from API", _this.apiValues);
+        this.media = media;
+        this.isOpen = true;
+        console.log(this.mode);
+        this._subscription = media.subscribe(function (change) {
+            _this.isOpen = (change.mqAlias !== 'xs');
+            _this.mediaChange = change;
+            (change.mqAlias == 'xs') ? _this.mode = "over" : _this.mode = "side";
         });
-    };
+    }
+    AppComponent.prototype.toggleSideNav = function () { this.isOpen = !this.isOpen; };
+    AppComponent.prototype.ngOnDestroy = function () { this._subscription.unsubscribe(); };
     return AppComponent;
 }());
 AppComponent = __decorate([
@@ -400,7 +449,7 @@ AppComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/app.component.html"),
         styles: [__webpack_require__("../../../../../src/app/app.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_flex_layout__["b" /* ObservableMedia */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_flex_layout__["b" /* ObservableMedia */]) === "function" && _a || Object])
 ], AppComponent);
 
 var _a;
@@ -425,15 +474,18 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__angular_flex_layout__ = __webpack_require__("../../../flex-layout/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__app_component_header_component_header_module__ = __webpack_require__("../../../../../src/app/component-header/component-header.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__app_component_viewer_component_viewer_module__ = __webpack_require__("../../../../../src/app/component-viewer/component-viewer.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__app_app_sidenav_sidenav_sidenav_component__ = __webpack_require__("../../../../../src/app/app-sidenav/sidenav/sidenav.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_hammerjs__ = __webpack_require__("../../../../hammerjs/hammer.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_hammerjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14_hammerjs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_hammerjs__ = __webpack_require__("../../../../hammerjs/hammer.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_hammerjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13_hammerjs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__app_app_component_app_login_app_login_component__ = __webpack_require__("../../../../../src/app/app_component/app-login/app-login.component.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
 
@@ -451,18 +503,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 var appRoutes = [
-    { path: '', redirectTo: '/admin', pathMatch: 'full' },
-    { path: 'admin', component: __WEBPACK_IMPORTED_MODULE_13__app_app_sidenav_sidenav_sidenav_component__["a" /* SidenavComponent */] },
+    { path: '', redirectTo: '/login', pathMatch: 'full' },
+    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_14__app_app_component_app_login_app_login_component__["a" /* AppLoginComponent */] },
 ];
 var AppModule = (function () {
     function AppModule() {
+        console.log("App Module");
     }
     return AppModule;
 }());
 AppModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["b" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]
+            __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */],
+            __WEBPACK_IMPORTED_MODULE_14__app_app_component_app_login_app_login_component__["a" /* AppLoginComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -479,10 +533,72 @@ AppModule = __decorate([
         ],
         providers: [],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
-    })
+    }),
+    __metadata("design:paramtypes", [])
 ], AppModule);
 
 //# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/app_component/app-login/app-login.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/app_component/app-login/app-login.component.html":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "../../../../../src/app/app_component/app-login/app-login.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppLoginComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var AppLoginComponent = (function () {
+    function AppLoginComponent() {
+    }
+    AppLoginComponent.prototype.ngOnInit = function () {
+    };
+    return AppLoginComponent;
+}());
+AppLoginComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* Component */])({
+        selector: 'app-app-login',
+        template: __webpack_require__("../../../../../src/app/app_component/app-login/app-login.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/app_component/app-login/app-login.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], AppLoginComponent);
+
+//# sourceMappingURL=app-login.component.js.map
 
 /***/ }),
 
@@ -533,7 +649,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".component-page-header[_ngcontent-c11] {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-align: center;\r\n  -ms-flex-align: center;\r\n  align-items: center;\r\n}\r\n\r\n.docs-primary-header {\r\n  background: #673ab7;\r\n}\r\n\r\n.docs-primary-header {\r\n  padding-left: 20px;\r\n}\r\n  .docs-primary-header h1 {\r\n    color: rgba(255, 255, 255, 0.87);\r\n    font-size: 30px;\r\n    font-weight: 300;\r\n    margin: 0;\r\n    padding: 50px;\r\n  }", ""]);
+exports.push([module.i, ".component-page-header{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-align: center;\r\n  -ms-flex-align: center;\r\n  align-items: center;\r\n}\r\n\r\n.docs-primary-header {\r\n  background: #3f3b46;\r\n  height: 65px;\r\n}\r\n\r\n.docs-primary-header {\r\n  padding-left: 20px;\r\n}\r\n.docs-primary-header h1 {\r\n    color: rgba(255, 255, 255, 0.87);\r\n    font-size: 16px;\r\n    font-weight: 100;\r\n    margin: 0;\r\n    padding: 10px;\r\n    text-transform:uppercase;\r\n}\r\n", ""]);
 
 // exports
 
@@ -594,6 +710,9 @@ ComponentHeaderComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__component_viewer_component_viewer_component__ = __webpack_require__("../../../../../src/app/component-viewer/component-viewer/component-viewer.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_material__ = __webpack_require__("../../../material/@angular/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__dashboard_dashboard_component__ = __webpack_require__("../../../../../src/app/component-viewer/dashboard/dashboard.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__subscription_subscription_component__ = __webpack_require__("../../../../../src/app/component-viewer/subscription/subscription.component.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ComponentViewerModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -601,12 +720,28 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 
 
 
+
+
+
+/*const appRoutes: Routes = [
+    {
+        path: 'dashboard', component: ComponentViewerComponent,
+        children: [{
+            path: 'overview',
+            component: DashboardComponent
+          }]
+    }
+];*/
 var ComponentViewerModule = (function () {
     function ComponentViewerModule() {
+        console.log("ComponentViewerModule");
     }
     return ComponentViewerModule;
 }());
@@ -614,11 +749,13 @@ ComponentViewerModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["i" /* CommonModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_material__["a" /* MaterialModule */]
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["a" /* MaterialModule */],
+            __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* RouterModule */]
         ],
-        declarations: [__WEBPACK_IMPORTED_MODULE_2__component_viewer_component_viewer_component__["a" /* ComponentViewerComponent */]],
+        declarations: [__WEBPACK_IMPORTED_MODULE_2__component_viewer_component_viewer_component__["a" /* ComponentViewerComponent */], __WEBPACK_IMPORTED_MODULE_5__dashboard_dashboard_component__["a" /* DashboardComponent */], __WEBPACK_IMPORTED_MODULE_6__subscription_subscription_component__["a" /* SubscriptionComponent */]],
         exports: [__WEBPACK_IMPORTED_MODULE_2__component_viewer_component_viewer_component__["a" /* ComponentViewerComponent */]]
-    })
+    }),
+    __metadata("design:paramtypes", [])
 ], ComponentViewerModule);
 
 //# sourceMappingURL=component-viewer.module.js.map
@@ -646,7 +783,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/component-viewer/component-viewer/component-viewer.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"docs-component-viewer-tabbed-content mat-tab-nav-bar\" md-tab-nav-bar>\r\n  <div class=\"mat-tab-links\">\r\n    <!----><a class=\"docs-component-viewer-section-tab mat-tab-link\" md-tab-link=\"\" routerlinkactive=\"\" href=\"/components/tabs/overview\">Overview</a>\r\n    <a class=\"docs-component-viewer-section-tab mat-tab-link\" md-tab-link=\"\" routerlinkactive=\"\" href=\"/components/tabs/api\">API</a>\r\n    <a class=\"docs-component-viewer-section-tab mat-tab-link\" md-tab-link=\"\" routerlinkactive=\"\" href=\"/components/tabs/examples\">Examples</a>\r\n    \r\n  </div>\r\n\r\n</nav>\r\n\r\n<div class=\"docs-component-viewer-content\">\r\n  Component Viewr works\r\n</div>"
+module.exports = "<!--<nav class=\"docs-component-viewer-tabbed-content mat-tab-nav-bar\" md-tab-nav-bar>\r\n  <div class=\"mat-tab-links\">\r\n   <a class=\"docs-component-viewer-section-tab mat-tab-link\" md-tab-link=\"\" routerlinkactive=\"\" href=\"/components/tabs/overview\">Overview</a>\r\n    <a class=\"docs-component-viewer-section-tab mat-tab-link\" md-tab-link=\"\" routerlinkactive=\"\" href=\"/components/tabs/api\">API</a>\r\n    <a class=\"docs-component-viewer-section-tab mat-tab-link\" md-tab-link=\"\" routerlinkactive=\"\" href=\"/components/tabs/examples\">Examples</a>\r\n    \r\n  </div>\r\n\r\n</nav>!-->\r\n\r\n<div class=\"docs-component-viewer-content\">\r\n  <router-outlet></router-outlet>\r\n\r\n</div>"
 
 /***/ }),
 
@@ -683,6 +820,128 @@ ComponentViewerComponent = __decorate([
 ], ComponentViewerComponent);
 
 //# sourceMappingURL=component-viewer.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/component-viewer/dashboard/dashboard.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/component-viewer/dashboard/dashboard.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  dashboard works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/component-viewer/dashboard/dashboard.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DashboardComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var DashboardComponent = (function () {
+    function DashboardComponent() {
+    }
+    DashboardComponent.prototype.ngOnInit = function () {
+    };
+    return DashboardComponent;
+}());
+DashboardComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* Component */])({
+        selector: 'app-dashboard',
+        template: __webpack_require__("../../../../../src/app/component-viewer/dashboard/dashboard.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/component-viewer/dashboard/dashboard.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], DashboardComponent);
+
+//# sourceMappingURL=dashboard.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/component-viewer/subscription/subscription.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/component-viewer/subscription/subscription.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  subscription works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/component-viewer/subscription/subscription.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SubscriptionComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var SubscriptionComponent = (function () {
+    function SubscriptionComponent() {
+    }
+    SubscriptionComponent.prototype.ngOnInit = function () {
+    };
+    return SubscriptionComponent;
+}());
+SubscriptionComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* Component */])({
+        selector: 'app-subscription',
+        template: __webpack_require__("../../../../../src/app/component-viewer/subscription/subscription.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/component-viewer/subscription/subscription.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], SubscriptionComponent);
+
+//# sourceMappingURL=subscription.component.js.map
 
 /***/ }),
 

@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="src\app\app_component\" />
     <Folder Include="src\libs\" />
   </ItemGroup>
   <ItemGroup>
