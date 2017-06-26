@@ -1,4 +1,5 @@
-﻿.component-page-header{
+﻿/*
+.component-page-header{
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -22,4 +23,14 @@
     margin: 0;
     padding: 10px;
     text-transform:uppercase;
+}
+
+  */
+h1 {
+  color: rgba(255, 255, 255, 0.87);
+  font-size: 16px;
+  font-weight: 100;
+  margin: 0;
+  padding: 10px;
+  text-transform: uppercase;
 }
