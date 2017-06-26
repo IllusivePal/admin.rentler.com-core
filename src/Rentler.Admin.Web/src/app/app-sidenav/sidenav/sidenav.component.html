@@ -19,41 +19,123 @@
       <h3></h3>
       <ul>
         <li>
-            <a [routerLink]="['/admin/home/dashboard']" routerLinkActive="docs-component-viewer-sidenav-item-selected" href="/components/autocomplete">
+            <a [routerLink]="['/admin/home/dashboard']" routerLinkActive="docs-component-viewer-sidenav-item-selected" >
              <span><md-icon class="mt-icn">dashboard</md-icon></span> Dashboard
             </a>
         </li>
       </ul>
       <ul>
         <li>
-          <a [routerLink]="['/admin/home/subscription']" routerLinkActive="docs-component-viewer-sidenav-item-selected" href="/components/autocomplete">
+          <a [routerLink]="['/admin/home/subscription']" routerLinkActive="docs-component-viewer-sidenav-item-selected">
             <span><md-icon class="mt-icn">account_box</md-icon></span>Subscription
+          </a>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <a  routerLinkActive="docs-component-viewer-sidenav-item-selected">
+            <span><md-icon class="mt-icn">account_box</md-icon></span>Users
+          </a>
+        </li>
+      </ul>
+     
+      <ul>
+        <li>
+          <a [routerLink]="['/admin/home/applications']" routerLinkActive="docs-component-viewer-sidenav-item-selected">
+            <span><md-icon class="mt-icn">account_box</md-icon></span>Applications
+          </a>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <a [routerLink]="['/admin/home/community']" routerLinkActive="docs-component-viewer-sidenav-item-selected">
+            <span><md-icon class="mt-icn">account_box</md-icon></span>Communities
+          </a>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <a  routerLinkActive="docs-component-viewer-sidenav-item-selected">
+            <span><md-icon class="mt-icn">account_box</md-icon></span>Buildings
+          </a>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <a  routerLinkActive="docs-component-viewer-sidenav-item-selected">
+            <span><md-icon class="mt-icn">account_box</md-icon></span>Forms
+          </a>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <a [routerLink]="['/admin/home/screening']" routerLinkActive="docs-component-viewer-sidenav-item-selected">
+            <span><md-icon class="mt-icn">account_box</md-icon></span>Credit / Background
+          </a>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <a [routerLink]="['/admin/home/idverify']" routerLinkActive="docs-component-viewer-sidenav-item-selected">
+            <span><md-icon class="mt-icn">account_box</md-icon></span>ID Verify
+          </a>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <a  routerLinkActive="docs-component-viewer-sidenav-item-selected">
+            <span><md-icon class="mt-icn">account_box</md-icon></span>Payments
+          </a>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <a  routerLinkActive="docs-component-viewer-sidenav-item-selected">
+            <span><md-icon class="mt-icn">account_box</md-icon></span>Sales
+          </a>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <a  routerLinkActive="docs-component-viewer-sidenav-item-selected">
+            <span><md-icon class="mt-icn">account_box</md-icon></span>Content
+          </a>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <a  routerLinkActive="docs-component-viewer-sidenav-item-selected">
+            <span><md-icon class="mt-icn">account_box</md-icon></span>Cleanup
           </a>
         </li>
       </ul>
     </nav>
    
   </md-sidenav>
-  <div class="main-content"
-       (click)="toggleSideNav()" fxLayout="row">
-    <button md-button
-            style="margin-bottom:50px;"
-            *ngIf="media.isActive('xs')">
-      {{ isOpen ? 'Close' : 'Open' }} SideNav
-    </button>
-
-    <ng-content select="[main-content]"></ng-content>
-
   
-  </div>
   <div class="docs-component-sidenav-content">
-    <app-component-header></app-component-header>
-    <!--<app-component-viewer></app-component-viewer>-->
-    <!--<app-component-viewer></app-component-viewer>-->
-    <router-outlet></router-outlet>
-    <app-footer></app-footer>
-    
-  </div>
+      <div class="docs-primary-header component-page-header">
+        <div class="main-content"
+             (click)="toggleSideNav()" fxLayout="row">
+          <button md-button
+                  style="margin-bottom:50px;"
+                  *ngIf="media.isActive('xs')">
+            <!--{{ isOpen ? 'Close' : 'Open' }} SideNav!-->
+            SideNav
+          </button>
+
+          <ng-content select="[main-content]"></ng-content>
+
+
+        </div>
+          <app-component-header></app-component-header>
+      </div>
+      <!--<app-component-viewer></app-component-viewer>-->
+      <!--<app-component-viewer></app-component-viewer>-->
+      <router-outlet></router-outlet>
+      <app-footer></app-footer>
+
+    </div>
   
 </md-sidenav-container>
 <!--<app-footer></app-footer>-->

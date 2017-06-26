@@ -6,6 +6,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SidenavComponent } from '../app-sidenav/sidenav/sidenav.component';
 import { SubscriptionComponent } from './subscription/subscription.component';
+import { ApplicationsComponent } from './applications/applications.component';
+import { CommunitiesComponent } from './communities/communities.component';
+import { ScreeningComponent } from './screening/screening.component';
+import { IdverifyComponent } from './idverify/idverify.component';
 
 /*const appRoutes: Routes = [
     {
@@ -23,7 +27,7 @@ import { SubscriptionComponent } from './subscription/subscription.component';
       MaterialModule,
       RouterModule
   ],
-  declarations: [ComponentViewerComponent, DashboardComponent, SubscriptionComponent],
+  declarations: [ComponentViewerComponent, DashboardComponent, SubscriptionComponent, ApplicationsComponent, CommunitiesComponent, ScreeningComponent, IdverifyComponent],
   exports: [ComponentViewerComponent]
 })
 export class ComponentViewerModule {

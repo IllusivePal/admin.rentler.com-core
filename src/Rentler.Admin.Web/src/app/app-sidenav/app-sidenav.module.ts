@@ -6,12 +6,16 @@ import { AppFooterModule } from '../app-footer/app-footer.module';
 import { ComponentHeaderModule } from '../component-header/component-header.module';
 import { ComponentViewerModule } from '../component-viewer/component-viewer.module';
 import { Routes, RouterModule } from '@angular/router';
-
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { ComponentHeaderComponent } from '../component-header/component-header/component-header.component';
+
+//Components
 import { DashboardComponent } from '../component-viewer/dashboard/dashboard.component';
 import { SubscriptionComponent } from '../component-viewer/subscription/subscription.component';
+import { ApplicationsComponent } from '../component-viewer/applications/applications.component';
 import { ComponentViewerComponent } from '../component-viewer/component-viewer/component-viewer.component';
+import { CommunitiesComponent } from '../component-viewer/communities/communities.component';
+import { ScreeningComponent } from '../component-viewer/screening/screening.component';
+import { IdverifyComponent } from '../component-viewer/idverify/idverify.component';
 
 
 const appRoutes: Routes = [
@@ -24,16 +28,37 @@ const appRoutes: Routes = [
     ,
     {
         path: 'admin', component: SidenavComponent,
-        children: [{
-            path: 'home',
-            component: ComponentViewerComponent,
-            children: [{
-                path: 'dashboard',
-                component: DashboardComponent
-            }, {
-                    path: 'subscription',
-                    component: SubscriptionComponent
-                }]
+        children:
+        [{
+             path: 'home',
+             component: ComponentViewerComponent,
+             children:
+                      [
+                              {
+                                  path: 'dashboard',
+                                  component: DashboardComponent
+                              },
+                              {
+                                  path: 'subscription',
+                                  component: SubscriptionComponent
+                              },
+                              {
+                                  path: 'applications',
+                                  component: ApplicationsComponent
+                              },
+                              {
+                                  path: 'community',
+                                  component: CommunitiesComponent
+                              },
+                              {
+                                  path: 'screening',
+                                  component: ScreeningComponent
+                              },
+                              {
+                                  path: 'idverify',
+                                  component: IdverifyComponent
+                              }
+                      ]
         }]
     }
 ];

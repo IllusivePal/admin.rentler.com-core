@@ -1,0 +1,8 @@
+D:\Rentler\admin.rentler.com-core\src\Rentler.Admin.Web\bin\MCD\Debug\netcoreapp1.1\Rentler.Admin.Web.deps.json
+D:\Rentler\admin.rentler.com-core\src\Rentler.Admin.Web\bin\MCD\Debug\netcoreapp1.1\Rentler.Admin.Web.runtimeconfig.json
+D:\Rentler\admin.rentler.com-core\src\Rentler.Admin.Web\bin\MCD\Debug\netcoreapp1.1\Rentler.Admin.Web.runtimeconfig.dev.json
+D:\Rentler\admin.rentler.com-core\src\Rentler.Admin.Web\bin\MCD\Debug\netcoreapp1.1\Rentler.Admin.Web.dll
+D:\Rentler\admin.rentler.com-core\src\Rentler.Admin.Web\bin\MCD\Debug\netcoreapp1.1\Rentler.Admin.Web.pdb
+D:\Rentler\admin.rentler.com-core\src\Rentler.Admin.Web\obj\MCD\Debug\netcoreapp1.1\Rentler.Admin.Web.AssemblyInfo.cs
+D:\Rentler\admin.rentler.com-core\src\Rentler.Admin.Web\obj\MCD\Debug\netcoreapp1.1\Rentler.Admin.Web.dll
+D:\Rentler\admin.rentler.com-core\src\Rentler.Admin.Web\obj\MCD\Debug\netcoreapp1.1\Rentler.Admin.Web.pdb
