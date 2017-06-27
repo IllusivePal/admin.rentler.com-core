@@ -15,9 +15,10 @@ import {
 export class SidenavComponent implements OnDestroy {
 
     private _subscription;
-    public isOpen;
+    public isOpen=true;
     public mediaChange;
-    public mode: string;
+    public mode: string="side";
+
     constructor(public media: ObservableMedia) {
     
         console.log("this.mode", this.mode);

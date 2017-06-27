@@ -73,14 +73,13 @@
     background-color: rgba(0,0,0,.04);
     color: #3f51b5;
   }
-md-icon {
-
-  position:absolute;
-  left:0;
-  right:0;
-  top:10px;
-  bottom:0;
-  padding:0 28px;
+.mt-icn {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 10px;
+  bottom: 0;
+  padding: 0 28px;
 }
 
 .docs-component-sidenav-content {
@@ -112,6 +111,7 @@ md-icon {
 .docs-primary-header {
   padding-left: 20px;
 }
+
 
 /*END*/
 
