@@ -13,6 +13,483 @@ webpackEmptyContext.id = "../../../../../src async recursive";
 
 /***/ }),
 
+/***/ "../../../../../src/app/Services/auth-configuration.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthConfigurationService; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var AuthConfigurationService = (function () {
+    function AuthConfigurationService() {
+        // The Issuer Identifier for the OpenID Provider (which is typically obtained during Discovery) MUST exactly match the value of the iss (issuer) Claim.
+        this.iss = 'http://localhost:5000';
+        this.server = 'http://localhost:5000';
+        this.redirect_url = 'http://localhost:4200';
+        // This is required to get the signing keys so that the signiture of the Jwt can be validated.
+        this.jwks_url = 'http://localhost:5000/.well-known/openid-configuration/jwks';
+        this.userinfo_url = 'http://localhost:5000/connect/userinfo';
+        // The Client MUST validate that the aud (audience) Claim contains its client_id value registered at the Issuer identified by the iss (issuer) Claim as an audience.
+        // The ID Token MUST be rejected if the ID Token does not list the Client as a valid audience, or if it contains additional audiences not trusted by the Client.
+        this.client_id = 'Rentler.Admin.ID';
+        this.response_type = 'id_token token';
+        this.scope = 'openid profile admin.rentler.com-core.api';
+        this.post_logout_redirect_uri = 'http://localhost:4200/login';
+        this.logoutEndSession_url = 'http://localhost:5000/connect/endsession';
+    }
+    return AuthConfigurationService;
+}());
+AuthConfigurationService = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])()
+], AuthConfigurationService);
+
+//# sourceMappingURL=auth-configuration.service.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/Services/oidc-security-validation.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OidcSecurityValidationService; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+// http://openid.net/specs/openid-connect-implicit-1_0.html
+// id_token
+//// id_token C1: The Issuer Identifier for the OpenID Provider (which is typically obtained during Discovery) MUST exactly match the value of the iss (issuer) Claim.
+//// id_token C2: The Client MUST validate that the aud (audience) Claim contains its client_id value registered at the Issuer identified by the iss (issuer) Claim as an audience.The ID Token MUST be rejected if the ID Token does not list the Client as a valid audience, or if it contains additional audiences not trusted by the Client.
+// id_token C3: If the ID Token contains multiple audiences, the Client SHOULD verify that an azp Claim is present.
+// id_token C4: If an azp (authorized party) Claim is present, the Client SHOULD verify that its client_id is the Claim Value.
+//// id_token C5: The Client MUST validate the signature of the ID Token according to JWS [JWS] using the algorithm specified in the alg Header Parameter of the JOSE Header. The Client MUST use the keys provided by the Issuer.
+//// id_token C6: The alg value SHOULD be RS256. Validation of tokens using other signing algorithms is described in the OpenID Connect Core 1.0 [OpenID.Core] specification.
+//// id_token C7: The current time MUST be before the time represented by the exp Claim (possibly allowing for some small leeway to account for clock skew).
+// id_token C8: The iat Claim can be used to reject tokens that were issued too far away from the current time, limiting the amount of time that nonces need to be stored to prevent attacks.The acceptable range is Client specific.
+//// id_token C9: The value of the nonce Claim MUST be checked to verify that it is the same value as the one that was sent in the Authentication Request.The Client SHOULD check the nonce value for replay attacks.The precise method for detecting replay attacks is Client specific.
+// id_token C10: If the acr Claim was requested, the Client SHOULD check that the asserted Claim Value is appropriate.The meaning and processing of acr Claim Values is out of scope for this document.
+// id_token C11: When a max_age request is made, the Client SHOULD check the auth_time Claim value and request re- authentication if it determines too much time has elapsed since the last End- User authentication.
+//// Access Token Validation
+//// access_token C1: Hash the octets of the ASCII representation of the access_token with the hash algorithm specified in JWA[JWA] for the alg Header Parameter of the ID Token's JOSE Header. For instance, if the alg is RS256, the hash algorithm used is SHA-256.
+//// access_token C2: Take the left- most half of the hash and base64url- encode it.
+//// access_token C3: The value of at_hash in the ID Token MUST match the value produced in the previous step if at_hash is present in the ID Token.
+var OidcSecurityValidationService = (function () {
+    function OidcSecurityValidationService() {
+    }
+    // id_token C7: The current time MUST be before the time represented by the exp Claim (possibly allowing for some small leeway to account for clock skew).
+    OidcSecurityValidationService.prototype.IsTokenExpired = function (token, offsetSeconds) {
+        var decoded;
+        decoded = this.GetPayloadFromToken(token, false);
+        var tokenExpirationDate = this.getTokenExpirationDate(decoded);
+        offsetSeconds = offsetSeconds || 0;
+        if (tokenExpirationDate == null) {
+            return false;
+        }
+        // Token expired?
+        return !(tokenExpirationDate.valueOf() > (new Date().valueOf() + (offsetSeconds * 1000)));
+    };
+    // id_token C9: The value of the nonce Claim MUST be checked to verify that it is the same value as the one that was sent in the Authentication Request.The Client SHOULD check the nonce value for replay attacks.The precise method for detecting replay attacks is Client specific.
+    OidcSecurityValidationService.prototype.Validate_id_token_nonce = function (dataIdToken, local_nonce) {
+        if (dataIdToken.nonce !== local_nonce) {
+            console.log('Validate_id_token_nonce failed');
+            return false;
+        }
+        return true;
+    };
+    // id_token C1: The Issuer Identifier for the OpenID Provider (which is typically obtained during Discovery) MUST exactly match the value of the iss (issuer) Claim.
+    OidcSecurityValidationService.prototype.Validate_id_token_iss = function (dataIdToken, client_id) {
+        if (dataIdToken.iss !== client_id) {
+            console.log('Validate_id_token_iss failed');
+            return false;
+        }
+        return true;
+    };
+    // id_token C2: The Client MUST validate that the aud (audience) Claim contains its client_id value registered at the Issuer identified by the iss (issuer) Claim as an audience.
+    // The ID Token MUST be rejected if the ID Token does not list the Client as a valid audience, or if it contains additional audiences not trusted by the Client.
+    OidcSecurityValidationService.prototype.Validate_id_token_aud = function (dataIdToken, aud) {
+        if (dataIdToken.aud !== aud) {
+            console.log('Validate_id_token_aud failed');
+            return false;
+        }
+        return true;
+    };
+    OidcSecurityValidationService.prototype.ValidateStateFromHashCallback = function (state, local_state) {
+        if (state !== local_state) {
+            console.log('ValidateStateFromHashCallback failed');
+            return false;
+        }
+        return true;
+    };
+    OidcSecurityValidationService.prototype.GetPayloadFromToken = function (token, encode) {
+        var data = {};
+        if (typeof token !== 'undefined') {
+            var encoded = token.split('.')[1];
+            if (encode) {
+                return encoded;
+            }
+            var urlBase64Var = this.urlBase64Decode(encoded);
+            if (urlBase64Var !== null) {
+                data = JSON.parse(urlBase64Var);
+            }
+            else {
+                data = {};
+            }
+        }
+        return data;
+    };
+    OidcSecurityValidationService.prototype.GetHeaderFromToken = function (token, encode) {
+        var data = {};
+        if (typeof token !== 'undefined') {
+            var encoded = token.split('.')[0];
+            if (encode) {
+                return encoded;
+            }
+            data = JSON.parse(this.urlBase64Decode(encoded));
+        }
+        return data;
+    };
+    OidcSecurityValidationService.prototype.GetSignatureFromToken = function (token, encode) {
+        var data = {};
+        if (typeof token !== 'undefined') {
+            var encoded = token.split('.')[2];
+            if (encode) {
+                return encoded;
+            }
+            data = JSON.parse(this.urlBase64Decode(encoded));
+        }
+        return data;
+    };
+    // id_token C5: The Client MUST validate the signature of the ID Token according to JWS [JWS] using the algorithm specified in the alg Header Parameter of the JOSE Header. The Client MUST use the keys provided by the Issuer.
+    // id_token C6: The alg value SHOULD be RS256. Validation of tokens using other signing algorithms is described in the OpenID Connect Core 1.0 [OpenID.Core] specification.
+    OidcSecurityValidationService.prototype.Validate_signature_id_token = function (id_token, jwtkeys) {
+        if (!jwtkeys || !jwtkeys.keys) {
+            return false;
+        }
+        var header_data = this.GetHeaderFromToken(id_token, false);
+        var kid = header_data.kid;
+        var alg = header_data.alg;
+        if ('RS256' != alg) {
+            console.log('Only RS256 supported');
+            return false;
+        }
+        var isValid = false;
+        for (var _i = 0, _a = jwtkeys.keys; _i < _a.length; _i++) {
+            var key = _a[_i];
+            if (key.kid === kid) {
+                console.log("KEYUTIL", key);
+                var publickey = KEYUTIL.getKey(key);
+                isValid = KJUR.jws.JWS.verify(id_token, publickey, ['RS256']);
+                return isValid;
+            }
+        }
+        return isValid;
+    };
+    // Access Token Validation
+    // access_token C1: Hash the octets of the ASCII representation of the access_token with the hash algorithm specified in JWA[JWA] for the alg Header Parameter of the ID Token's JOSE Header. For instance, if the alg is RS256, the hash algorithm used is SHA-256.
+    // access_token C2: Take the left- most half of the hash and base64url- encode it.
+    // access_token C3: The value of at_hash in the ID Token MUST match the value produced in the previous step if at_hash is present in the ID Token.
+    OidcSecurityValidationService.prototype.Validate_id_token_at_hash = function (access_token, at_hash) {
+        var hash = KJUR.crypto.Util.hashString(access_token, 'sha256');
+        var first128bits = hash.substr(0, hash.length / 2);
+        var testdata = hextob64u(first128bits);
+        if (testdata === at_hash) {
+            return true; // isValid;
+        }
+        return false;
+    };
+    OidcSecurityValidationService.prototype.getTokenExpirationDate = function (dataIdToken) {
+        if (!dataIdToken.hasOwnProperty('exp')) {
+            return null;
+        }
+        var date = new Date(0); // The 0 here is the key, which sets the date to the epoch
+        date.setUTCSeconds(dataIdToken.exp);
+        return date;
+    };
+    OidcSecurityValidationService.prototype.urlBase64Decode = function (str) {
+        var output;
+        if (str !== undefined) {
+            output = str.replace('-', '+').replace('_', '/');
+            switch (output.length % 4) {
+                case 0:
+                    break;
+                case 2:
+                    output += '==';
+                    break;
+                case 3:
+                    output += '=';
+                    break;
+                default:
+                    throw 'Illegal base64url string!';
+            }
+        }
+        else {
+            return null;
+        }
+        return window.atob(output);
+    };
+    return OidcSecurityValidationService;
+}());
+OidcSecurityValidationService = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])()
+], OidcSecurityValidationService);
+
+//# sourceMappingURL=oidc-security-validation.service.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/Services/oidc-security.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Services_oidc_security_validation_service__ = __webpack_require__("../../../../../src/app/Services/oidc-security-validation.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Services_auth_configuration_service__ = __webpack_require__("../../../../../src/app/Services/auth-configuration.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__ = __webpack_require__("../../../../rxjs/Rx.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OidcSecurityService; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var OidcSecurityService = (function () {
+    function OidcSecurityService(_http, _configuration, _router) {
+        var _this = this;
+        this._http = _http;
+        this._configuration = _configuration;
+        this._router = _router;
+        this.getUserData = function () {
+            _this.setHeaders();
+            return _this._http.get(_this._configuration.userinfo_url, {
+                headers: _this.headers,
+                body: ''
+            }).map(function (res) { return res.json(); });
+        };
+        this.oidcSecurityValidation = new __WEBPACK_IMPORTED_MODULE_1__Services_oidc_security_validation_service__["a" /* OidcSecurityValidationService */]();
+        this.headers = new __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Headers */]();
+        this.headers.append('Content-Type', 'application/json');
+        this.headers.append('Accept', 'application/json');
+        this.storage = localStorage;
+        if (this.retrieve('_isAuthorize') !== '') {
+            this._isAuthorized = this.retrieve('_isAuthorized');
+        }
+    }
+    OidcSecurityService.prototype.IsAuthorized = function () {
+        if (this._isAuthorized) {
+            if (this.oidcSecurityValidation.IsTokenExpired(this.retrieve('authorizationDataIdToken'))) {
+                this.ResetAuthorizationData();
+                return false;
+            }
+            return true;
+        }
+        return false;
+    };
+    OidcSecurityService.prototype.AuthorizedCallback = function () {
+        var _this = this;
+        this.ResetAuthorizationData();
+        var hash = window.location.hash.substr(1);
+        console.log("hash", hash);
+        var result = hash.split('&').reduce(function (result, item) {
+            var parts = item.split('=');
+            result[parts[0]] = parts[1];
+            return result;
+        }, {});
+        var token = '';
+        var id_token = '';
+        var authResponseIsValid = false;
+        this.getSigningKeys().subscribe(function (jwtkeys) {
+            _this.jwtKeys = jwtkeys;
+            if (!result.error) {
+                // validate state
+                if (_this.oidcSecurityValidation.ValidateStateFromHashCallback(result.state, _this.retrieve('authStateControl'))) {
+                    token = result.access_token;
+                    id_token = result.id_token;
+                    var decoded = void 0;
+                    var headerDecoded = void 0;
+                    decoded = _this.oidcSecurityValidation.GetPayloadFromToken(id_token, false);
+                    headerDecoded = _this.oidcSecurityValidation.GetHeaderFromToken(id_token, false);
+                    // validate jwt signature
+                    if (_this.oidcSecurityValidation.Validate_signature_id_token(id_token, _this.jwtKeys)) {
+                        // validate nonce
+                        if (_this.oidcSecurityValidation.Validate_id_token_nonce(decoded, _this.retrieve('authNonce'))) {
+                            // validate iss
+                            if (_this.oidcSecurityValidation.Validate_id_token_iss(decoded, _this._configuration.iss)) {
+                                // validate aud
+                                if (_this.oidcSecurityValidation.Validate_id_token_aud(decoded, _this._configuration.client_id)) {
+                                    // valiadate at_hash and access_token
+                                    if (_this.oidcSecurityValidation.Validate_id_token_at_hash(token, decoded.at_hash) || !token) {
+                                        _this.store('authNonce', '');
+                                        _this.store('authStateControl', '');
+                                        authResponseIsValid = true;
+                                    }
+                                    else {
+                                        console.log('AuthorizedCallback incorrect aud');
+                                    }
+                                }
+                                else {
+                                    console.log('AuthorizedCallback incorrect aud');
+                                }
+                            }
+                            else {
+                                console.log('AuthorizedCallback incorrect iss');
+                            }
+                        }
+                        else {
+                            console.log('AuthorizedCallback incorrect nonce');
+                        }
+                    }
+                    else {
+                        console.log('AuthorizedCallback incorrect Signature id_token');
+                    }
+                }
+                else {
+                    console.log('AuthorizedCallback incorrect state');
+                }
+            }
+            if (authResponseIsValid) {
+                _this.SetAuthorizationData(token, id_token);
+                // router navigate to Users
+                _this._router.navigate(['admin/home/dashboard']);
+            }
+            else {
+                _this.ResetAuthorizationData();
+                //this._router.navigate(['/Unauthorize']);
+            }
+        });
+    };
+    OidcSecurityService.prototype.Logoff = function () {
+        // /connect/endsession?id_token_hint=...&post_logout_redirect_uri=https://myapp.com
+        var authorizationEndsessionUrl = this._configuration.logoutEndSession_url;
+        var id_token_hint = this.retrieve('authorizationDataIdToken');
+        var post_logout_redirect_uri = this._configuration.post_logout_redirect_uri;
+        var url = authorizationEndsessionUrl + '?' +
+            'id_token_hint=' + encodeURI(id_token_hint) + '&' +
+            'post_logout_redirect_uri=' + encodeURI(post_logout_redirect_uri);
+        this.ResetAuthorizationData();
+        window.location.href = url;
+        //window.open(url,"_blank")
+    };
+    OidcSecurityService.prototype.getSigningKeys = function () {
+        return this._http.get(this._configuration.jwks_url)
+            .map(this.extractData)
+            .catch(this.handleError);
+    };
+    OidcSecurityService.prototype.runGetSigningKeys = function () {
+        var _this = this;
+        this.getSigningKeys()
+            .subscribe(function (jwtKeys) { return _this.jwtKeys = jwtKeys; }, function (error) { return _this.errorMessage = error; });
+    };
+    OidcSecurityService.prototype.extractData = function (res) {
+        var body = res.json();
+        return body;
+    };
+    OidcSecurityService.prototype.handleError = function (error) {
+        // In a real world app, you might use a remote logging infrastructure
+        var errMsg;
+        if (error instanceof __WEBPACK_IMPORTED_MODULE_4__angular_http__["c" /* Response */]) {
+            var body = error.json() || '';
+            var err = body.error || JSON.stringify(body);
+            errMsg = error.status + " - " + (error.statusText || '') + " " + err;
+        }
+        else {
+            errMsg = error.message ? error.message : error.toString();
+        }
+        console.error(errMsg);
+        return __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__["Observable"].throw(errMsg);
+    };
+    OidcSecurityService.prototype.ResetAuthorizationData = function () {
+        this.store('authorizationData', '');
+        this.store('authorizationDataIdToken', '');
+        this._isAuthorized = false;
+        this.store('_isAuthorized', false);
+    };
+    OidcSecurityService.prototype.SetAuthorizationData = function (token, id_token) {
+        if (this.retrieve('authorizationData') !== '') {
+            this.store('authorizationData', '');
+        }
+        this.store('authorizationData', token);
+        this.store('authorizationDataIdToken', id_token);
+        this._isAuthorized = true;
+        this.store('_isAuthorized', true);
+    };
+    OidcSecurityService.prototype.Authorize = function () {
+        this.ResetAuthorizationData();
+        console.log('BEGIN Authorize, no auth data');
+        var authorizationUrl = this._configuration.server + '/connect/authorize';
+        var client_id = this._configuration.client_id;
+        var redirect_uri = this._configuration.redirect_url;
+        var response_type = this._configuration.response_type;
+        var scope = this._configuration.scope;
+        var nonce = 'N' + Math.random() + '' + Date.now();
+        var state = Date.now() + '' + Math.random();
+        this.store('authStateControl', state);
+        this.store('authNonce', nonce);
+        console.log('AuthorizedController created. adding myautostate: ' + this.retrieve('authStateControl'));
+        var url = authorizationUrl + '?' +
+            'response_type=' + encodeURI(response_type) + '&' +
+            'client_id=' + encodeURI(client_id) + '&' +
+            'redirect_uri=' + encodeURI(redirect_uri) + '&' +
+            'scope=' + encodeURI(scope) + '&' +
+            'nonce=' + encodeURI(nonce) + '&' +
+            'state=' + encodeURI(state);
+        window.location.href = url;
+    };
+    OidcSecurityService.prototype.retrieve = function (key) {
+        var item = this.storage.getItem(key);
+        if (item && item !== 'undefined') {
+            return JSON.parse(this.storage.getItem(key));
+        }
+        return;
+    };
+    OidcSecurityService.prototype.store = function (key, value) {
+        this.storage.setItem(key, JSON.stringify(value));
+    };
+    OidcSecurityService.prototype.GetToken = function () {
+        return this.retrieve('authorizationData');
+    };
+    OidcSecurityService.prototype.setHeaders = function () {
+        this.headers = new __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Headers */]();
+        this.headers.append('Content-type', 'application/json');
+        this.headers.append('Accept', 'application/json');
+        var token = this.GetToken();
+        if (token !== "") {
+            this.headers.append('Authorization', 'Bearer ' + token);
+        }
+    };
+    return OidcSecurityService;
+}());
+OidcSecurityService = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__angular_http__["d" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_http__["d" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__Services_auth_configuration_service__["a" /* AuthConfigurationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__Services_auth_configuration_service__["a" /* AuthConfigurationService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_router__["b" /* Router */]) === "function" && _c || Object])
+], OidcSecurityService);
+
+var _a, _b, _c;
+//# sourceMappingURL=oidc-security.service.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/app-footer/app-footer.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -639,9 +1116,12 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__angular_flex_layout__ = __webpack_require__("../../../flex-layout/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__app_component_header_component_header_module__ = __webpack_require__("../../../../../src/app/component-header/component-header.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__app_component_viewer_component_viewer_module__ = __webpack_require__("../../../../../src/app/component-viewer/component-viewer.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_hammerjs__ = __webpack_require__("../../../../hammerjs/hammer.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_hammerjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13_hammerjs__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__app_app_component_app_login_app_login_component__ = __webpack_require__("../../../../../src/app/app_component/app-login/app-login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__app_Services_oidc_security_service__ = __webpack_require__("../../../../../src/app/Services/oidc-security.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__app_Services_oidc_security_validation_service__ = __webpack_require__("../../../../../src/app/Services/oidc-security-validation.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__app_Services_auth_configuration_service__ = __webpack_require__("../../../../../src/app/Services/auth-configuration.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_hammerjs__ = __webpack_require__("../../../../hammerjs/hammer.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_hammerjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16_hammerjs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__app_app_component_app_login_app_login_component__ = __webpack_require__("../../../../../src/app/app_component/app-login/app-login.component.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -665,11 +1145,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+//Services
+
+
+
 
 
 var appRoutes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
-    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_14__app_app_component_app_login_app_login_component__["a" /* AppLoginComponent */] },
+    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_17__app_app_component_app_login_app_login_component__["a" /* AppLoginComponent */] },
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -681,7 +1165,7 @@ AppModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["b" /* NgModule */])({
         declarations: [
             __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */],
-            __WEBPACK_IMPORTED_MODULE_14__app_app_component_app_login_app_login_component__["a" /* AppLoginComponent */]
+            __WEBPACK_IMPORTED_MODULE_17__app_app_component_app_login_app_login_component__["a" /* AppLoginComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -696,7 +1180,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_10__angular_flex_layout__["a" /* FlexLayoutModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* RouterModule */].forRoot(appRoutes)
         ],
-        providers: [],
+        providers: [__WEBPACK_IMPORTED_MODULE_13__app_Services_oidc_security_service__["a" /* OidcSecurityService */], __WEBPACK_IMPORTED_MODULE_14__app_Services_oidc_security_validation_service__["a" /* OidcSecurityValidationService */], __WEBPACK_IMPORTED_MODULE_15__app_Services_auth_configuration_service__["a" /* AuthConfigurationService */]],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
     }),
     __metadata("design:paramtypes", [])
@@ -714,7 +1198,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "\r\n.wrapper-container{\r\n padding:80px; \r\n\r\n}\r\n.md-headline {\r\n  font-size: 24px;\r\n  font-weight: 400;\r\n  line-height: 32px;\r\n}\r\n.login-submit {\r\n  width: 100%;\r\n  padding: 5px 0;\r\n  background-color: rgba(46,46,46,0.93);\r\n  text-transform: uppercase;\r\n}\r\n", ""]);
 
 // exports
 
@@ -727,7 +1211,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app_component/app-login/app-login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "\r\n\r\n    <div fxLayout=\"row\" fxLayoutAlign=\"space-around none\">\r\n          <div class=\"wrapper-container\">\r\n            <h1 class=\"md-headline\">Login in your account in </h1>\r\n            <div>\r\n              <button md-raised-button color=\"warn\" class=\"login-submit\" (click)=\"login()\">Auth Server</button>\r\n            </div>\r\n          </div>\r\n      </div>\r\n"
 
 /***/ }),
 
@@ -736,6 +1220,8 @@ module.exports = ""
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Services_oidc_security_service__ = __webpack_require__("../../../../../src/app/Services/oidc-security.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppLoginComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -747,11 +1233,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var AppLoginComponent = (function () {
-    function AppLoginComponent() {
+    function AppLoginComponent(securityService, router) {
+        this.securityService = securityService;
+        this.router = router;
         console.log("Login");
     }
     AppLoginComponent.prototype.ngOnInit = function () {
+        //if (window.location.hash) {
+        console.log("NGONINIT");
+        this.securityService.AuthorizedCallback();
+        //} else
+        //{
+        //  console.log("NGONINIT32");
+        // }
+    };
+    AppLoginComponent.prototype.login = function () {
+        console.log("Login");
+        this.securityService.Authorize();
     };
     return AppLoginComponent;
 }());
@@ -761,9 +1262,10 @@ AppLoginComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/app_component/app-login/app-login.component.html"),
         styles: [__webpack_require__("../../../../../src/app/app_component/app-login/app-login.component.css")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__Services_oidc_security_service__["a" /* OidcSecurityService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__Services_oidc_security_service__["a" /* OidcSecurityService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _b || Object])
 ], AppLoginComponent);
 
+var _a, _b;
 //# sourceMappingURL=app-login.component.js.map
 
 /***/ }),
@@ -889,7 +1391,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/component-viewer/all-users/all-users.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  all-users works!\n</p>\n"
+module.exports = "<p>\r\n  all-users works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -1011,7 +1513,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/component-viewer/bank-accounts/bank-accounts.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  bank-accounts works!\n</p>\n"
+module.exports = "<p>\r\n  bank-accounts works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -1072,7 +1574,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/component-viewer/blog/blog.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  blog works!\n</p>\n"
+module.exports = "<p>\r\n  blog works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -1133,7 +1635,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/component-viewer/building/building.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  building works!\n</p>\n"
+module.exports = "<p>\r\n  building works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -1194,7 +1696,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/component-viewer/category/category.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  category works!\n</p>\n"
+module.exports = "<p>\r\n  category works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -1316,7 +1818,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/component-viewer/community/community.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  community works!\n</p>\n"
+module.exports = "<p>\r\n  community works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -1672,7 +2174,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/component-viewer/legal-entities/legal-entities.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  legal-entities works!\n</p>\n"
+module.exports = "<p>\r\n  legal-entities works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -1733,7 +2235,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/component-viewer/merchant-accounts/merchant-accounts.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  merchant-accounts works!\n</p>\n"
+module.exports = "<p>\r\n  merchant-accounts works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -1794,7 +2296,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/component-viewer/nonupgraded/nonupgraded.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  nonupgraded works!\n</p>\n"
+module.exports = "<p>\r\n  nonupgraded works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -1855,7 +2357,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/component-viewer/order/order.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  order works!\n</p>\n"
+module.exports = "<p>\r\n  order works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -1916,7 +2418,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/component-viewer/page/page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  page works!\n</p>\n"
+module.exports = "<p>\r\n  page works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -1977,7 +2479,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/component-viewer/payment-caps/payment-caps.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  payment-caps works!\n</p>\n"
+module.exports = "<p>\r\n  payment-caps works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -2038,7 +2540,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/component-viewer/payment-invites/payment-invites.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  payment-invites works!\n</p>\n"
+module.exports = "<p>\r\n  payment-invites works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -2099,7 +2601,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/component-viewer/payment-series/payment-series.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  payment-series works!\n</p>\n"
+module.exports = "<p>\r\n  payment-series works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -2160,7 +2662,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/component-viewer/payment/payment.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  payment works!\n</p>\n"
+module.exports = "<p>\r\n  payment works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -2221,7 +2723,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/component-viewer/premier/premier.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  premier works!\n</p>\n"
+module.exports = "<p>\r\n  premier works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -2282,7 +2784,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/component-viewer/promo/promo.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  promo works!\n</p>\n"
+module.exports = "<p>\r\n  promo works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -2343,7 +2845,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/component-viewer/provider/provider.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  provider works!\n</p>\n"
+module.exports = "<p>\r\n  provider works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -2404,7 +2906,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/component-viewer/reported/reported.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  reported works!\n</p>\n"
+module.exports = "<p>\r\n  reported works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -2465,7 +2967,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/component-viewer/roles/roles.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  roles works!\n</p>\n"
+module.exports = "<p>\r\n  roles works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -2648,7 +3150,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/component-viewer/transactions/transactions.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  transactions works!\n</p>\n"
+module.exports = "<p>\r\n  transactions works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -2709,7 +3211,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/component-viewer/watch-list/watch-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  watch-list works!\n</p>\n"
+module.exports = "<p>\r\n  watch-list works!\r\n</p>\r\n"
 
 /***/ }),
 
