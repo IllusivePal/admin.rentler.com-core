@@ -19,10 +19,11 @@ gulp.task('npmCopyToLibs', ['GulpClean'], function () {
     gulp.src(paths.npmInstall + '@angular/**/*.css').pipe(gulp.dest(paths.npmClient + '@angular'));
     gulp.src(paths.npmInstall + '@angular/**/*.scss').pipe(gulp.dest(paths.npmClient + '@angular'));
     gulp.src(paths.npmInstall + '@angular/**/*.map').pipe(gulp.dest(paths.npmClient + '@angular'));
-    //gulp.src(paths.npmInstall + 'core-js/**/*.js').pipe(gulp.dest(paths.npmClient + 'core-js'));
-    //gulp.src(paths.npmInstall + 'zone.js/**/*.js').pipe(gulp.dest(paths.npmClient + 'zone.js'));
-    //gulp.src(paths.npmInstall + 'rxjs/**/*.js').pipe(gulp.dest(paths.npmClient + 'rxjs'));
-    //gulp.src(paths.npmInstall + 'hammerjs/**/*.js').pipe(gulp.dest(paths.npmClient + '@hammerjs'));
+    gulp.src(paths.npmInstall + 'core-js/**/*.js').pipe(gulp.dest(paths.npmClient + 'core-js'));
+    gulp.src(paths.npmInstall + 'zone.js/**/*.js').pipe(gulp.dest(paths.npmClient + 'zone.js'));
+    gulp.src(paths.npmInstall + 'rxjs/**/*.js').pipe(gulp.dest(paths.npmClient + 'rxjs'));
+    gulp.src(paths.npmInstall + 'hammerjs/**/*.js').pipe(gulp.dest(paths.npmClient + '@hammerjs'));
+    gulp.src(paths.npmInstall + 'jsrsasign/**/*.js').pipe(gulp.dest(paths.npmClient + 'jsrsasign'));
     //Eg. for the systemjs packages :
     // -- 1) gulp.src() :  in ./node_modules/systemjs/ from all directories and their subtrees (**) select all Javascript files (*.js).
     // -- 2) gulp.pipe() : send that file collection to something - in our case send the file collection to gulp.dest().

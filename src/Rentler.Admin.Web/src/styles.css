@@ -28,7 +28,8 @@ app-header {
 }
 
 app-header .docs-navbar {
-  background: rgb(220, 22, 22);
+  background: #c70808;
+
 }
 
 app-root > app-sidenav {
@@ -69,6 +70,7 @@ app-footer .docs-footer-links a {
 }
 .mat-menu-panel{
   margin-left:30px;
+
 }
 
 

@@ -14,6 +14,10 @@ import { ComponentHeaderModule } from '../app/component-header/component-header.
 import { ComponentViewerModule } from '../app/component-viewer/component-viewer.module';
 import { SidenavComponent } from '../app/app-sidenav/sidenav/sidenav.component';
 
+//Services
+import { OidcSecurityService } from '../app/Services/oidc-security.service';
+import { OidcSecurityValidationService } from '../app/Services/oidc-security-validation.service';
+import { AuthConfigurationService } from '../app/Services/auth-configuration.service';
 
 import 'hammerjs';
 import { AppLoginComponent } from '../app/app_component/app-login/app-login.component';
@@ -42,7 +46,7 @@ const appRoutes: Routes = [
       FlexLayoutModule,
       RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [OidcSecurityService, OidcSecurityValidationService, AuthConfigurationService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

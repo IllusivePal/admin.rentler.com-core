@@ -1,4 +1,6 @@
 ﻿import { Component, OnInit } from '@angular/core';
+import { OidcSecurityService } from '../../Services/oidc-security.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-app-login',
@@ -7,11 +9,26 @@
 })
 export class AppLoginComponent implements OnInit {
 
-    constructor() {
+    constructor(private securityService: OidcSecurityService, private router: Router) {
         console.log("Login");
     }
 
-  ngOnInit() {
+    ngOnInit() {
+        //if (window.location.hash) {
+            console.log("NGONINIT")
+            this.securityService.AuthorizedCallback();
+        //} else
+        //{
+          //  console.log("NGONINIT32");
+       // }
+
+        
+    }
+
+  login() {
+
+      console.log("Login");
+      this.securityService.Authorize();
   }
 
 }
