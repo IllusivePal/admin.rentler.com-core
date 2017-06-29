@@ -23,7 +23,7 @@ import 'hammerjs';
 import { AppLoginComponent } from '../app/app_component/app-login/app-login.component';
 
 const appRoutes: Routes = [
-    { path: '', redirectTo: '/login', pathMatch: 'full' },
+    { path: '', redirectTo: 'login', pathMatch: 'prefix' },
     { path: 'login', component: AppLoginComponent },
    
 ];

@@ -17,7 +17,6 @@
     <Folder Include="src\app\CommonConstants\" />
     <Folder Include="src\app\Services\" />
     <Folder Include="src\app\Pipes\" />
-    <Folder Include="src\libs\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="IdentityServer4" Version="1.5.2" />
