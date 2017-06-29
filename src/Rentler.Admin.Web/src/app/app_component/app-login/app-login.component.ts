@@ -14,13 +14,13 @@ export class AppLoginComponent implements OnInit {
     }
 
     ngOnInit() {
-        //if (window.location.hash) {
+        if (window.location.hash) {
             console.log("NGONINIT")
             this.securityService.AuthorizedCallback();
-        //} else
-        //{
-          //  console.log("NGONINIT32");
-       // }
+        } else
+        {
+            console.log("No Hash");
+        }
 
         
     }

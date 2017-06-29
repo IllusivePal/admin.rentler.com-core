@@ -1152,7 +1152,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var appRoutes = [
-    { path: '', redirectTo: '/login', pathMatch: 'full' },
+    { path: '', redirectTo: 'login', pathMatch: 'prefix' },
     { path: 'login', component: __WEBPACK_IMPORTED_MODULE_17__app_app_component_app_login_app_login_component__["a" /* AppLoginComponent */] },
 ];
 var AppModule = (function () {
@@ -1242,13 +1242,13 @@ var AppLoginComponent = (function () {
         console.log("Login");
     }
     AppLoginComponent.prototype.ngOnInit = function () {
-        //if (window.location.hash) {
-        console.log("NGONINIT");
-        this.securityService.AuthorizedCallback();
-        //} else
-        //{
-        //  console.log("NGONINIT32");
-        // }
+        if (window.location.hash) {
+            console.log("NGONINIT");
+            this.securityService.AuthorizedCallback();
+        }
+        else {
+            console.log("No Hash");
+        }
     };
     AppLoginComponent.prototype.login = function () {
         console.log("Login");

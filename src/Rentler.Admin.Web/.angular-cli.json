@@ -23,7 +23,7 @@
         "./libs/@angular/material/prebuilt-themes/indigo-pink.css"
       ],
       "scripts": [
-        "./libs/jsrsasign/lib/jsrsasign.js"
+        "./libs/testjs.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
