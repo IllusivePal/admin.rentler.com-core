@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { ComponentHeaderComponent } from './component-header/component-header.component';
 import { MaterialModule } from '@angular/material';
 import { AppSidenavModule } from '../app-sidenav/app-sidenav.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
       CommonModule,
-      MaterialModule
+      SharedModule
   ],
   declarations: [ComponentHeaderComponent],
   exports: [ComponentHeaderComponent]

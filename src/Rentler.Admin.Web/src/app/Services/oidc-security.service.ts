@@ -6,6 +6,8 @@ import { Observable, Subject } from 'rxjs/Rx';
 import { Http, Headers, Response } from '@angular/http';
 import { Router } from '@angular/router';
 
+import { TokenService } from '../Services/token.service';
+
 @Injectable()
 export class OidcSecurityService {
 
@@ -16,6 +18,8 @@ export class OidcSecurityService {
     private errorMessage: string;
     private storage: any;
     public UserData: any;
+    private _tokenService: TokenService;
+    private _returnUrl: string;
 
     constructor(private _http: Http, private _configuration: AuthConfigurationService, private _router: Router) {
         this.oidcSecurityValidation = new OidcSecurityValidationService();
@@ -23,6 +27,7 @@ export class OidcSecurityService {
         this.headers.append('Content-Type', 'application/json');
         this.headers.append('Accept', 'application/json');
         this.storage = localStorage;
+        this._tokenService = new TokenService();
 
 
         if (this.retrieve('_isAuthorize') !== '') {
@@ -111,7 +116,16 @@ export class OidcSecurityService {
                 this.SetAuthorizationData(token, id_token);
 
                 // router navigate to Users
-                this._router.navigate(['admin/home/dashboard']);
+                this._returnUrl = this._tokenService.retrieveItem("redirectUrl");
+                console.log("This URL: ", this._returnUrl);
+                if (this._returnUrl !== null)
+                {
+                    this._router.navigateByUrl(this._returnUrl);
+                } else
+                {
+                    this._router.navigate(['admin/home/dashboard']);
+                }
+                
             } else {
                 this.ResetAuthorizationData();
                 //this._router.navigate(['/Unauthorize']);

@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <Folder Include="src\app\CommonConstants\" />
+    <Folder Include="src\app\guard\" />
     <Folder Include="src\app\Services\" />
     <Folder Include="src\app\Pipes\" />
   </ItemGroup>

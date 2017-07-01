@@ -2,16 +2,18 @@
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { HeaderComponent } from './header/header.component';
-import { AppComponent } from '../app.component';
-import { MaterialModule } from '@angular/material';
+import { SharedModule } from '../../app/shared/shared.module';
+
+
 
 @NgModule({
+    
     imports: [
         CommonModule,
-        MaterialModule
+        SharedModule
      
-  ],
-  declarations: [HeaderComponent],
+    ],
+    declarations: [HeaderComponent],
   exports: [HeaderComponent]
 })
 export class AppHeaderModule { }

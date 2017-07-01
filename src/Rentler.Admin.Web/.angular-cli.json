@@ -20,7 +20,10 @@
       "prefix": "app",
       "styles": [
         "styles.css",
-        "./libs/@angular/material/prebuilt-themes/indigo-pink.css"
+        "./libs/@angular/material/prebuilt-themes/indigo-pink.css",
+        "../node_modules/ng2-toasty/style-material.css",
+        "../node_modules/ng2-toasty/style-default.css",
+        "../node_modules/ng2-toasty/style-bootstrap.css"
       ],
       "scripts": [
         "./libs/testjs.js"
