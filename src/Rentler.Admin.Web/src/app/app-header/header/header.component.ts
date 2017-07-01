@@ -1,4 +1,5 @@
 ﻿import { Component, OnInit } from '@angular/core';
+import { ToastService } from '../../Services/toast.service';
 
 @Component({
     selector: 'app-header',
@@ -7,7 +8,10 @@
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+    constructor(private _toastService: ToastService) {
+       
+        console.log("HEADER! Component Module");
+    }
 
   ngOnInit() {
   }

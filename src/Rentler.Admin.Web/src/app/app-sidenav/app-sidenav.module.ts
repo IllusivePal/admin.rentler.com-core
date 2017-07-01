@@ -39,11 +39,16 @@ import { PageComponent } from '../component-viewer/page/page.component';
 import { BlogComponent } from '../component-viewer/blog/blog.component';
 import { CommunityComponent } from '../component-viewer/community/community.component';
 
+//Service
+import { AuthenticationGuard } from '../guard/authentication.guard';
+
+//Module
+import { SharedModule } from '../shared/shared.module';
 
 
 const appRoutes: Routes = [
     {
-        path: 'admin', redirectTo: '/admin/home/dashboard', pathMatch:'full'
+        path: 'admin', redirectTo: '/admin/home/dashboard', pathMatch: 'full'
     },
     {
         path: 'admin/home', redirectTo: '/admin/home/dashboard', pathMatch: 'full'
@@ -59,116 +64,145 @@ const appRoutes: Routes = [
                       [
                               {
                                   path: 'dashboard',
-                                  component: DashboardComponent
+                                  component: DashboardComponent,
+                                  canActivate: [AuthenticationGuard]
+                                
                               },
                               {
                                   path: 'subscription',
-                                  component: SubscriptionComponent
+                                  component: SubscriptionComponent,
+                                  canActivate: [AuthenticationGuard]
                               },
                               {
                                   path: 'applications',
-                                  component: ApplicationsComponent
+                                  component: ApplicationsComponent,
+                                  canActivate: [AuthenticationGuard]
                               },
                               {
                                   path: 'community', // Apartment
-                                  component: CommunitiesComponent
+                                  component: CommunitiesComponent,
+                                  canActivate: [AuthenticationGuard]
                               },
                               {
                                   path: 'screening',
-                                  component: ScreeningComponent
+                                  component: ScreeningComponent,
+                                  canActivate: [AuthenticationGuard]
                               },
                               {
                                   path: 'idverify',
-                                  component: IdverifyComponent
+                                  component: IdverifyComponent,
+                                  canActivate: [AuthenticationGuard]
                               },
                               {
                                   path: 'user',
-                                  component: AllUsersComponent
+                                  component: AllUsersComponent,
+                                  canActivate: [AuthenticationGuard]
                               },
                               {
                                   path: 'scammer',
-                                  component: WatchListComponent
+                                  component: WatchListComponent,
+                                  canActivate: [AuthenticationGuard]
                               },
                               {
                                   path: 'role',
-                                  component: RolesComponent
+                                  component: RolesComponent,
+                                  canActivate: [AuthenticationGuard]
 
                               },
                               {
                                   path: 'building',
-                                  component: BuildingComponent
+                                  component: BuildingComponent,
+                                  canActivate: [AuthenticationGuard]
                               },
                               {
                                   path: 'reported',
-                                  component: ReportedComponent
+                                  component: ReportedComponent,
+                                  canActivate: [AuthenticationGuard]
                               },
                               {
                                   path: 'premier',
-                                  component: PremierComponent
+                                  component: PremierComponent,
+                                  canActivate: [AuthenticationGuard]
                               },
                               {
                                   path: 'nonupgraded',
-                                  component: NonupgradedComponent
+                                  component: NonupgradedComponent,
+                                  canActivate: [AuthenticationGuard]
                               },
                               {
                                   path: 'form/category',
-                                  component: CategoryComponent
+                                  component: CategoryComponent,
+                                  canActivate: [AuthenticationGuard]
                               },
                               {
                                   path: 'form',
-                                  component: ProviderComponent
+                                  component: ProviderComponent,
+                                  canActivate: [AuthenticationGuard]
                               },
                               {
                                   path: 'paymentinvites',
-                                  component: PaymentInvitesComponent
+                                  component: PaymentInvitesComponent,
+                                  canActivate: [AuthenticationGuard]
                               },
                               {
                                   path: 'payments',
-                                  component: PaymentComponent
+                                  component: PaymentComponent,
+                                  canActivate: [AuthenticationGuard]
                               },
                               {
                                   path: 'bankaccounts',
-                                  component: BankAccountsComponent
+                                  component: BankAccountsComponent,
+                                  canActivate: [AuthenticationGuard]
                               },
                               {
                                   path: 'paymentseries',
-                                  component: PaymentSeriesComponent
+                                  component: PaymentSeriesComponent,
+                                  canActivate: [AuthenticationGuard]
                               },
                               {
                                   path: 'transactions',
-                                  component: TransactionsComponent
+                                  component: TransactionsComponent,
+                                  canActivate: [AuthenticationGuard]
                               },
                               {
                                   path: 'legalentities',
-                                  component: LegalEntitiesComponent
+                                  component: LegalEntitiesComponent,
+                                  canActivate: [AuthenticationGuard]
                               },
                               {
                                   path: 'merchantaccounts',
-                                  component: MerchantAccountsComponent
+                                  component: MerchantAccountsComponent,
+                                  canActivate: [AuthenticationGuard]
                               },
                               {
                                   path: 'paymentcaps',
-                                  component: PaymentCapsComponent
+                                  component: PaymentCapsComponent,
+                                  canActivate: [AuthenticationGuard]
                               },
                               {
                                   path: 'order',
-                                  component: OrderComponent
+                                  component: OrderComponent,
+                                  canActivate: [AuthenticationGuard]
                               },
                               {
                                   path: 'promo',
-                                  component: PromoComponent
+                                  component: PromoComponent,
+                                  canActivate: [AuthenticationGuard]
                               },
                               {
                                   path: 'page',
-                                  component: PageComponent
+                                  component: PageComponent,
+                                  canActivate: [AuthenticationGuard]
                               },
                               {
                                   path: 'blog',
-                                  component: BlogComponent
+                                  component: BlogComponent,
+                                  canActivate: [AuthenticationGuard]
                               },
                               {
                                   path: 'cleanup/community',
-                                  component: CommunityComponent
+                                  component: CommunityComponent,
+                                  canActivate: [AuthenticationGuard]
                               }
                       ]
         }]
@@ -178,12 +212,11 @@ const appRoutes: Routes = [
 @NgModule({
   imports: [
       CommonModule,
-      MaterialModule,
+      SharedModule,
       AppFooterModule,
       ComponentHeaderModule,
       ComponentViewerModule,
-      RouterModule.forChild(appRoutes),
-      FlexLayoutModule
+      RouterModule.forChild(appRoutes)
   ],
   declarations: [SidenavComponent],
   exports: [SidenavComponent]

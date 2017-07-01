@@ -4,27 +4,30 @@ import { HttpModule } from '@angular/http';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from '@angular/material';
 
+//import { ToastModule } from 'ng2-toastr';
+
+//Guard for Auth Routes
+import { AuthenticationGuard } from '../app/guard/authentication.guard';
+import { LoginGuard } from '../app/guard/login.guard';
+
+
+//Modules
 import { AppHeaderModule } from '../app/app-header/app-header.module';
 import { AppFooterModule } from '../app/app-footer/app-footer.module';
 import { AppSidenavModule } from '../app/app-sidenav/app-sidenav.module';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { ComponentHeaderModule } from '../app/component-header/component-header.module';
 import { ComponentViewerModule } from '../app/component-viewer/component-viewer.module';
 import { SidenavComponent } from '../app/app-sidenav/sidenav/sidenav.component';
+import { SharedModule } from '../app/shared/shared.module';
 
-//Services
-import { OidcSecurityService } from '../app/Services/oidc-security.service';
-import { OidcSecurityValidationService } from '../app/Services/oidc-security-validation.service';
-import { AuthConfigurationService } from '../app/Services/auth-configuration.service';
 
 import 'hammerjs';
 import { AppLoginComponent } from '../app/app_component/app-login/app-login.component';
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'prefix' },
-    { path: 'login', component: AppLoginComponent },
+    { path: 'login', component: AppLoginComponent, canActivate: [LoginGuard] },
    
 ];
 
@@ -37,17 +40,18 @@ const appRoutes: Routes = [
       BrowserModule,
       HttpModule,
       BrowserAnimationsModule,
-      MaterialModule,
       AppHeaderModule,
       AppFooterModule,
       AppSidenavModule,
       ComponentHeaderModule,
       ComponentViewerModule,
-      FlexLayoutModule,
-      RouterModule.forRoot(appRoutes)
+      RouterModule.forRoot(appRoutes),
+      SharedModule
+      //ToastModule.forRoot()
   ],
-  providers: [OidcSecurityService, OidcSecurityValidationService, AuthConfigurationService],
-  bootstrap: [AppComponent]
+  providers: [],
+  bootstrap: [AppComponent],
+  exports: []
 })
 export class AppModule {
     constructor() {

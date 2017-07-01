@@ -1,7 +1,8 @@
 ﻿import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ComponentViewerComponent } from './component-viewer/component-viewer.component';
-import { MaterialModule } from '@angular/material';
+import { SharedModule } from '../shared/shared.module';
+
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SidenavComponent } from '../app-sidenav/sidenav/sidenav.component';
@@ -46,7 +47,7 @@ import { CommunityComponent } from './community/community.component';
 @NgModule({
   imports: [
       CommonModule,
-      MaterialModule,
+      SharedModule,
       RouterModule
   ],
   declarations: [ComponentViewerComponent, DashboardComponent, SubscriptionComponent, ApplicationsComponent, CommunitiesComponent, ScreeningComponent, IdverifyComponent, AllUsersComponent, WatchListComponent, RolesComponent, BuildingComponent, ReportedComponent, PremierComponent, NonupgradedComponent, CategoryComponent, ProviderComponent, PaymentInvitesComponent, PaymentComponent, BankAccountsComponent, PaymentSeriesComponent, TransactionsComponent, LegalEntitiesComponent, MerchantAccountsComponent, PaymentCapsComponent, OrderComponent, PromoComponent, PageComponent, BlogComponent, CommunityComponent],
