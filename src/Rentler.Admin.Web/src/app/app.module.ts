@@ -5,11 +5,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { UnknownPageComponent } from './shared/unknown-page/unknown-page.component';
+
+
 //import { ToastModule } from 'ng2-toastr';
 
 //Guard for Auth Routes
-import { AuthenticationGuard } from '../app/guard/authentication.guard';
-import { LoginGuard } from '../app/guard/login.guard';
+//import { AuthenticationGuard } from '../app/guard/authentication.guard';
+//import { LoginGuard } from '../app/guard/login.guard';
 
 
 //Modules
@@ -26,8 +29,14 @@ import 'hammerjs';
 import { AppLoginComponent } from '../app/app_component/app-login/app-login.component';
 
 const appRoutes: Routes = [
+   
+    {
+        path: 'unauthorized', component: UnknownPageComponent
+    },
     { path: '', redirectTo: 'login', pathMatch: 'prefix' },
-    { path: 'login', component: AppLoginComponent, canActivate: [LoginGuard] },
+    { path: 'login', component: AppLoginComponent},
+    { path: 'admin', loadChildren: '../app/app-sidenav/app-sidenav.module#AppSidenavModule' },
+    { path: '**', redirectTo: "/unauthorized", pathMatch: 'full' },
    
 ];
 
@@ -42,9 +51,9 @@ const appRoutes: Routes = [
       BrowserAnimationsModule,
       AppHeaderModule,
       AppFooterModule,
-      AppSidenavModule,
-      ComponentHeaderModule,
-      ComponentViewerModule,
+      //AppSidenavModule,
+      //ComponentHeaderModule,
+      //ComponentViewerModule,
       RouterModule.forRoot(appRoutes),
       SharedModule
       //ToastModule.forRoot()

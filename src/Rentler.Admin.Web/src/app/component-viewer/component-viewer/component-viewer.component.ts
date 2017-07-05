@@ -7,7 +7,9 @@
 })
 export class ComponentViewerComponent implements OnInit {
 
-  constructor() { }
+    constructor() {
+        console.log("This is Component Viewer");
+    }
 
   ngOnInit() {
   }

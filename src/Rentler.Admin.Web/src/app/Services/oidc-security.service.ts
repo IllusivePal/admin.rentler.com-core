@@ -123,7 +123,7 @@ export class OidcSecurityService {
                     this._router.navigateByUrl(this._returnUrl);
                 } else
                 {
-                    this._router.navigate(['admin/home/dashboard']);
+                    this._router.navigate(['admin']);
                 }
                 
             } else {
@@ -145,7 +145,7 @@ export class OidcSecurityService {
             authorizationEndsessionUrl + '?' +
             'id_token_hint=' + encodeURI(id_token_hint) + '&' +
             'post_logout_redirect_uri=' + encodeURI(post_logout_redirect_uri);
-
+       
         this.ResetAuthorizationData();
 
         window.location.href = url;
@@ -184,6 +184,7 @@ export class OidcSecurityService {
         this.store('authorizationDataIdToken', '')
         this._isAuthorized = false;
         this.store('_isAuthorized', false);
+        this._tokenService.removeItem("redirectUrl"); // Added By Kyam
     }
     public SetAuthorizationData(token: any, id_token: any) {
         if (this.retrieve('authorizationData') !== '') {

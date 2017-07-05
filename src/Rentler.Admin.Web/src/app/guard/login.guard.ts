@@ -16,7 +16,7 @@ export class LoginGuard implements CanActivate {
         if (this._tokenService.retriveToken('authorizationData') !== '' && this._tokenService.retriveToken('authorizationData') !== undefined) 
         {
             console.log("HEY RETURN FALSE");
-            this._router.navigate(['/admin/home/dashboard']);
+            this._router.navigate(['/admin/dashboard']);
             return false;
 
         } else

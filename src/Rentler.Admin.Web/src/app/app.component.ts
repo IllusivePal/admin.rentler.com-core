@@ -30,6 +30,7 @@ export class AppComponent implements OnDestroy {
     public mode: string;
     constructor(public media: ObservableMedia) {
         console.log(this.mode);
+        console.log("THIS IS APP COMPONENT");
         this._subscription = media.subscribe((change: MediaChange) => {
             this.isOpen = (change.mqAlias !== 'xs');
             this.mediaChange = change;

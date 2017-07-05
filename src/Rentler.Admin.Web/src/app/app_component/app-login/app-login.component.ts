@@ -40,7 +40,8 @@ export class AppLoginComponent implements OnInit {
             if (this.securityService.retrieve('authorizationData') !== '' && this.securityService.retrieve('authorizationData') !== undefined)
             {
                 //Proceed to Dashboard
-                this.router.navigate(['admin/home/dashboard']);
+                console.log("TEST");
+                this.router.navigate(['admin']);
             } else
             {
                 //Login

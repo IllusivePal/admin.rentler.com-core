@@ -1,10 +1,13 @@
 ﻿import { Injectable } from '@angular/core';
 import { JwtHelper } from 'angular2-jwt';
+import { Observable, Subject } from 'rxjs/Rx';
 
 
 @Injectable()
 export class TokenService {
     private _jwtHelper: JwtHelper;
+
+
     constructor() {
         this._jwtHelper = new JwtHelper();
     }
@@ -58,6 +61,26 @@ export class TokenService {
     public retrieveItem(key:string)
     {
         return localStorage.getItem(key) !== null ? localStorage.getItem(key) : null;
+
+    }
+    public retrieveEmailFromToken(key:string)
+    {
+        var itemToken = this.retriveToken(key);
+        if (itemToken !== null && itemToken !== 'undefined')
+        {
+            console.log("Token retrieved", itemToken);
+            var item = this.decodeToken(itemToken);
+            console.log("Items", item);
+            if (item && item !== 'undefined')
+            {
+                return item.email;
+            }
+
+            return;
+           
+        }
+
+        return;
 
     }
 

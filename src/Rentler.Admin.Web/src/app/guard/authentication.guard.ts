@@ -19,11 +19,18 @@ export class AuthenticationGuard implements CanActivate {
             }
 
             console.log("Redirect in auth guard", this._tokenService.retrieveItem("redirectUrl"));
+
+            
             
             return true;
         }
         this._tokenService.setItemStorage("redirectUrl", state.url);
         this._router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
         return false;
+    }
+
+    getEmail(key:string)
+    {
+        this._tokenService.retrieveEmailFromToken(key);
     }
 }
