@@ -22,7 +22,7 @@ export class SidenavComponent implements OnDestroy {
     public mode: string="side";
 
     constructor(public media: ObservableMedia) {
-    
+        console.log("This is side nav");
         console.log("this.mode", this.mode);
         console.log("Is Open", this.isOpen);
         console.log("change", this.mediaChange);

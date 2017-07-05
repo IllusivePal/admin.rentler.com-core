@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { HeaderComponent } from './header/header.component';
 import { SharedModule } from '../../app/shared/shared.module';
+import { UserProfilesComponent } from './user-profiles/user-profiles.component';
+import { Routes, RouterModule } from '@angular/router';
 
 
 
@@ -10,10 +12,11 @@ import { SharedModule } from '../../app/shared/shared.module';
     
     imports: [
         CommonModule,
-        SharedModule
+        SharedModule,
+        RouterModule
      
     ],
-    declarations: [HeaderComponent],
+    declarations: [HeaderComponent, UserProfilesComponent],
   exports: [HeaderComponent]
 })
 export class AppHeaderModule { }

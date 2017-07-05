@@ -7,11 +7,26 @@
     <div class="mat-button-ripple mat-ripple" md-ripple=""></div><div class="mat-button-focus-overlay"></div>
   </a>
   <div _ngcontent-c1="" class="flex-spacer"></div>
-  <a _ngcontent-c1="" aria-label="Angular Material" class="docs-button mat-button" md-button="" routerlink="/" aria-disabled="false" tabindex="0" href="/">
+
+  <div *ngIf="_securityService.IsAuthorized()">
+    <button md-button [mdMenuTriggerFor]="menu" class="docs-button mat-button">{{_tokenService.retrieveEmailFromToken('authorizationData')}} <i class="material-icons">dashboard</i></button>
+    <md-menu #menu="mdMenu" xPosition="before" [overlapTrigger]="false">
+      <a (click)="logout()" md-menu-item><md-icon>radio_button_checked</md-icon><span>Logout</span></a>
+      <a (click)="profile()" md-menu-item><md-icon>account_circle</md-icon><span>Profile</span></a>
+    </md-menu>
+  </div>
+ 
+  <!--<a _ngcontent-c1="" aria-label="Angular Material" class="docs-button mat-button" md-button="" routerlink="/" aria-disabled="false" tabindex="0" href="/">
     <span class="mat-button-wrapper">
-      <span _ngcontent-c1="">User email here</span>
+      <span _ngcontent-c1="">
+
+       
+
+
+      </span>
     </span>
     <div class="mat-button-ripple mat-ripple" md-ripple=""></div><div class="mat-button-focus-overlay"></div>
-  </a>
+  </a>-->
+ 
 </nav>
 <!--<router-outlet></router-outlet>!-->

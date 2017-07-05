@@ -38,23 +38,48 @@ import { PromoComponent } from '../component-viewer/promo/promo.component';
 import { PageComponent } from '../component-viewer/page/page.component';
 import { BlogComponent } from '../component-viewer/blog/blog.component';
 import { CommunityComponent } from '../component-viewer/community/community.component';
+import { UserProfilesComponent } from '../app-header/user-profiles/user-profiles.component';
 
 //Service
-import { AuthenticationGuard } from '../guard/authentication.guard';
+//import { AuthenticationGuard } from '../guard/authentication.guard';
 
 //Module
 import { SharedModule } from '../shared/shared.module';
 
 
 const appRoutes: Routes = [
-    {
+    /*{
         path: 'admin', redirectTo: '/admin/home/dashboard', pathMatch: 'full'
-    },
-    {
+    },*/
+    /*{
         path: 'admin/home', redirectTo: '/admin/home/dashboard', pathMatch: 'full'
     }
-    ,
+    ,*/
     {
+        path: '', component: SidenavComponent,
+        children:
+        [
+           
+            {
+                path: '', redirectTo: 'home', pathMatch:'prefix'
+            },
+          
+            {
+             path: 'home', loadChildren: '../component-viewer/component-viewer.module#ComponentViewerModule'
+            }
+        ]
+    }
+  
+    /*{
+
+        path: '', component: SidenavComponent,
+        children: [{
+            path: 'admin', loadChildren: '../component-viewer/component-viewer.module#ComponentViewerModule'
+        }]
+        
+    }*/
+   
+    /*{
         path: 'admin', component: SidenavComponent,
         children:
         [{
@@ -206,7 +231,7 @@ const appRoutes: Routes = [
                               }
                       ]
         }]
-    }
+    }*/
 ];
 
 @NgModule({
@@ -215,7 +240,7 @@ const appRoutes: Routes = [
       SharedModule,
       AppFooterModule,
       ComponentHeaderModule,
-      ComponentViewerModule,
+      //ComponentViewerModule,
       RouterModule.forChild(appRoutes)
   ],
   declarations: [SidenavComponent],
