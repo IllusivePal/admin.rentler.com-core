@@ -27,6 +27,33 @@ if(false) {
 
 /***/ }),
 
+/***/ "../../../../../src/main.less":
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__("../../../../css-loader/index.js?{\"sourceMap\":false,\"importLoaders\":1}!../../../../postcss-loader/index.js?{\"ident\":\"postcss\"}!../../../../less-loader/dist/index.js?{\"sourceMap\":false}!../../../../../src/main.less");
+if(typeof content === 'string') content = [[module.i, content, '']];
+// add the styles to the DOM
+var update = __webpack_require__("../../../../style-loader/addStyles.js")(content, {});
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../node_modules/css-loader/index.js??ref--11-1!../node_modules/postcss-loader/index.js??postcss!../node_modules/less-loader/dist/index.js??ref--11-3!./main.less", function() {
+			var newContent = require("!!../node_modules/css-loader/index.js??ref--11-1!../node_modules/postcss-loader/index.js??postcss!../node_modules/less-loader/dist/index.js??ref--11-3!./main.less");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
 /***/ "../../../../../src/styles.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -77,7 +104,22 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\r\nbody {\r\n  font-family: Roboto,Helvetica Neue Light,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;\r\n  margin: 0;\r\n}\r\napp-root {\r\n  position: absolute;\r\n  top: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  right: 0;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n  -ms-flex-direction: column;\r\n  flex-direction: column;\r\n}\r\n\r\napp-header {\r\n  position: relative;\r\n  z-index: 10;\r\n\r\n}\r\n.mat-elevation-z6 {\r\n  box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);\r\n}\r\n\r\napp-header .docs-navbar {\r\n  background: #c70808;\r\n\r\n}\r\n\r\napp-root > app-sidenav {\r\n  -webkit-box-flex: 1;\r\n  -ms-flex: 1 1 auto;\r\n  flex: 1 1 auto;\r\n}\r\napp-sidenav {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n}\r\n\r\napp-component-viewer {\r\n  font-weight: 400;\r\n  margin: 20px 30px 50px 30px;\r\n}\r\n\r\napp-footer .docs-footer-links a {\r\n  color: rgba(255, 255, 255, 0.87);\r\n}\r\n\r\n\r\n.mat-sidenav::-webkit-scrollbar, .mat-sidenav-content::-webkit-scrollbar, .mat-menu-panel::-webkit-scrollbar {\r\n  width: 6px;\r\n  background-color: #F5F5F5;\r\n}\r\n\r\n.mat-sidenav::-webkit-scrollbar-thumb, .mat-sidenav-content::-webkit-scrollbar-thumb, .mat-menu-panel::-webkit-scrollbar-thumb {\r\n  background-color: #6e6e6e;\r\n  outline: 1px solid #333;\r\n  border-radius: 1px;\r\n}\r\n\r\n.mat-sidenav::-webkit-scrollbar-track, .mat-sidenav-content::-webkit-scrollbar-track, .mat-menu-panel::-webkit-scrollbar-track {\r\n  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);\r\n  background-color: #F5F5F5;\r\n}\r\n.mat-menu-panel{\r\n  margin-left:30px;\r\n\r\n}\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n", ""]);
+exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\r\nbody {\r\n  font-family: Roboto,Helvetica Neue Light,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;\r\n  margin: 0;\r\n}\r\napp-root {\r\n  position: absolute;\r\n  top: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  right: 0;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n  -ms-flex-direction: column;\r\n  flex-direction: column;\r\n}\r\n\r\napp-header {\r\n  position: relative;\r\n  z-index: 10;\r\n\r\n}\r\n.mat-elevation-z6 {\r\n  box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);\r\n}\r\n\r\napp-header .docs-navbar {\r\n  background: #ED2226 !important;\r\n}\r\n\r\napp-root > app-sidenav {\r\n  -webkit-box-flex: 1;\r\n  -ms-flex: 1 1 auto;\r\n  flex: 1 1 auto;\r\n}\r\napp-sidenav {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n}\r\n\r\napp-component-viewer {\r\n  font-weight: 400;\r\n  margin: 20px 30px 50px 30px;\r\n}\r\n\r\napp-footer .docs-footer-links a {\r\n  color: rgba(255, 255, 255, 0.87);\r\n}\r\n\r\n\r\n.mat-sidenav::-webkit-scrollbar, .mat-sidenav-content::-webkit-scrollbar, .mat-menu-panel::-webkit-scrollbar {\r\n  width: 6px;\r\n  background-color: #F5F5F5;\r\n}\r\n\r\n.mat-sidenav::-webkit-scrollbar-thumb, .mat-sidenav-content::-webkit-scrollbar-thumb, .mat-menu-panel::-webkit-scrollbar-thumb {\r\n  background-color: #6e6e6e;\r\n  outline: 1px solid #333;\r\n  border-radius: 1px;\r\n}\r\n\r\n.mat-sidenav::-webkit-scrollbar-track, .mat-sidenav-content::-webkit-scrollbar-track, .mat-menu-panel::-webkit-scrollbar-track {\r\n  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);\r\n  background-color: #F5F5F5;\r\n}\r\n.mat-menu-panel{\r\n  margin-left:30px;\r\n\r\n}\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "../../../../css-loader/index.js?{\"sourceMap\":false,\"importLoaders\":1}!../../../../postcss-loader/index.js?{\"ident\":\"postcss\"}!../../../../less-loader/dist/index.js?{\"sourceMap\":false}!../../../../../src/main.less":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -553,7 +595,8 @@ __webpack_require__("../../../../../src/styles.css");
 __webpack_require__("../../../../../src/libs/@angular/material/prebuilt-themes/indigo-pink.css");
 __webpack_require__("../../../../ng2-toasty/style-material.css");
 __webpack_require__("../../../../ng2-toasty/style-default.css");
-module.exports = __webpack_require__("../../../../ng2-toasty/style-bootstrap.css");
+__webpack_require__("../../../../ng2-toasty/style-bootstrap.css");
+module.exports = __webpack_require__("../../../../../src/main.less");
 
 
 /***/ })

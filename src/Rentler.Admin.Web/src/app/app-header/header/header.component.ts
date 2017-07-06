@@ -10,7 +10,6 @@ import { AuthenticationGuard } from '../../guard/authentication.guard';
     styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-    private userEmail:string
     constructor(private _toastService: ToastService
         , private _tokenService: TokenService
         , private _securityService: OidcSecurityService
@@ -18,7 +17,7 @@ export class HeaderComponent implements OnInit {
         
         console.log("HEADER! Component Module");
         console.log("Is Authorized", this._securityService.IsAuthorized());
-        this.userEmail = this._tokenService.retrieveEmailFromToken('authorizationData');
+       
     }
 
   ngOnInit() {

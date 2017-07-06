@@ -28,8 +28,7 @@ app-header {
 }
 
 app-header .docs-navbar {
-  background: #c70808;
-
+  background: #ED2226 !important;
 }
 
 app-root > app-sidenav {

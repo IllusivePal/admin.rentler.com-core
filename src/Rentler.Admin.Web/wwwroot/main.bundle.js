@@ -367,7 +367,6 @@ var OidcSecurityService = (function () {
         var _this = this;
         this.ResetAuthorizationData();
         var hash = window.location.hash.substr(1);
-        console.log("hash", hash);
         var result = hash.split('&').reduce(function (result, item) {
             var parts = item.split('=');
             result[parts[0]] = parts[1];
@@ -429,12 +428,13 @@ var OidcSecurityService = (function () {
                 _this.SetAuthorizationData(token, id_token);
                 // router navigate to Users
                 _this._returnUrl = _this._tokenService.retrieveItem("redirectUrl");
-                console.log("This URL: ", _this._returnUrl);
+                console.log("Local Storage Variabl", localStorage.getItem("redirectUrl"));
+                console.log("This URL from oidc security: ", _this._returnUrl);
                 if (_this._returnUrl !== null) {
                     _this._router.navigateByUrl(_this._returnUrl);
                 }
                 else {
-                    _this._router.navigate(['admin']);
+                    _this._router.navigate(['admin/home/dashboard']);
                 }
             }
             else {
@@ -451,7 +451,9 @@ var OidcSecurityService = (function () {
         var url = authorizationEndsessionUrl + '?' +
             'id_token_hint=' + encodeURI(id_token_hint) + '&' +
             'post_logout_redirect_uri=' + encodeURI(post_logout_redirect_uri);
+        this.store('_isAuthorized', false);
         this.ResetAuthorizationData();
+        this._tokenService.removeItem("redirectUrl"); // Added By Kyam
         window.location.href = url;
         //window.open(url,"_blank")
     };
@@ -487,8 +489,6 @@ var OidcSecurityService = (function () {
         this.store('authorizationData', '');
         this.store('authorizationDataIdToken', '');
         this._isAuthorized = false;
-        this.store('_isAuthorized', false);
-        this._tokenService.removeItem("redirectUrl"); // Added By Kyam
     };
     OidcSecurityService.prototype.SetAuthorizationData = function (token, id_token) {
         if (this.retrieve('authorizationData') !== '') {
@@ -667,14 +667,13 @@ var TokenService = (function () {
         }
     };
     TokenService.prototype.retrieveItem = function (key) {
+        console.log("Local Storage token service", localStorage.getItem(key));
         return localStorage.getItem(key) !== null ? localStorage.getItem(key) : null;
     };
     TokenService.prototype.retrieveEmailFromToken = function (key) {
         var itemToken = this.retriveToken(key);
         if (itemToken !== null && itemToken !== 'undefined') {
-            console.log("Token retrieved", itemToken);
             var item = this.decodeToken(itemToken);
-            console.log("Items", item);
             if (item && item !== 'undefined') {
                 return item.email;
             }
@@ -894,7 +893,6 @@ var HeaderComponent = (function () {
         this._guard = _guard;
         console.log("HEADER! Component Module");
         console.log("Is Authorized", this._securityService.IsAuthorized());
-        this.userEmail = this._tokenService.retrieveEmailFromToken('authorizationData');
     }
     HeaderComponent.prototype.ngOnInit = function () {
     };
@@ -938,7 +936,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app-header/user-profiles/user-profiles.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  user-profiles works!\n</p>\n"
+module.exports = "<p>\r\n  user-profiles works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -1165,7 +1163,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app_component/app-login/app-login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n\r\n    <div fxLayout=\"row\" fxLayoutAlign=\"space-around none\">\r\n          <div class=\"wrapper-container\">\r\n            <h1 class=\"md-headline\">Login in your account in </h1>\r\n            <div>\r\n              <button md-raised-button color=\"warn\" class=\"login-submit\" (click)=\"login()\">Auth Server</button>\r\n              <button md-raised-button color=\"warn\" class=\"login-submit\" (click)=\"showSuccess()\">Show</button>\r\n            </div>\r\n          </div>\r\n      </div>\r\n"
+module.exports = "\r\n    <div fxLayout=\"row\" fxLayoutAlign=\"space-around none\">\r\n          <div class=\"wrapper-container\">\r\n            <h1 class=\"md-headline\">Login in your account in </h1>\r\n            <div>\r\n              <button md-raised-button color=\"warn\" class=\"login-submit\" (click)=\"login()\">Auth Server</button>\r\n              <!--<button md-raised-button color=\"warn\" class=\"login-submit\" (click)=\"showSuccess()\">Show</button>-->\r\n            </div>\r\n          </div>\r\n      </div>\r\n"
 
 /***/ }),
 
@@ -1210,7 +1208,6 @@ var AppLoginComponent = (function () {
     }
     AppLoginComponent.prototype.ngOnInit = function () {
         if (window.location.hash) {
-            console.log("NGONINIT");
             this.securityService.AuthorizedCallback();
             //Logged in
             if (this.securityService.IsAuthorized) {
@@ -1224,7 +1221,7 @@ var AppLoginComponent = (function () {
             if (this.securityService.retrieve('authorizationData') !== '' && this.securityService.retrieve('authorizationData') !== undefined) {
                 //Proceed to Dashboard
                 console.log("TEST");
-                this.router.navigate(['admin']);
+                this.router.navigate(['admin/home/dashboard']);
             }
             else {
                 //Login
@@ -1280,15 +1277,12 @@ var AuthenticationGuard = (function () {
         this._router = _router;
     }
     AuthenticationGuard.prototype.canActivate = function (next, state) {
-        console.log("Hello Auth Guard", state.url);
         if (this._tokenService.retriveToken('authorizationData') !== '' && this._tokenService.retriveToken('authorizationData') !== undefined) {
-            if (this._tokenService.retrieveItem("redirectUrl") !== null) {
-                this._tokenService.removeItem("redirectUrl");
-            }
-            console.log("Redirect in auth guard", this._tokenService.retrieveItem("redirectUrl"));
+            console.log("Normal", this._tokenService.retrieveItem("redirectUrl"));
             return true;
         }
         this._tokenService.setItemStorage("redirectUrl", state.url);
+        console.log("RETRIEVE REDIRECT URL FROM AUTH GUARD", this._tokenService.retrieveItem('redirectUrl'));
         this._router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
         return false;
     };
@@ -1389,7 +1383,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/shared/unknown-page/unknown-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  unknown-page works!\n</p>\n"
+module.exports = "<p>\r\n  unknown-page works!\r\n</p>\r\n"
 
 /***/ }),
 

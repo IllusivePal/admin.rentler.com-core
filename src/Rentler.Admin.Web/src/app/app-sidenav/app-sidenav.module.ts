@@ -241,7 +241,7 @@ const appRoutes: Routes = [
       AppFooterModule,
       ComponentHeaderModule,
       //ComponentViewerModule,
-      RouterModule.forChild(appRoutes)
+      RouterModule.forChild(appRoutes),
   ],
   declarations: [SidenavComponent],
   exports: [SidenavComponent]

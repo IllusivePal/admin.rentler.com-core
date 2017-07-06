@@ -25,6 +25,7 @@ import { SidenavComponent } from '../app/app-sidenav/sidenav/sidenav.component';
 import { SharedModule } from '../app/shared/shared.module';
 
 
+
 import 'hammerjs';
 import { AppLoginComponent } from '../app/app_component/app-login/app-login.component';
 

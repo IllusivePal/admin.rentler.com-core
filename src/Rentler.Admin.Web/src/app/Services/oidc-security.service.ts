@@ -52,7 +52,7 @@ export class OidcSecurityService {
 
         this.ResetAuthorizationData();
         let hash = window.location.hash.substr(1);
-        console.log("hash", hash);
+        
         let result: any = hash.split('&').reduce(function (result: any, item: string) {
             let parts = item.split('=');
             result[parts[0]] = parts[1];
@@ -117,13 +117,14 @@ export class OidcSecurityService {
 
                 // router navigate to Users
                 this._returnUrl = this._tokenService.retrieveItem("redirectUrl");
-                console.log("This URL: ", this._returnUrl);
+                console.log("Local Storage Variabl", localStorage.getItem("redirectUrl"))
+                console.log("This URL from oidc security: ", this._returnUrl);
                 if (this._returnUrl !== null)
                 {
                     this._router.navigateByUrl(this._returnUrl);
                 } else
                 {
-                    this._router.navigate(['admin']);
+                    this._router.navigate(['admin/home/dashboard']);
                 }
                 
             } else {
@@ -145,8 +146,9 @@ export class OidcSecurityService {
             authorizationEndsessionUrl + '?' +
             'id_token_hint=' + encodeURI(id_token_hint) + '&' +
             'post_logout_redirect_uri=' + encodeURI(post_logout_redirect_uri);
-       
+        this.store('_isAuthorized', false);
         this.ResetAuthorizationData();
+        this._tokenService.removeItem("redirectUrl"); // Added By Kyam
 
         window.location.href = url;
         //window.open(url,"_blank")
@@ -183,8 +185,8 @@ export class OidcSecurityService {
         this.store('authorizationData', '');
         this.store('authorizationDataIdToken', '')
         this._isAuthorized = false;
-        this.store('_isAuthorized', false);
-        this._tokenService.removeItem("redirectUrl"); // Added By Kyam
+        
+        
     }
     public SetAuthorizationData(token: any, id_token: any) {
         if (this.retrieve('authorizationData') !== '') {

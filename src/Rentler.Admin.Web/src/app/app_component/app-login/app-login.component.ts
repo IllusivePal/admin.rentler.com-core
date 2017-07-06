@@ -25,7 +25,6 @@ export class AppLoginComponent implements OnInit {
 
     ngOnInit() {
         if (window.location.hash) {
-            console.log("NGONINIT")
             this.securityService.AuthorizedCallback();
             //Logged in
             if (this.securityService.IsAuthorized)
@@ -41,7 +40,7 @@ export class AppLoginComponent implements OnInit {
             {
                 //Proceed to Dashboard
                 console.log("TEST");
-                this.router.navigate(['admin']);
+                this.router.navigate(['admin/home/dashboard']);
             } else
             {
                 //Login
