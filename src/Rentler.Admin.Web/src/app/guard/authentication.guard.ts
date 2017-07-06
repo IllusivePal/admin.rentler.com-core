@@ -10,21 +10,13 @@ export class AuthenticationGuard implements CanActivate {
     canActivate(
       next: ActivatedRouteSnapshot,
       state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-        console.log("Hello Auth Guard", state.url);
         if (this._tokenService.retriveToken('authorizationData') !== '' && this._tokenService.retriveToken('authorizationData') !== undefined)
         {
-            if (this._tokenService.retrieveItem("redirectUrl") !== null)
-            {
-                this._tokenService.removeItem("redirectUrl");
-            }
-
-            console.log("Redirect in auth guard", this._tokenService.retrieveItem("redirectUrl"));
-
-            
-            
+            console.log("Normal", this._tokenService.retrieveItem("redirectUrl"));
             return true;
         }
         this._tokenService.setItemStorage("redirectUrl", state.url);
+        console.log("RETRIEVE REDIRECT URL FROM AUTH GUARD", this._tokenService.retrieveItem('redirectUrl'))
         this._router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
         return false;
     }

@@ -60,6 +60,7 @@ export class TokenService {
     }
     public retrieveItem(key:string)
     {
+        console.log("Local Storage token service",localStorage.getItem(key));
         return localStorage.getItem(key) !== null ? localStorage.getItem(key) : null;
 
     }
@@ -68,9 +69,9 @@ export class TokenService {
         var itemToken = this.retriveToken(key);
         if (itemToken !== null && itemToken !== 'undefined')
         {
-            console.log("Token retrieved", itemToken);
+    
             var item = this.decodeToken(itemToken);
-            console.log("Items", item);
+       
             if (item && item !== 'undefined')
             {
                 return item.email;

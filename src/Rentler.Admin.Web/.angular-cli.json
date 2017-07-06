@@ -23,7 +23,8 @@
         "./libs/@angular/material/prebuilt-themes/indigo-pink.css",
         "../node_modules/ng2-toasty/style-material.css",
         "../node_modules/ng2-toasty/style-default.css",
-        "../node_modules/ng2-toasty/style-bootstrap.css"
+        "../node_modules/ng2-toasty/style-bootstrap.css",
+        "main.less"
       ],
       "scripts": [
         "./libs/testjs.js"

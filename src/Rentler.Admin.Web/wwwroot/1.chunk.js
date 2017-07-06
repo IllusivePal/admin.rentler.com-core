@@ -227,7 +227,7 @@ AppSidenavModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_3__app_footer_app_footer_module__["a" /* AppFooterModule */],
             __WEBPACK_IMPORTED_MODULE_4__component_header_component_header_module__["a" /* ComponentHeaderModule */],
             //ComponentViewerModule,
-            __WEBPACK_IMPORTED_MODULE_5__angular_router__["a" /* RouterModule */].forChild(appRoutes)
+            __WEBPACK_IMPORTED_MODULE_5__angular_router__["a" /* RouterModule */].forChild(appRoutes),
         ],
         declarations: [__WEBPACK_IMPORTED_MODULE_2__sidenav_sidenav_component__["a" /* SidenavComponent */]],
         exports: [__WEBPACK_IMPORTED_MODULE_2__sidenav_sidenav_component__["a" /* SidenavComponent */]]
