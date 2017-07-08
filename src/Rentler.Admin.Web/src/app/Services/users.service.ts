@@ -15,7 +15,7 @@ export class UsersService {
     GetAll()
     {
         var a = new Headers();
-        return this._http.get("/api/GetUsers").map(this.extractData);
+        return this._http.get("/api/Test").map(this.extractData);
     }
 
 }
