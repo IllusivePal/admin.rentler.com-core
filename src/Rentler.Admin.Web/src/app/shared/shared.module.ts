@@ -12,6 +12,7 @@ import { OidcSecurityService } from '../Services/oidc-security.service';
 import { OidcSecurityValidationService } from '../Services/oidc-security-validation.service';
 import { AuthConfigurationService } from '../Services/auth-configuration.service';
 import { ToastService } from '../Services/toast.service';
+import { ProgressbarService } from '../Services/progressbar.service';
 
 //Guard
 import { AuthenticationGuard } from '../guard/authentication.guard';
@@ -28,7 +29,7 @@ import { UnknownPageComponent } from '../shared/unknown-page/unknown-page.compon
       FlexLayoutModule
     ],
   exports: [CommonModule, ToastyModule, MaterialModule, FlexLayoutModule, UnknownPageComponent],
-  providers: [TokenService, OidcSecurityService, OidcSecurityValidationService, AuthConfigurationService, ToastService, AuthenticationGuard],
+  providers: [TokenService, OidcSecurityService, OidcSecurityValidationService, AuthConfigurationService, ToastService, AuthenticationGuard, ProgressbarService],
   declarations: [UnknownPageComponent]
 })
 export class SharedModule { }
