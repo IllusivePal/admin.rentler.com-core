@@ -15,6 +15,7 @@
       <a (click)="profile()" md-menu-item><md-icon>account_circle</md-icon><span>Profile</span></a>
     </md-menu>
   </div>
+  
  
   <!--<a _ngcontent-c1="" aria-label="Angular Material" class="docs-button mat-button" md-button="" routerlink="/" aria-disabled="false" tabindex="0" href="/">
     <span class="mat-button-wrapper">
@@ -27,6 +28,9 @@
     </span>
     <div class="mat-button-ripple mat-ripple" md-ripple=""></div><div class="mat-button-focus-overlay"></div>
   </a>-->
- 
+ <p>TWEST</p>
+  <p>{{mode}}</p>
+  <p>{{color}}</p>
 </nav>
+<md-progress-bar *ngIf="isProgressstart" [mode]="mode" [color]="color"></md-progress-bar>
 <!--<router-outlet></router-outlet>!-->
