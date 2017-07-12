@@ -2,8 +2,9 @@
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { ToastyModule } from 'ng2-toasty';
-import { MaterialModule } from '@angular/material';
+import { MaterialModule, MdTableModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { CdkTableModule } from '@angular/cdk';
 
 
 //Services
@@ -26,9 +27,11 @@ import { UnknownPageComponent } from '../shared/unknown-page/unknown-page.compon
       CommonModule,
       ToastyModule.forRoot(),
       MaterialModule,
-      FlexLayoutModule
+      FlexLayoutModule,
+      MdTableModule,
+      CdkTableModule
     ],
-  exports: [CommonModule, ToastyModule, MaterialModule, FlexLayoutModule, UnknownPageComponent],
+  exports: [CommonModule, ToastyModule, MaterialModule, FlexLayoutModule, UnknownPageComponent, MdTableModule, CdkTableModule],
   providers: [TokenService, OidcSecurityService, OidcSecurityValidationService, AuthConfigurationService, ToastService, AuthenticationGuard, ProgressbarService],
   declarations: [UnknownPageComponent]
 })
