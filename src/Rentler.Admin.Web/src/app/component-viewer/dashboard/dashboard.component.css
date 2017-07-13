@@ -1,6 +1,9 @@
 ﻿.mat-header-row, .mat-row {
   border-bottom-style:hidden;
-  border-top:1px solid rgba(0,0,0,.25);
+
+}
+.mat-row {
+  border-top: 1px solid rgba(0,0,0,.25);
 }
 .mat-header-cell {
   color: rgba(0,0,0,.54);

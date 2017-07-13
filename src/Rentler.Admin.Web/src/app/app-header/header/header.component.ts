@@ -23,11 +23,9 @@ export class HeaderComponent implements OnInit {
         , private _progressBar: ProgressbarService) {
         console.log("THIS IS APP HEADER");
         this.mode = this._progressBar.mode;
-        setInterval(() => {
-            this._progressBar.testChange$.subscribe(value => {
-                console.log("THIS IS FINAL TEST VALUE", value);
-            });
-        },2000);
+
+        console.log("IS TOKEN EXPIRED", this._tokenService.isTokenExpired(this._tokenService.retriveToken('authorizationDataIdToken')));
+     
             
         
 
