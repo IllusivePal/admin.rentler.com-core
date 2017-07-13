@@ -9,7 +9,7 @@
   <div _ngcontent-c1="" class="flex-spacer"></div>
 
   <div *ngIf="_securityService.IsAuthorized()">
-    <button md-button [mdMenuTriggerFor]="menu" class="docs-button mat-button">{{_tokenService.retrieveEmailFromToken('authorizationData')}} <i class="material-icons">dashboard</i></button>
+    <button md-button [mdMenuTriggerFor]="menu" class="docs-button mat-button">{{_tokenService.retrieveEmailFromToken('authorizationData')}}<i class="material-icons">dashboard</i></button>
     <md-menu #menu="mdMenu" xPosition="before" [overlapTrigger]="false">
       <a (click)="logout()" md-menu-item><md-icon>radio_button_checked</md-icon><span>Logout</span></a>
       <a (click)="profile()" md-menu-item><md-icon>account_circle</md-icon><span>Profile</span></a>
@@ -28,7 +28,7 @@
     </span>
     <div class="mat-button-ripple mat-ripple" md-ripple=""></div><div class="mat-button-focus-overlay"></div>
   </a>-->
- <p>TWEST</p>
+
   <p>{{mode}}</p>
   <p>{{color}}</p>
 </nav>

@@ -28,9 +28,13 @@ export class TokenService {
     }
     public isTokenExpired(token: string, offsetNumber?: number)
     {
+       
         if (token !== '' && token !== undefined) {
+            console.log("Token Service", this._jwtHelper.isTokenExpired(token));
             return this._jwtHelper.isTokenExpired(token);
         }
+
+        return true;
 
     }
 

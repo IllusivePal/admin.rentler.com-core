@@ -13,8 +13,11 @@ export class AuthenticationGuard implements CanActivate {
         if (this._tokenService.retriveToken('authorizationData') !== '' && this._tokenService.retriveToken('authorizationData') !== undefined)
         {
             console.log("Normal", this._tokenService.retrieveItem("redirectUrl"));
+            console.log("DECODE", this._tokenService.decodeToken(this._tokenService.retriveToken('authorizationDataIdToken')))
+            console.log("Expiration Date", this._tokenService.getTokenExpirationDate(this._tokenService.retriveToken('authorizationDataIdToken')))
             return true;
         }
+        console.log("Auth Guard is Token Expired!", this._tokenService.isTokenExpired(this._tokenService.retriveToken('authorizationData')));
         this._tokenService.setItemStorage("redirectUrl", state.url);
         console.log("RETRIEVE REDIRECT URL FROM AUTH GUARD", this._tokenService.retrieveItem('redirectUrl'))
         this._router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
