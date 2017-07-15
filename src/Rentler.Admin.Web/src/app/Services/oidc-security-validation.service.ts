@@ -39,7 +39,7 @@ export class OidcSecurityValidationService {
         let tokenExpirationDate = this.getTokenExpirationDate(decoded);
         offsetSeconds = offsetSeconds || 0;
 
-        console.log("THIS IS VALIDATION", tokenExpirationDate);
+      
 
         if (tokenExpirationDate == null) {
             return false;
