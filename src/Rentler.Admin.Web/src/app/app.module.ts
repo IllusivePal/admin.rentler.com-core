@@ -65,6 +65,5 @@ const appRoutes: Routes = [
 })
 export class AppModule {
     constructor() {
-        console.log("App Module");
     }
 }

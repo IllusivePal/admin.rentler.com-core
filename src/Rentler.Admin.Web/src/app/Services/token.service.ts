@@ -30,7 +30,6 @@ export class TokenService {
     {
        
         if (token !== '' && token !== undefined) {
-            console.log("Token Service", this._jwtHelper.isTokenExpired(token));
             return this._jwtHelper.isTokenExpired(token);
         }
 
