@@ -7,9 +7,16 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.PlatformAbstractions;
+using Microsoft.Extensions.Options;
+using Microsoft.EntityFrameworkCore;
+using System.IdentityModel.Tokens.Jwt;
+using Serilog;
+using Serilog.Configuration;
 using System.IO;
+using Rentler.Admin.Configuration;
+
 
 namespace Rentler.Admin.Web
 {
@@ -18,7 +25,7 @@ namespace Rentler.Admin.Web
           // This method gets called by the runtime. Use this method to add services to the container.
           // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
           public IConfiguration Configuration;
-          public Startup(IHostingEnvironment env)
+          public Startup(IHostingEnvironment env,ILoggerFactory loggerFactory)
           {
             var builder = new ConfigurationBuilder()
                      .SetBasePath(env.ContentRootPath)
@@ -26,49 +33,93 @@ namespace Rentler.Admin.Web
                      .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                      .AddEnvironmentVariables();
             Configuration = builder.Build();
+
+            /* Logs - Trap and Records logs */
+
+            var serilog = new LoggerConfiguration()
+                .MinimumLevel.Verbose()
+                .Enrich.FromLogContext()
+                .WriteTo.File(@"Rentler.Admin.Log.txt");
+            
+            if(env.IsDevelopment())
+            {
+                serilog.WriteTo.LiterateConsole(outputTemplate: "[{Timestamp:HH:mm:ss} {Level}] {SourceContext}{NewLine}{Message}{NewLine}{Exception}{NewLine}");
+
+            }
+
+            loggerFactory.WithFilter(new FilterLoggerSettings {
+                { "IdentityServer",LogLevel.Debug},
+                {"Microsoft", LogLevel.Information },
+                {"System",LogLevel.Error }
+                })
+                .AddSerilog(serilog.CreateLogger());
+
+
+           /* End */
           }
 
           public void ConfigureServices(IServiceCollection services)
           {
-                  services.AddMvc();
+                  services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
+
+                  services.AddSingleton(Configuration);
+                  services.AddMvc().AddJsonOptions(jsonoptions => {
+                    jsonoptions.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
+                  });
+                  // DI to Register
+                  RegisterDependencyInjection(services);
+                  var GlobalClaimOnly = new string[] { "Global" };
+                  var SuperClaimOnly = new string[] { "super" };
+                  var GlobalServiceClaimOnly = new string[] { "Global", "Service" };
+                  var GlblSrvceSalesClaimOnly = new string[] { "Global", "Service", "Sales" };
+                  services.AddAuthorization(options => {
+                      options.AddPolicy("GlobalClaim",policy => policy.RequireClaim("role",GlobalClaimOnly));
+                      options.AddPolicy("SuperClaim", policy => policy.RequireClaim("role", SuperClaimOnly));
+                      options.AddPolicy("GlobalServiceClaim", policy => policy.RequireClaim("role", GlobalServiceClaimOnly));
+                      options.AddPolicy("GlblSrvceSalesClaim", policy => policy.RequireClaim("role", GlblSrvceSalesClaimOnly));
+                  });
+
+          }
+
+          //This method contains Services for registration
+          public void RegisterDependencyInjection(IServiceCollection service)
+          {
           }
 
           // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
           public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
-          {
-                  loggerFactory.AddConsole();
-
-                  if (env.IsDevelopment())
-                  {
-                      app.UseDeveloperExceptionPage();
-                  }
-
-                  var authserver = Configuration.GetSection("AppSettings:RentlerAuthServer").Value;
-                  app.UseJwtBearerAuthentication(new JwtBearerOptions
-                  {
-                    Authority = authserver,
-                    RequireHttpsMetadata = false,
-                    Audience = "admin.rentler.com-core.api"
-
-                    //Audience = authServer + "/resources"
-                    //the URI of a resource a user wants to access, others use scope names could be use as an audience
-                  });
-
-                  app.Use(async (context, next) => {
-                      await next();
-                      if (context.Response.StatusCode == 404 &&
-                         !Path.HasExtension(context.Request.Path.Value) &&
-                         !context.Request.Path.Value.StartsWith("/api/"))
+              {
+                      JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+                      loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+                      loggerFactory.AddDebug();
+                      
+                  
+                      var authserver = Configuration.GetSection("AppSettings:RentlerAuthServer").Value;
+                      app.UseJwtBearerAuthentication(new JwtBearerOptions
                       {
-                          context.Request.Path = "/index.html";
-                          await next();
-                      }
-                  });
+                        Authority = authserver,
+                        RequireHttpsMetadata = false,
+                        Audience = "admin.rentler.com-core.api"
 
-                  app.ApplicationServices.GetService<IHttpContextAccessor>();
-                  app.UseMvcWithDefaultRoute();
-                  app.UseDefaultFiles();
-                  app.UseStaticFiles();
-          }
+                        //Audience = authServer + "/resources"
+                        //the URI of a resource a user wants to access, others use scope names could be use as an audience
+                      });
+
+                      app.ApplicationServices.GetService<IHttpContextAccessor>();
+
+                      app.Use(async (context, next) => {
+                          await next();
+                          if (context.Response.StatusCode == 404 &&
+                             !Path.HasExtension(context.Request.Path.Value) &&
+                             !context.Request.Path.Value.StartsWith("/api/"))
+                          {
+                              context.Request.Path = "/index.html";
+                              await next();
+                          }
+                      });
+                      app.UseDefaultFiles();
+                      app.UseStaticFiles();
+                      app.UseMvc();
+              }
     }
 }

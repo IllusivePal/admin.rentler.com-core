@@ -1,0 +1,1 @@
+C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Admin\obj\Debug\Rentler.Admin.AssemblyInfo.cs
