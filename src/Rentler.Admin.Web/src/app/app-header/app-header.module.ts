@@ -23,9 +23,9 @@ import { httpServiceFactory } from '../factories/http-service.factories'
         RouterModule
      
     ],
-    declarations: [HeaderComponent, UserProfilesComponent, LoaderComponent],
-    exports: [HeaderComponent, UserProfilesComponent, LoaderComponent],
-    providers: [
+    declarations: [HeaderComponent, UserProfilesComponent],
+    exports: [HeaderComponent, UserProfilesComponent]
+    /*providers: [
         ProgressbarService,
         {
             provide: HttpService,
@@ -33,6 +33,6 @@ import { httpServiceFactory } from '../factories/http-service.factories'
             deps: [XHRBackend, RequestOptions, ProgressbarService]
         }
        
-    ]
+    ]*/
 })
 export class AppHeaderModule { }

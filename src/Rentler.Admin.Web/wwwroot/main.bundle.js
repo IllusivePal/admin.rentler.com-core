@@ -83,19 +83,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var AuthConfigurationService = (function () {
     function AuthConfigurationService() {
         // The Issuer Identifier for the OpenID Provider (which is typically obtained during Discovery) MUST exactly match the value of the iss (issuer) Claim.
-        this.iss = 'http://localhost:3000';
-        this.server = 'http://localhost:3000';
+        this.iss = 'http://localhost:5000';
+        this.server = 'http://localhost:5000';
         this.redirect_url = 'http://localhost:4200';
         // This is required to get the signing keys so that the signiture of the Jwt can be validated.
-        this.jwks_url = 'http://localhost:3000/.well-known/openid-configuration/jwks';
-        this.userinfo_url = 'http://localhost:3000/connect/userinfo';
+        this.jwks_url = 'http://localhost:5000/.well-known/openid-configuration/jwks';
+        this.userinfo_url = 'http://localhost:5000/connect/userinfo';
         // The Client MUST validate that the aud (audience) Claim contains its client_id value registered at the Issuer identified by the iss (issuer) Claim as an audience.
         // The ID Token MUST be rejected if the ID Token does not list the Client as a valid audience, or if it contains additional audiences not trusted by the Client.
         this.client_id = 'Rentler.Admin.ID';
         this.response_type = 'id_token token';
         this.scope = 'openid profile admin.rentler.com-core.api';
         this.post_logout_redirect_uri = 'http://localhost:4200/login';
-        this.logoutEndSession_url = 'http://localhost:3000/connect/endsession';
+        this.logoutEndSession_url = 'http://localhost:5000/connect/endsession';
     }
     return AuthConfigurationService;
 }());
@@ -993,11 +993,6 @@ FooterComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_shared_shared_module__ = __webpack_require__("../../../../../src/app/shared/shared.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__user_profiles_user_profiles_component__ = __webpack_require__("../../../../../src/app/app-header/user-profiles/user-profiles.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_header_loader_loader_component__ = __webpack_require__("../../../../../src/app/app-header/loader/loader.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Services_progressbar_service__ = __webpack_require__("../../../../../src/app/Services/progressbar.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__Services_http_service__ = __webpack_require__("../../../../../src/app/Services/http.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__factories_http_service_factories__ = __webpack_require__("../../../../../src/app/factories/http-service.factories.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppHeaderModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1005,11 +1000,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
-
-
-
-
 
 
 
@@ -1028,16 +1018,17 @@ AppHeaderModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_3__app_shared_shared_module__["a" /* SharedModule */],
             __WEBPACK_IMPORTED_MODULE_5__angular_router__["a" /* RouterModule */]
         ],
-        declarations: [__WEBPACK_IMPORTED_MODULE_2__header_header_component__["a" /* HeaderComponent */], __WEBPACK_IMPORTED_MODULE_4__user_profiles_user_profiles_component__["a" /* UserProfilesComponent */], __WEBPACK_IMPORTED_MODULE_6__app_header_loader_loader_component__["a" /* LoaderComponent */]],
-        exports: [__WEBPACK_IMPORTED_MODULE_2__header_header_component__["a" /* HeaderComponent */], __WEBPACK_IMPORTED_MODULE_4__user_profiles_user_profiles_component__["a" /* UserProfilesComponent */], __WEBPACK_IMPORTED_MODULE_6__app_header_loader_loader_component__["a" /* LoaderComponent */]],
-        providers: [
-            __WEBPACK_IMPORTED_MODULE_7__Services_progressbar_service__["a" /* ProgressbarService */],
+        declarations: [__WEBPACK_IMPORTED_MODULE_2__header_header_component__["a" /* HeaderComponent */], __WEBPACK_IMPORTED_MODULE_4__user_profiles_user_profiles_component__["a" /* UserProfilesComponent */]],
+        exports: [__WEBPACK_IMPORTED_MODULE_2__header_header_component__["a" /* HeaderComponent */], __WEBPACK_IMPORTED_MODULE_4__user_profiles_user_profiles_component__["a" /* UserProfilesComponent */]]
+        /*providers: [
+            ProgressbarService,
             {
-                provide: __WEBPACK_IMPORTED_MODULE_9__Services_http_service__["a" /* HttpService */],
-                useFactory: __WEBPACK_IMPORTED_MODULE_10__factories_http_service_factories__["a" /* httpServiceFactory */],
-                deps: [__WEBPACK_IMPORTED_MODULE_8__angular_http__["XHRBackend"], __WEBPACK_IMPORTED_MODULE_8__angular_http__["RequestOptions"], __WEBPACK_IMPORTED_MODULE_7__Services_progressbar_service__["a" /* ProgressbarService */]]
+                provide: HttpService,
+                useFactory: httpServiceFactory,
+                deps: [XHRBackend, RequestOptions, ProgressbarService]
             }
-        ]
+           
+        ]*/
     })
 ], AppHeaderModule);
 
@@ -1079,8 +1070,7 @@ module.exports = "<app-loader></app-loader>\r\n<nav class=\"docs-navbar\">\r\n  
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Services_token_service__ = __webpack_require__("../../../../../src/app/Services/token.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Services_oidc_security_service__ = __webpack_require__("../../../../../src/app/Services/oidc-security.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__guard_authentication_guard__ = __webpack_require__("../../../../../src/app/guard/authentication.guard.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Services_progressbar_service__ = __webpack_require__("../../../../../src/app/Services/progressbar.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Services_users_service__ = __webpack_require__("../../../../../src/app/Services/users.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Services_users_service__ = __webpack_require__("../../../../../src/app/Services/users.service.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HeaderComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1097,15 +1087,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 var HeaderComponent = (function () {
-    function HeaderComponent(_toastService, _tokenService, _securityService, _guard, _progressBar, _userService) {
+    function HeaderComponent(_toastService, _tokenService, _securityService, _guard, _user) {
         this._toastService = _toastService;
         this._tokenService = _tokenService;
         this._securityService = _securityService;
         this._guard = _guard;
-        this._progressBar = _progressBar;
-        this._userService = _userService;
+        this._user = _user;
     }
     HeaderComponent.prototype.ngOnInit = function () {
     };
@@ -1113,7 +1101,7 @@ var HeaderComponent = (function () {
         this.subscription.unsubscribe();
     };
     HeaderComponent.prototype.startProgress = function () {
-        this._userService.GetAll();
+        this._user.GetAll();
     };
     HeaderComponent.prototype.logout = function () {
         this._securityService.Logoff();
@@ -1126,10 +1114,10 @@ HeaderComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/app-header/header/header.component.html"),
         styles: [__webpack_require__("../../../../../src/app/app-header/header/header.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__Services_toast_service__["a" /* ToastService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__Services_toast_service__["a" /* ToastService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__Services_token_service__["a" /* TokenService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__Services_token_service__["a" /* TokenService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__Services_oidc_security_service__["a" /* OidcSecurityService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__Services_oidc_security_service__["a" /* OidcSecurityService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__guard_authentication_guard__["a" /* AuthenticationGuard */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__guard_authentication_guard__["a" /* AuthenticationGuard */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__Services_progressbar_service__["a" /* ProgressbarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__Services_progressbar_service__["a" /* ProgressbarService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_6__Services_users_service__["a" /* UsersService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__Services_users_service__["a" /* UsersService */]) === "function" && _f || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__Services_toast_service__["a" /* ToastService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__Services_toast_service__["a" /* ToastService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__Services_token_service__["a" /* TokenService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__Services_token_service__["a" /* TokenService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__Services_oidc_security_service__["a" /* OidcSecurityService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__Services_oidc_security_service__["a" /* OidcSecurityService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__guard_authentication_guard__["a" /* AuthenticationGuard */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__guard_authentication_guard__["a" /* AuthenticationGuard */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__Services_users_service__["a" /* UsersService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__Services_users_service__["a" /* UsersService */]) === "function" && _e || Object])
 ], HeaderComponent);
 
-var _a, _b, _c, _d, _e, _f;
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=header.component.js.map
 
 /***/ }),
@@ -1662,8 +1650,13 @@ var AngularReduxRequest = (function (_super) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__Services_auth_configuration_service__ = __webpack_require__("../../../../../src/app/Services/auth-configuration.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__Services_toast_service__ = __webpack_require__("../../../../../src/app/Services/toast.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__Services_users_service__ = __webpack_require__("../../../../../src/app/Services/users.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__guard_authentication_guard__ = __webpack_require__("../../../../../src/app/guard/authentication.guard.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__shared_unknown_page_unknown_page_component__ = __webpack_require__("../../../../../src/app/shared/unknown-page/unknown-page.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__Services_progressbar_service__ = __webpack_require__("../../../../../src/app/Services/progressbar.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__Services_http_service__ = __webpack_require__("../../../../../src/app/Services/http.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__factories_http_service_factories__ = __webpack_require__("../../../../../src/app/factories/http-service.factories.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__guard_authentication_guard__ = __webpack_require__("../../../../../src/app/guard/authentication.guard.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__shared_unknown_page_unknown_page_component__ = __webpack_require__("../../../../../src/app/shared/unknown-page/unknown-page.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__app_header_loader_loader_component__ = __webpack_require__("../../../../../src/app/app-header/loader/loader.component.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SharedModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1684,10 +1677,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-//import { ProgressbarService } from '../Services/progressbar.service';
+//Testing
+
+
+
+
 //Guard
 
 //Component
+
 
 var SharedModule = (function () {
     function SharedModule() {
@@ -1704,9 +1702,14 @@ SharedModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_3__angular_material__["b" /* MdTableModule */],
             __WEBPACK_IMPORTED_MODULE_5__angular_cdk__["a" /* CdkTableModule */]
         ],
-        exports: [__WEBPACK_IMPORTED_MODULE_1__angular_common__["a" /* CommonModule */], __WEBPACK_IMPORTED_MODULE_2_ng2_toasty__["a" /* ToastyModule */], __WEBPACK_IMPORTED_MODULE_3__angular_material__["a" /* MaterialModule */], __WEBPACK_IMPORTED_MODULE_4__angular_flex_layout__["a" /* FlexLayoutModule */], __WEBPACK_IMPORTED_MODULE_13__shared_unknown_page_unknown_page_component__["a" /* UnknownPageComponent */], __WEBPACK_IMPORTED_MODULE_3__angular_material__["b" /* MdTableModule */], __WEBPACK_IMPORTED_MODULE_5__angular_cdk__["a" /* CdkTableModule */]],
-        providers: [__WEBPACK_IMPORTED_MODULE_6__Services_token_service__["a" /* TokenService */], __WEBPACK_IMPORTED_MODULE_7__Services_oidc_security_service__["a" /* OidcSecurityService */], __WEBPACK_IMPORTED_MODULE_8__Services_oidc_security_validation_service__["a" /* OidcSecurityValidationService */], __WEBPACK_IMPORTED_MODULE_9__Services_auth_configuration_service__["a" /* AuthConfigurationService */], __WEBPACK_IMPORTED_MODULE_10__Services_toast_service__["a" /* ToastService */], __WEBPACK_IMPORTED_MODULE_12__guard_authentication_guard__["a" /* AuthenticationGuard */], __WEBPACK_IMPORTED_MODULE_11__Services_users_service__["a" /* UsersService */]],
-        declarations: [__WEBPACK_IMPORTED_MODULE_13__shared_unknown_page_unknown_page_component__["a" /* UnknownPageComponent */]]
+        exports: [__WEBPACK_IMPORTED_MODULE_1__angular_common__["a" /* CommonModule */], __WEBPACK_IMPORTED_MODULE_2_ng2_toasty__["a" /* ToastyModule */], __WEBPACK_IMPORTED_MODULE_3__angular_material__["a" /* MaterialModule */], __WEBPACK_IMPORTED_MODULE_4__angular_flex_layout__["a" /* FlexLayoutModule */], __WEBPACK_IMPORTED_MODULE_17__shared_unknown_page_unknown_page_component__["a" /* UnknownPageComponent */], __WEBPACK_IMPORTED_MODULE_3__angular_material__["b" /* MdTableModule */], __WEBPACK_IMPORTED_MODULE_5__angular_cdk__["a" /* CdkTableModule */], __WEBPACK_IMPORTED_MODULE_18__app_header_loader_loader_component__["a" /* LoaderComponent */]],
+        providers: [__WEBPACK_IMPORTED_MODULE_6__Services_token_service__["a" /* TokenService */], __WEBPACK_IMPORTED_MODULE_7__Services_oidc_security_service__["a" /* OidcSecurityService */], __WEBPACK_IMPORTED_MODULE_8__Services_oidc_security_validation_service__["a" /* OidcSecurityValidationService */], __WEBPACK_IMPORTED_MODULE_9__Services_auth_configuration_service__["a" /* AuthConfigurationService */], __WEBPACK_IMPORTED_MODULE_10__Services_toast_service__["a" /* ToastService */], __WEBPACK_IMPORTED_MODULE_16__guard_authentication_guard__["a" /* AuthenticationGuard */], __WEBPACK_IMPORTED_MODULE_11__Services_users_service__["a" /* UsersService */],
+            __WEBPACK_IMPORTED_MODULE_12__Services_progressbar_service__["a" /* ProgressbarService */], {
+                provide: __WEBPACK_IMPORTED_MODULE_14__Services_http_service__["a" /* HttpService */],
+                useFactory: __WEBPACK_IMPORTED_MODULE_15__factories_http_service_factories__["a" /* httpServiceFactory */],
+                deps: [__WEBPACK_IMPORTED_MODULE_13__angular_http__["XHRBackend"], __WEBPACK_IMPORTED_MODULE_13__angular_http__["RequestOptions"], __WEBPACK_IMPORTED_MODULE_12__Services_progressbar_service__["a" /* ProgressbarService */]]
+            }],
+        declarations: [__WEBPACK_IMPORTED_MODULE_17__shared_unknown_page_unknown_page_component__["a" /* UnknownPageComponent */], __WEBPACK_IMPORTED_MODULE_18__app_header_loader_loader_component__["a" /* LoaderComponent */]]
     })
 ], SharedModule);
 
