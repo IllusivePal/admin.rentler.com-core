@@ -3,10 +3,9 @@ import { ToastService } from '../../Services/toast.service';
 import { TokenService } from '../../Services/token.service';
 import { OidcSecurityService } from '../../Services/oidc-security.service';
 import { AuthenticationGuard } from '../../guard/authentication.guard';
-import { ProgressbarService } from '../../Services/progressbar.service';
 import { Subscription } from 'rxjs/Subscription';
-
 import { UsersService } from '../../Services/users.service';
+
 
 @Component({
     selector: 'app-header',
@@ -21,8 +20,7 @@ export class HeaderComponent implements OnInit {
         , private _tokenService: TokenService
         , private _securityService: OidcSecurityService
         , private _guard: AuthenticationGuard
-        , private _progressBar: ProgressbarService,
-        private _userService: UsersService) {
+        , private _user: UsersService) {
 
        
     }
@@ -37,7 +35,7 @@ export class HeaderComponent implements OnInit {
     }
     startProgress()
     {
-        this._userService.GetAll();
+        this._user.GetAll();
     }
 
   logout()

@@ -14,7 +14,6 @@ import 'rxjs/add/operator/map';
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
-  //providers: [UsersService]
 })
 export class DashboardComponent implements OnInit {
     displayedColumns = ['userId', 'userName', 'progress', 'color'];
@@ -30,12 +29,13 @@ export class DashboardComponent implements OnInit {
         //this._userService.GetAll().subscribe((res) => {
            // console.log("THIS IS AWESOME SUBSCRIBE", res);
         //});
+        this._userService.GetAll();
     }
 
     startProgress()
     {
         console.log("TEST Progress");
-        //this._progressBar.start("indeterminate","primary");
+        this._userService.GetAll();
     }
 
 }

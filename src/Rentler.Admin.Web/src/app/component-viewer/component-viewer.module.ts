@@ -355,7 +355,7 @@ const appRoutes: Routes =
       RouterModule.forChild(appRoutes)
   ],
   declarations: [ComponentViewerComponent, DashboardComponent, SubscriptionComponent, ApplicationsComponent, CommunitiesComponent, ScreeningComponent, IdverifyComponent, AllUsersComponent, WatchListComponent, RolesComponent, BuildingComponent, ReportedComponent, PremierComponent, NonupgradedComponent, CategoryComponent, ProviderComponent, PaymentInvitesComponent, PaymentComponent, BankAccountsComponent, PaymentSeriesComponent, TransactionsComponent, LegalEntitiesComponent, MerchantAccountsComponent, PaymentCapsComponent, OrderComponent, PromoComponent, PageComponent, BlogComponent, CommunityComponent],
-  exports: [ComponentViewerComponent]
+  exports: [ComponentViewerComponent, DashboardComponent, SubscriptionComponent, ApplicationsComponent, CommunitiesComponent, ScreeningComponent, IdverifyComponent, AllUsersComponent, WatchListComponent, RolesComponent, BuildingComponent, ReportedComponent, PremierComponent, NonupgradedComponent, CategoryComponent, ProviderComponent, PaymentInvitesComponent, PaymentComponent, BankAccountsComponent, PaymentSeriesComponent, TransactionsComponent, LegalEntitiesComponent, MerchantAccountsComponent, PaymentCapsComponent, OrderComponent, PromoComponent, PageComponent, BlogComponent, CommunityComponent]
 })
 export class ComponentViewerModule {
     constructor() {

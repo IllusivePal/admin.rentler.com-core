@@ -14,14 +14,19 @@ import { OidcSecurityValidationService } from '../Services/oidc-security-validat
 import { AuthConfigurationService } from '../Services/auth-configuration.service';
 import { ToastService } from '../Services/toast.service';
 import { UsersService } from '../Services/users.service';
-//import { ProgressbarService } from '../Services/progressbar.service';
 
+//Testing
+import { ProgressbarService } from '../Services/progressbar.service';
+import { XHRBackend, RequestOptions } from '@angular/http';
+import { HttpService } from '../Services/http.service';
+import { httpServiceFactory } from '../factories/http-service.factories';
 //Guard
 import { AuthenticationGuard } from '../guard/authentication.guard';
 import { LoginGuard } from '../guard/login.guard';
 
 //Component
 import { UnknownPageComponent } from '../shared/unknown-page/unknown-page.component';
+import { LoaderComponent } from '../app-header/loader/loader.component';
 
 @NgModule({
   imports: [
@@ -32,8 +37,13 @@ import { UnknownPageComponent } from '../shared/unknown-page/unknown-page.compon
       MdTableModule,
       CdkTableModule
     ],
-  exports: [CommonModule, ToastyModule, MaterialModule, FlexLayoutModule, UnknownPageComponent, MdTableModule, CdkTableModule],
-  providers: [TokenService, OidcSecurityService, OidcSecurityValidationService, AuthConfigurationService, ToastService, AuthenticationGuard, UsersService],
-  declarations: [UnknownPageComponent]
+  exports: [CommonModule, ToastyModule, MaterialModule, FlexLayoutModule, UnknownPageComponent, MdTableModule, CdkTableModule, LoaderComponent],
+  providers: [TokenService, OidcSecurityService, OidcSecurityValidationService, AuthConfigurationService, ToastService, AuthenticationGuard, UsersService,
+      ProgressbarService, {
+      provide: HttpService,
+      useFactory: httpServiceFactory,
+      deps: [XHRBackend, RequestOptions, ProgressbarService]
+  }],
+  declarations: [UnknownPageComponent, LoaderComponent]
 })
 export class SharedModule { }
