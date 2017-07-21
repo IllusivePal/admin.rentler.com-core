@@ -16,6 +16,7 @@ namespace Rentler.Admin.Web
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2","value3", "Value" };
+            
         }
 
         // GET api/values/5

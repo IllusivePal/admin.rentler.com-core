@@ -16,7 +16,8 @@ using Serilog;
 using Serilog.Configuration;
 using System.IO;
 using Rentler.Admin.Configuration;
-
+using Rentler.Admin.DataAccess;
+using Rentler.Admin.DataAccess.Entities;
 
 namespace Rentler.Admin.Web
 {
@@ -61,7 +62,6 @@ namespace Rentler.Admin.Web
           public void ConfigureServices(IServiceCollection services)
           {
                   services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
-
                   services.AddSingleton(Configuration);
                   services.AddMvc().AddJsonOptions(jsonoptions => {
                     jsonoptions.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
@@ -84,6 +84,9 @@ namespace Rentler.Admin.Web
           //This method contains Services for registration
           public void RegisterDependencyInjection(IServiceCollection service)
           {
+                var connectionString = Configuration.GetConnectionString("ConnectionString");
+                                  service.AddDbContext<RentlerEntities>(opt => opt.UseSqlServer(connectionString))
+                                          .AddScoped<IEntityMapper, RentlerEntityMapper>();
           }
 
           // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
