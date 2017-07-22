@@ -69,8 +69,26 @@ namespace Rentler.Admin
                 new PropertyMap() as IEntityMap,
                 new RecurringPaymentMap() as IEntityMap,
                 new RefreshScheduleMap() as IEntityMap,
-                new RentalApplicantMap() as IEntityMap
-                
+                new RentalApplicantMap() as IEntityMap,
+                new RentalApplicationMap() as IEntityMap,
+                new RentalApplicationUserMap() as IEntityMap,
+                new RoleMap() as IEntityMap,
+                new SavedBuildingMap() as IEntityMap,
+                new ScammerMap() as IEntityMap,
+                new TenantApplicationMap() as IEntityMap,
+                new TenantMap() as IEntityMap,
+                new ThreadMap() as IEntityMap,
+                new TransactionMap() as IEntityMap,
+                new TransferMap() as IEntityMap,
+                new UserMap() as IEntityMap,
+                new UserSettingMap() as IEntityMap,
+                new VendorSignupMap() as IEntityMap,
+                new VerificationMap() as IEntityMap,
+                new ZipInfoMap() as IEntityMap
+
+
+
+
 
 
             };

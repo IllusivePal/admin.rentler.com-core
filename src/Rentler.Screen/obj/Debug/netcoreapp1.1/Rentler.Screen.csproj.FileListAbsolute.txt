@@ -1,0 +1,6 @@
+C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Screen\bin\Debug\netcoreapp1.1\Rentler.Screen.deps.json
+C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Screen\bin\Debug\netcoreapp1.1\Rentler.Screen.dll
+C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Screen\bin\Debug\netcoreapp1.1\Rentler.Screen.pdb
+C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Screen\obj\Debug\netcoreapp1.1\Rentler.Screen.AssemblyInfo.cs
+C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Screen\obj\Debug\netcoreapp1.1\Rentler.Screen.dll
+C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Screen\obj\Debug\netcoreapp1.1\Rentler.Screen.pdb

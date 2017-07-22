@@ -1,0 +1,7 @@
+C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Cache\bin\Debug\netcoreapp1.1\Rentler.Cache.deps.json
+C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Cache\bin\Debug\netcoreapp1.1\Rentler.Cache.dll
+C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Cache\bin\Debug\netcoreapp1.1\Rentler.Cache.pdb
+C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Cache\obj\Debug\netcoreapp1.1\Rentler.Cache.csprojResolveAssemblyReference.cache
+C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Cache\obj\Debug\netcoreapp1.1\Rentler.Cache.AssemblyInfo.cs
+C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Cache\obj\Debug\netcoreapp1.1\Rentler.Cache.dll
+C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Cache\obj\Debug\netcoreapp1.1\Rentler.Cache.pdb

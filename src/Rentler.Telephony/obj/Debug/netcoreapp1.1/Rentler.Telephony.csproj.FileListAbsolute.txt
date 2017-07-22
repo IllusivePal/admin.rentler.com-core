@@ -1,0 +1,6 @@
+C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Telephony\bin\Debug\netcoreapp1.1\Rentler.Telephony.deps.json
+C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Telephony\bin\Debug\netcoreapp1.1\Rentler.Telephony.dll
+C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Telephony\bin\Debug\netcoreapp1.1\Rentler.Telephony.pdb
+C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Telephony\obj\Debug\netcoreapp1.1\Rentler.Telephony.AssemblyInfo.cs
+C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Telephony\obj\Debug\netcoreapp1.1\Rentler.Telephony.dll
+C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Telephony\obj\Debug\netcoreapp1.1\Rentler.Telephony.pdb
