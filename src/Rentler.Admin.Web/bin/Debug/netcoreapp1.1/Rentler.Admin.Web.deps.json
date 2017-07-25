@@ -44,6 +44,7 @@
           "MongoDB.Driver.Core": "2.4.4",
           "NEST": "5.4.0",
           "Rentler.Admin": "1.0.0",
+          "Rentler.Cache": "1.0.0",
           "Serilog": "2.5.0",
           "Serilog.Extensions.Logging": "1.4.0",
           "Serilog.Sinks.File": "3.2.0",
@@ -2394,6 +2395,19 @@
         },
         "compile": {
           "Rentler.Admin.dll": {}
+        }
+      },
+      "rentler.cache/1.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Options": "1.1.2",
+          "Microsoft.NETCore.App": "1.1.2",
+          "ServiceStack.Redis.Core": "1.0.43"
+        },
+        "runtime": {
+          "Rentler.Cache.dll": {}
+        },
+        "compile": {
+          "Rentler.Cache.dll": {}
         }
       },
       "libuv/1.9.1": {
@@ -5051,6 +5065,11 @@
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
     },
     "rentler.admin/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "rentler.cache/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

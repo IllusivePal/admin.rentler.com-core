@@ -4751,6 +4751,15 @@
           "System.Reflection.TypeExtensions": "4.3.0",
           "protobuf-net": "2.3.0"
         }
+      },
+      "Rentler.Cache/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v1.1",
+        "dependencies": {
+          "Microsoft.Extensions.Options": "1.1.2",
+          "Microsoft.NETCore.App": "1.1.2",
+          "ServiceStack.Redis.Core": "1.0.43"
+        }
       }
     }
   },
@@ -11929,6 +11938,11 @@
       "type": "project",
       "path": "../Rentler.Admin/Rentler.Admin.csproj",
       "msbuildProject": "../Rentler.Admin/Rentler.Admin.csproj"
+    },
+    "Rentler.Cache/1.0.0": {
+      "type": "project",
+      "path": "../Rentler.Cache/Rentler.Cache.csproj",
+      "msbuildProject": "../Rentler.Cache/Rentler.Cache.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -11954,6 +11968,7 @@
       "MongoDB.Driver.Core >= 2.4.4",
       "NEST >= 5.4.0",
       "Rentler.Admin >= 1.0.0",
+      "Rentler.Cache >= 1.0.0",
       "Serilog >= 2.5.0",
       "Serilog.Extensions.Logging >= 1.4.0",
       "Serilog.Sinks.File >= 3.2.0",
@@ -11982,6 +11997,9 @@
       "frameworks": {
         "netcoreapp1.1": {
           "projectReferences": {
+            "C:\\Users\\Kyamc\\rentler-app\\kyamctesting\\admin.rentler.com-core\\src\\Rentler.Cache\\Rentler.Cache.csproj": {
+              "projectPath": "C:\\Users\\Kyamc\\rentler-app\\kyamctesting\\admin.rentler.com-core\\src\\Rentler.Cache\\Rentler.Cache.csproj"
+            },
             "C:\\Users\\Kyamc\\rentler-app\\kyamctesting\\admin.rentler.com-core\\src\\Rentler.Admin\\Rentler.Admin.csproj": {
               "projectPath": "C:\\Users\\Kyamc\\rentler-app\\kyamctesting\\admin.rentler.com-core\\src\\Rentler.Admin\\Rentler.Admin.csproj"
             }
