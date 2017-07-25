@@ -58,6 +58,7 @@
   
   <ItemGroup>
     <ProjectReference Include="..\Rentler.Admin\Rentler.Admin.csproj" />
+    <ProjectReference Include="..\Rentler.Cache\Rentler.Cache.csproj" />
   </ItemGroup>
 
 </Project>

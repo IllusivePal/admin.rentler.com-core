@@ -18,6 +18,7 @@ using System.IO;
 using Rentler.Admin.Configuration;
 using Rentler.Admin.DataAccess;
 using Rentler.Admin.DataAccess.Entities;
+using Rentler.Cache.Redis;
 
 namespace Rentler.Admin.Web
 {
@@ -62,6 +63,9 @@ namespace Rentler.Admin.Web
           public void ConfigureServices(IServiceCollection services)
           {
                   services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
+                  services.Configure<RedisConfig>(Configuration.GetSection("RedisSettings"));
+                  services.Configure<BlobImagesConfig>(Configuration.GetSection("BlobImagesSetting"));
+
                   services.AddSingleton(Configuration);
                   services.AddMvc().AddJsonOptions(jsonoptions => {
                     jsonoptions.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
