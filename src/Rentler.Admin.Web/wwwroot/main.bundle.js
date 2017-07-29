@@ -156,7 +156,7 @@ var HttpService = (function (_super) {
     HttpService.prototype.get = function (url, options) {
         var _this = this;
         this.showLoader();
-        return _super.prototype.get.call(this, this.getFullUrl(url), this.requestOptions(options))
+        return _super.prototype.get.call(this, "/api/Test", this.requestOptions(options))
             .catch(this.onCatch)
             .do(function (res) {
             _this.onSuccess(res);
@@ -177,6 +177,7 @@ var HttpService = (function (_super) {
         return options;
     };
     HttpService.prototype.getFullUrl = function (url) {
+        console.log("Full Url", this.apiUrl + url);
         return this.apiUrl + url;
     };
     HttpService.prototype.onCatch = function (error, caught) {
@@ -841,7 +842,8 @@ TokenService = __decorate([
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__http_service__ = __webpack_require__("../../../../../src/app/Services/http.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__http_service__ = __webpack_require__("../../../../../src/app/Services/http.service.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UsersService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -854,31 +856,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var UsersService = (function () {
-    function UsersService(_http) {
+    function UsersService(_http, _http2) {
         this._http = _http;
+        this._http2 = _http2;
     }
     UsersService.prototype.extractData = function (res) {
     };
     UsersService.prototype.GetAll = function () {
-        //var a = new Headers();
-        //return this._http.get("/api/Test").map(this.extractData);
-        return this._http.get("test").map(function (res) {
-            var body = res.json();
+        var a = new Headers();
+        return this._http2.get("/api/Test").map(function (res) { return res.json(); });
+        /*return this._http.get("test").map((res: Response) => {
+            let body = res.json();
             return body.data || {};
         })
-            .subscribe(function (action) {
-            //Test;
-        });
+            .subscribe((action) => {
+                //Test;
+            });*/
     };
     return UsersService;
 }());
 UsersService = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__http_service__["a" /* HttpService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__http_service__["a" /* HttpService */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__http_service__["a" /* HttpService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__http_service__["a" /* HttpService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["Http"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["Http"]) === "function" && _b || Object])
 ], UsersService);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=users.service.js.map
 
 /***/ }),
@@ -1684,6 +1688,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 //Guard
 
+//import { LoginGuard } from '../guard/login.guard';
 //Component
 
 

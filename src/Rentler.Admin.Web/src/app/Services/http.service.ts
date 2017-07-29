@@ -30,7 +30,7 @@ export class HttpService extends Http {
 
         this.showLoader();
 
-        return super.get(this.getFullUrl(url), this.requestOptions(options))
+        return super.get("/api/Test", this.requestOptions(options))
             .catch(this.onCatch)
             .do((res: Response) => {
                 this.onSuccess(res);
@@ -56,6 +56,7 @@ export class HttpService extends Http {
         return options;
     }
     private getFullUrl(url: string): string {
+        console.log("Full Url", this.apiUrl + url)
         return this.apiUrl + url;
     }
     private onCatch(error: any, caught: Observable<any>): Observable<any> {

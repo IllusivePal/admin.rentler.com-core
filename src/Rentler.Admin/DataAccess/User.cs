@@ -11,6 +11,7 @@ namespace Rentler.Admin.DataAccess
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     
     public partial class User
     {
@@ -85,7 +86,64 @@ namespace Rentler.Admin.DataAccess
         public string InvoiceContactPhone { get; set; }
         public bool CanAccessForms { get; set; }
         public string UserResourceId { get; set; }
-    
+
+        public Common.UserPreview ToUserPreview()
+        {
+            var user = new Common.UserPreview
+            {
+
+                UserId = this.UserId,
+                Email = this.Email,
+                Username = this.Username,
+                FirstName = this.FirstName,
+                LastName = this.LastName,
+                CreateDateUtc = this.CreateDateUtc,
+                IsDeleted = this.IsDeleted,
+                IsScammer = this.Scammer != null,
+                UpgradeDetail = this.ToUserUpgradeDetail()
+            };
+
+            return user;
+        }
+        public Common.User ToUser()
+        {
+            Common.User user = new Common.User
+            {
+                UserId = this.UserId,
+                Email = this.Email,
+                Username = this.Username,
+                FirstName = this.FirstName,
+                LastName = this.LastName,
+                CreateDateUtc = this.CreateDateUtc,
+                IsScammer = this.Scammer != null,
+                IsDeleted = this.IsDeleted,
+                Roles = this.Roles.Select(r => r.RoleName).ToArray(),
+                BuildingCount = this.Buildings.Count(b => !(b.IsDeleted && b.IsRemovedByAdmin)),
+                OrderCount = this.Orders.Count(o => o.OrderStatusCode == 2),
+                StripeSubscriptionCustomerId = this.StripeCustomerId,
+                VerifyCount = this.VerifyCount.HasValue ? this.VerifyCount.Value : 0,
+                RefreshDays = this.RefreshDays,
+                LastRefreshDateUtc = this.LastRefreshDateUtc,
+                UserResourceId = this.UserResourceId,
+                UpgradeDetail = this.ToUserUpgradeDetail()
+            };
+
+            return user;
+        }
+        public Common.AccountUpgradeDetail ToUserUpgradeDetail()
+        {
+            var result = new Common.AccountUpgradeDetail
+            {
+                AdvertisedListingCount = this.AdvertisedListingCount,
+                InvoiceContactName = this.InvoiceContactName,
+                InvoiceContactPhone = this.InvoiceContactPhone,
+                RequestPackage = this.RequestedPackage,
+                UpgradeStatus = (Common.AccountUpgradeStatus)this.UpgradeStatus
+            };
+
+            return result;
+        }
+
         public virtual AffiliateUser AffiliateUser { get; set; }
         public virtual ICollection<Applicant> Applicants { get; set; }
         public virtual ICollection<Application> Applications { get; set; }

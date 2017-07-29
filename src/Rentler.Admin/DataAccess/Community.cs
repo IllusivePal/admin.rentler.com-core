@@ -9,8 +9,11 @@
 
 namespace Rentler.Admin.DataAccess
 {
+    using Rentler.Admin.Common;
+    using Rentler.Admin.Common.Listing;
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     
     public partial class Community
     {
@@ -68,7 +71,105 @@ namespace Rentler.Admin.DataAccess
         public string CustomPhoneNumber { get; set; }
         public bool RecordCalls { get; set; }
         public Nullable<long> PropertyId { get; set; }
-    
+
+        public CommunityDetails ToCommunityDetails()
+        {
+            var community = new CommunityDetails()
+            {
+                Address = new Address
+                {
+                    Address1 = this.Address1,
+                    Address2 = this.Address2,
+                    City = this.City,
+                    State = this.State,
+                    Zip = this.Zip,
+                    Latitude = this.Latitude,
+                    Longitude = this.Longitude
+                },
+                AdvertisedListingCount = this.AdvertisedListingCount,
+                CommunityId = this.CommunityId,
+                FullHash = this.FullHash,
+                HeaderPhotoExtension = this.HeaderPhotoExtension,
+                HeaderPhotoId = this.HeaderPhotoId,
+                IsUpgraded = this.IsUpgraded,
+                MainPhotoExtension = this.MainPhotoExtension,
+                MainPhotoId = this.MainPhotoId,
+                ManagementTypeCode = this.ManagementTypeCode,
+                Nickname = this.Nickname,
+                RefreshDays = this.RefreshDays,
+                StreetHash = this.StreetHash,
+                TotalUnits = this.TotalUnits,
+                UseCustomPhoneNumbers = this.UseCustomPhoneNumbers,
+                UserId = UserId,
+                FeaturedPlacementCount = this.FeaturedPlacementCount,
+                InvoiceContactName = this.InvoiceContactName,
+                InvoiceContactPhone = this.InvoiceContactPhone,
+                RequestedPackage = this.RequestedPackage,
+                IsUnderReview = this.IsUnderReview,
+                CreateDateUtc = this.CreateDateUtc,
+                InternalName = this.InternalName,
+                User = this.User != null ? this.User.ToUser() : null,
+                IsDeleted = this.IsDeleted,
+                FeaturedCommunities = this.FeaturedCommunities.Select(x => x.ToFeaturedCommunity()).ToList(),
+                Contact = this.ContactInfo != null ? this.ContactInfo.ToContact() : null,
+                WebsiteUrl = this.WebsiteUrl,
+                OperatingHours = ToOperatingHours(),
+                HasOperatingHours = this.HasOperatingHours,
+                Description = this.Description,
+                IsSeniorRestricted = this.IsSeniorRestricted,
+                CustomPhoneId = this.CustomPhoneId,
+                CustomPhoneNumber = this.CustomPhoneNumber
+            };
+
+            if (this.CommunityAmenities != null)
+                community.Amenities = this.CommunityAmenities.Select(a => a.AmenityId).ToArray();
+
+            return community;
+        }
+         public List<Common.BusinessDay> ToOperatingHours()
+        {
+            List<Common.BusinessDay> operatingHours = new List<Common.BusinessDay>();
+
+            foreach (DayOfWeek d in Enum.GetValues(typeof(DayOfWeek)))
+                operatingHours.Add(Common.BusinessDay.Default(d));
+
+            // make monday first
+            Common.BusinessDay first = operatingHours.First();
+            operatingHours.RemoveAt(0);
+            operatingHours.Add(first);
+
+            if (!this.HasOperatingHours.HasValue || !this.HasOperatingHours.Value)
+                return operatingHours;
+
+            var operatingDays = (from d in this.OperatingDays
+                                 group new { IsClosed = d.IsClosed, OpenTime = d.OpenTime, CloseTime = d.CloseTime } by d.DayOfWeek into hours
+                                 select new
+                                 {
+                                     DayOfWeek = (DayOfWeek)hours.Key,
+                                     IsClosed = hours.Any(h => h.IsClosed),
+                                     Hours = (from h in hours
+                                              orderby h.OpenTime
+                                              select h).ToList()
+
+                                 }).ToList();
+
+            foreach (var od in operatingDays)
+            {
+                Common.BusinessDay bd = operatingHours.SingleOrDefault(
+                    oh => oh.DayOfWeek == od.DayOfWeek);
+
+                bd.IsClosed = od.IsClosed;
+                bd.Hours1 = new Common.BusinessHours(od.Hours[0].OpenTime, od.Hours[0].CloseTime);
+
+                if (od.Hours.Count > 1)
+                    bd.Hours2 = new Common.BusinessHours(od.Hours[1].OpenTime, od.Hours[1].CloseTime);
+            }
+
+            return operatingHours;
+        }
+
+
+
         public virtual ContactInfo ContactInfo { get; set; }
         public virtual ICollection<CommunityAmenity> CommunityAmenities { get; set; }
         public virtual ICollection<OperatingDay> OperatingDays { get; set; }

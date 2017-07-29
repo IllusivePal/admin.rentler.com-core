@@ -29,7 +29,20 @@ namespace Rentler.Admin.DataAccess
         public bool ShowPhoneNumber { get; set; }
         public bool IsDeleted { get; set; }
         public bool IsAcceptTextMessages { get; set; }
-    
+        public Common.Contact ToContact()
+        {
+            return new Common.Contact()
+            {
+                ContactId = this.ContactInfoId,
+                ListingType = (Rentler.Admin.Common.ListingType)this.ContactInfoTypeCode,
+                Name = this.Name,
+                CompanyName = this.CompanyName,
+                PhoneNumber = this.PhoneNumber,
+                ShowPhoneNumber = this.ShowPhoneNumber
+            };
+        }
+
+
         public virtual ICollection<Community> Communities { get; set; }
         public virtual ICollection<Building> Buildings { get; set; }
         public virtual User User { get; set; }

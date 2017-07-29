@@ -18,6 +18,7 @@
           "MongoDB.Driver": "2.4.4",
           "MongoDB.Driver.Core": "2.4.4",
           "NEST": "5.4.0",
+          "Rentler.Cache": "1.0.0",
           "ServiceStack.Redis.Core": "1.0.43",
           "Stripe.net": "10.3.0",
           "protobuf-net": "2.3.0"
@@ -975,6 +976,15 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "rentler.cache/1.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Options": "1.1.2",
+          "ServiceStack.Redis.Core": "1.0.43"
+        },
+        "runtime": {
+          "Rentler.Cache.dll": {}
+        }
       }
     }
   },
@@ -1725,6 +1735,11 @@
       "sha512": "sha512-MYoTCP7EZ98RrANESW05J5ZwskKDoN0AuZ06ZflnowE50LTpbR5yRg3tHckTVm5j/m47stuGgCrCHWePyHS70Q==",
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    },
+    "rentler.cache/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

@@ -20,7 +20,19 @@ namespace Rentler.Admin.DataAccess
         public string Content { get; set; }
         public int Points { get; set; }
         public int ActionTakenType { get; set; }
-    
+        public Common.ListingReportPreview ToListingReportPreview()
+        {
+            return new Common.ListingReport
+            {
+                BuildingId = this.BuildingId,
+                ListingReportId = this.ListingReportId,
+                ReportTypeName = ((ReportType)this.ReportType).ToString(),
+                ReportType = (ReportType)this.ReportType,
+                ActionTakenType = (ActionTakenType)this.ActionTakenType,
+                Content = this.Content,
+                Points = this.Points
+            };
+        }
         public virtual Building Building { get; set; }
     }
 }

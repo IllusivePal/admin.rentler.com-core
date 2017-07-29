@@ -4043,6 +4043,15 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
+      },
+      "Rentler.Cache/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v1.1",
+        "dependencies": {
+          "Microsoft.Extensions.Options": "1.1.2",
+          "Microsoft.NETCore.App": "1.1.2",
+          "ServiceStack.Redis.Core": "1.0.43"
+        }
       }
     }
   },
@@ -10726,6 +10735,11 @@
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._"
       ]
+    },
+    "Rentler.Cache/1.0.0": {
+      "type": "project",
+      "path": "../Rentler.Cache/Rentler.Cache.csproj",
+      "msbuildProject": "../Rentler.Cache/Rentler.Cache.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -10741,6 +10755,7 @@
       "MongoDB.Driver >= 2.4.4",
       "MongoDB.Driver.Core >= 2.4.4",
       "NEST >= 5.4.0",
+      "Rentler.Cache >= 1.0.0",
       "ServiceStack.Redis.Core >= 1.0.43",
       "Stripe.net >= 10.3.0",
       "System.Reflection.Extensions >= 4.3.0",
@@ -10764,7 +10779,11 @@
       ],
       "frameworks": {
         "netcoreapp1.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Kyamc\\rentler-app\\kyamctesting\\admin.rentler.com-core\\src\\Rentler.Cache\\Rentler.Cache.csproj": {
+              "projectPath": "C:\\Users\\Kyamc\\rentler-app\\kyamctesting\\admin.rentler.com-core\\src\\Rentler.Cache\\Rentler.Cache.csproj"
+            }
+          }
         }
       }
     },

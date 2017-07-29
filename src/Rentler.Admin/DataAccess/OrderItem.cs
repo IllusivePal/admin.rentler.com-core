@@ -21,7 +21,24 @@ namespace Rentler.Admin.DataAccess
         public string ProductOption { get; set; }
         public string ProductDescription { get; set; }
         public decimal Price { get; set; }
-    
+
+        public Common.OrderItem ToOrderItem()
+        {
+            Common.OrderItem orderItem = new Common.OrderItem
+            {
+                OrderItemId = this.OrderItemId,
+                OrderId = this.OrderId,
+                Quantity = this.Quantity,
+                ProductId = this.ProductId,
+                ProductOption = this.ProductOption,
+                ProductDescription = this.ProductDescription,
+                Price = this.Price
+            };
+
+            return orderItem;
+        }
+
         public virtual Order Order { get; set; }
+
     }
 }

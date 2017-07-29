@@ -23,7 +23,21 @@ namespace Rentler.Admin.DataAccess
         public string CreatedBy { get; set; }
         public System.DateTime UpdateDateUtc { get; set; }
         public string UpdatedBy { get; set; }
-    
+
+        public Common.Listing.Photo ToPhoto()
+        {
+            return new Common.Listing.Photo
+            {
+                BuildingId = this.BuildingId,
+                PhotoId = this.PhotoId,
+                Extension = this.Extension,
+                SortOrder = this.SortOrder,
+                SmallPhoto = PhotoLink.GetPhotoLink(BuildingId, PhotoId, 50, 50, Extension),
+                MediumPhoto = PhotoLink.GetPhotoLink(BuildingId, PhotoId, 200, 150, Extension),
+                LargePhoto = PhotoLink.GetPhotoLink(BuildingId, PhotoId, 600, 395, Extension)
+            };
+        }
+
         public virtual Building Building { get; set; }
     }
 }

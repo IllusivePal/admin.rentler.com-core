@@ -5,3 +5,5 @@ C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Admin
 C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Admin\bin\Debug\netcoreapp1.1\Rentler.Admin.pdb
 C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Admin\obj\Debug\netcoreapp1.1\Rentler.Admin.dll
 C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Admin\obj\Debug\netcoreapp1.1\Rentler.Admin.pdb
+C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Admin\bin\Debug\netcoreapp1.1\Rentler.Cache.dll
+C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Admin\bin\Debug\netcoreapp1.1\Rentler.Cache.pdb

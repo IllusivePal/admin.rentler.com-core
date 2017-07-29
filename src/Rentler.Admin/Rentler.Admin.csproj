@@ -27,7 +27,10 @@
     <Folder Include="Common\Stripe\" />
     <Folder Include="Common\Ocean\" />
     <Folder Include="Listings\" />
-    <Folder Include="Adapters\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Rentler.Cache\Rentler.Cache.csproj" />
   </ItemGroup>
 
 </Project>

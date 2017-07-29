@@ -15,8 +15,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../../../../node_modules/css-loader/index.js??ref--9-1!../../../../../node_modules/postcss-loader/index.js??postcss!./indigo-pink.css", function() {
-			var newContent = require("!!../../../../../node_modules/css-loader/index.js??ref--9-1!../../../../../node_modules/postcss-loader/index.js??postcss!./indigo-pink.css");
+		module.hot.accept("!!../../../../../node_modules/css-loader/index.js??ref--8-1!../../../../../node_modules/postcss-loader/index.js??postcss!./indigo-pink.css", function() {
+			var newContent = require("!!../../../../../node_modules/css-loader/index.js??ref--8-1!../../../../../node_modules/postcss-loader/index.js??postcss!./indigo-pink.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -42,8 +42,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../node_modules/css-loader/index.js??ref--11-1!../node_modules/postcss-loader/index.js??postcss!../node_modules/less-loader/dist/cjs.js??ref--11-3!./main.less", function() {
-			var newContent = require("!!../node_modules/css-loader/index.js??ref--11-1!../node_modules/postcss-loader/index.js??postcss!../node_modules/less-loader/dist/cjs.js??ref--11-3!./main.less");
+		module.hot.accept("!!../node_modules/css-loader/index.js??ref--10-1!../node_modules/postcss-loader/index.js??postcss!../node_modules/less-loader/dist/cjs.js??ref--10-3!./main.less", function() {
+			var newContent = require("!!../node_modules/css-loader/index.js??ref--10-1!../node_modules/postcss-loader/index.js??postcss!../node_modules/less-loader/dist/cjs.js??ref--10-3!./main.less");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -69,8 +69,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../node_modules/css-loader/index.js??ref--9-1!../node_modules/postcss-loader/index.js??postcss!./styles.css", function() {
-			var newContent = require("!!../node_modules/css-loader/index.js??ref--9-1!../node_modules/postcss-loader/index.js??postcss!./styles.css");
+		module.hot.accept("!!../node_modules/css-loader/index.js??ref--8-1!../node_modules/postcss-loader/index.js??postcss!./styles.css", function() {
+			var newContent = require("!!../node_modules/css-loader/index.js??ref--8-1!../node_modules/postcss-loader/index.js??postcss!./styles.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -269,8 +269,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../css-loader/index.js??ref--9-1!../postcss-loader/index.js??postcss!./style-bootstrap.css", function() {
-			var newContent = require("!!../css-loader/index.js??ref--9-1!../postcss-loader/index.js??postcss!./style-bootstrap.css");
+		module.hot.accept("!!../css-loader/index.js??ref--8-1!../postcss-loader/index.js??postcss!./style-bootstrap.css", function() {
+			var newContent = require("!!../css-loader/index.js??ref--8-1!../postcss-loader/index.js??postcss!./style-bootstrap.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -296,8 +296,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../css-loader/index.js??ref--9-1!../postcss-loader/index.js??postcss!./style-default.css", function() {
-			var newContent = require("!!../css-loader/index.js??ref--9-1!../postcss-loader/index.js??postcss!./style-default.css");
+		module.hot.accept("!!../css-loader/index.js??ref--8-1!../postcss-loader/index.js??postcss!./style-default.css", function() {
+			var newContent = require("!!../css-loader/index.js??ref--8-1!../postcss-loader/index.js??postcss!./style-default.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -323,8 +323,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../css-loader/index.js??ref--9-1!../postcss-loader/index.js??postcss!./style-material.css", function() {
-			var newContent = require("!!../css-loader/index.js??ref--9-1!../postcss-loader/index.js??postcss!./style-material.css");
+		module.hot.accept("!!../css-loader/index.js??ref--8-1!../postcss-loader/index.js??postcss!./style-material.css", function() {
+			var newContent = require("!!../css-loader/index.js??ref--8-1!../postcss-loader/index.js??postcss!./style-material.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});

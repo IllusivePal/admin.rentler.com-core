@@ -11,6 +11,8 @@ namespace Rentler.Admin.DataAccess
 {
     using System;
     using System.Collections.Generic;
+    using Rentler.Admin.Common;
+    using System.Linq;
     
     public partial class Building
     {
@@ -110,7 +112,194 @@ namespace Rentler.Admin.DataAccess
         public Nullable<long> PropertyId { get; set; }
         public bool IsDIYApartment { get; set; }
         public string YouTubeUrl { get; set; }
-    
+
+        public BuildingPreview ToBuildingPreview()
+        {
+            BuildingPreview preview = new BuildingPreview
+            {
+                UserId = this.UserId,
+                BuildingId = this.BuildingId,
+                PrimaryPhotoId = this.PrimaryPhotoId,
+                PrimaryPhotoExtension = this.PrimaryPhotoExtension,
+                Address1 = this.Address1,
+                Address2 = this.Address2,
+                City = this.City,
+                DefaultCity = this.DefaultCity,
+                State = this.State,
+                Zip = this.Zip,
+                Bedrooms = this.Bedrooms,
+                Bathrooms = this.Bathrooms,
+                IsActive = this.IsActive,
+                IsRemovedByAdmin = this.IsRemovedByAdmin,
+                IsDeleted = this.IsDeleted,
+                Title = this.Title,
+                Latitude = this.Latitude,
+                Longitude = this.Longitude,
+                StreetHash = this.StreetHash,
+                FullHash = this.FullHash,
+                PropertyTypeCode = this.PropertyTypeCode,
+                CreateDateUtc = this.CreateDateUtc,
+                UpdateDateUtc = this.UpdateDateUtc,
+                CommunityId = this.CommunityId,
+                IsUpgraded = this.IsUpgraded,
+                CustomPhoneId = this.CustomPhoneId,
+                CustomPhoneNumber = this.CustomPhoneNumber,
+                OrderScore = this.OrderScore,
+                IsDIYApartment = this.IsDIYApartment
+            };
+
+            if (this.User != null)
+                preview.User = this.User.ToUserPreview();
+
+            if (!string.IsNullOrWhiteSpace(RibbonId) &&
+                DateRibbonActivated.HasValue &&
+                DateRibbonActivated.Value > DateTime.UtcNow.AddDays(-30))
+                preview.HasRibbon = true;
+            return preview;
+        }
+        public BuildingDetail ToBuildingDetail()
+        {
+            BuildingDetail detail = new BuildingDetail
+            {
+                Preview = this.ToBuildingPreview(),
+                Orders = this.Orders.Where(o => o.OrderStatusCode == 2).Select(o => o.ToOrder()).ToList(),
+                PropertyTypeCode = this.PropertyTypeCode,
+                ListingReports = this.ListingReports.Select(l => l.ToListingReportPreview()).ToList()
+            };
+
+            detail.Preview.IsFeatured =
+                this.FeaturedListings
+                    .Any(d => d.ScheduledDate.ToString("dd/MM/yyyy") == DateTime.UtcNow.ToString("dd/MM/yyyy"));
+
+            return detail;
+        }
+        public Common.Listing.Address ToAddress()
+        {
+            return new Common.Listing.Address()
+            {
+                Address1 = Address1,
+                Address2 = Address2,
+                City = City,
+                DefaultCity = DefaultCity,
+                Latitude = Latitude,
+                Longitude = Longitude,
+                State = State,
+                Zip = Zip
+            };
+        }
+        public Common.Listing.BasicProperty ToBasicProperty()
+        {
+            return new Common.Listing.BasicProperty()
+            {
+                PropertyId = this.BuildingId,
+                UserId = this.UserId,
+                PropertyTypeCode = this.PropertyTypeCode,
+                Address = ToAddress(),
+                IsDeleted = this.IsDeleted,
+                IsRemovedByAdmin = this.IsRemovedByAdmin,
+                Latitude = this.Latitude,
+                Longitude = this.Longitude,
+                StreetHash = this.StreetHash,
+                FullHash = this.FullHash,
+                IsListed = this.Acres.HasValue,
+                IsUpgraded = this.IsUpgraded,
+                IsApplicationsEnabled = this.IsApplicationsEnabled,
+                Nickname = this.Nickname,
+                ManagementTypeCode = this.ManagementTypeCode,
+                OrderScore = this.OrderScore
+            };
+        }
+        public Common.Listing.ListingDetail ToListingDetail()
+        {
+            var listing = new Common.Listing.ListingDetail()
+            {
+                ListingId = this.BuildingId,
+                UserId = this.UserId,
+                Property = ToBasicProperty(),
+                CommunityId = this.CommunityId,
+
+                Acres = this.Acres,
+                SquareFeet = this.SquareFeet,
+                YearBuilt = this.YearBuilt,
+                Bedrooms = this.Bedrooms,
+                Bathrooms = this.Bathrooms,
+
+                Price = this.Price,
+                Deposit = this.Deposit,
+                Refundable = this.RefundableDeposit,
+                DateAvailableUtc = this.DateAvailableUtc,
+                DateCreatedUtc = this.CreateDateUtc.Value,
+                IsSmokingAllowed = this.IsSmokingAllowed,
+                LeaseLength = (Rentler.Admin.Common.LeaseLength)this.LeaseLengthCode,
+                PetFee = this.PetFee,
+                ApplicationFee = this.ApplicationFee,
+                CatPolicy = (Rentler.Admin.Common.CatPolicy)this.CatPolicyCode,
+                DogPolicy = (Rentler.Admin.Common.DogPolicy)this.DogPolicyCode,
+                PetDeposit = this.PetDeposit,
+                PetDetails = this.PetDetails,
+                SmokingDetails = this.SmokingDetails,
+                IsSeniorRestricted = this.IsSeniorRestricted,
+                IsScreeningRequired = this.IsScreeningRequired,
+                MoveInSpecial = this.MoveInSpecial,
+                IsReported = this.IsReported,
+                CustomPhoneNumber = this.CustomPhoneNumber,
+                FloorPlanImageId = this.FloorPlanImageId,
+
+                Title = this.Title,
+                Description = this.Description,
+                RibbonId = this.RibbonId,
+                IsFeatured = this.FeaturedListings.Any(f => f.ScheduledDate > DateTime.Now.Date),
+                PrimaryPhotoId = this.PrimaryPhotoId,
+                PrimaryPhotoExtension = this.PrimaryPhotoExtension,
+                IsUpgraded = this.IsUpgraded,
+                IsApplicationsEnabled = this.IsApplicationsEnabled,
+                AutoRentability = this.AutoRentability
+            };
+
+            listing.BuildingAmenities = this.BuildingAmenities.Select(a => a.AmenityId).ToList();
+            listing.CustomAmenities = this.CustomAmenities.Select(ca => ca.Name).ToList();
+
+            if (this.ContactInfo != null)
+                listing.Contact = this.ContactInfo.ToContact();
+
+            /* photos */
+            foreach (var photo in this.Photos.OrderBy(p => p.SortOrder))
+                listing.Photos.Add(photo.ToPhoto());
+
+            //featured listings
+            foreach (var f in this.FeaturedListings)
+            {
+                listing.Featured.Add(
+                    new Common.Listing.FeaturedListingPreview
+                    {
+                        BuildingId = f.BuildingId,
+                        ScheduledDate = f.ScheduledDate,
+                        Zip = f.Zip
+                    });
+            }
+
+            if (this.BuildingUtilities != null)
+                listing.Utilities = this.BuildingUtilities.Select(u => u.ToUtility()).ToList();
+
+            if (this.Community != null)
+                listing.Community = this.Community.ToCommunityDetails();
+
+            if (this.Community != null && this.Community.CommunityAmenities != null)
+                listing.BuildingAmenities = listing.BuildingAmenities
+                    .Union(this.Community.CommunityAmenities.Select(a => a.AmenityId))
+                    .ToList();
+
+            listing.DateActivatedUtc = this.DateActivatedUtc;
+            listing.ReportedText = this.ReportedText;
+            listing.IsReported = this.IsReported;
+
+            listing.IsActive = this.IsActive;
+
+            listing.OrderScore = this.OrderScore;
+
+            return listing;
+        }
+
         public virtual ICollection<Application> Applications { get; set; }
         public virtual ICollection<BuildingAmenity> BuildingAmenities { get; set; }
         public virtual Community Community { get; set; }

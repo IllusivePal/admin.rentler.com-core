@@ -1042,17 +1042,27 @@ var DashboardComponent = (function () {
         this._progressBar = _progressBar;
         this.displayedColumns = ['userId', 'userName', 'progress', 'color'];
         this.exampleDatabase = new ExampleDatabase();
+        this.profile = {};
     }
     DashboardComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.dataSource = new ExampleDataSource(this.exampleDatabase, this.paginator);
         //this._userService.GetAll().subscribe((res) => {
         // console.log("THIS IS AWESOME SUBSCRIBE", res);
         //});
-        this._userService.GetAll();
+        //this._userService.GetAll();
+        console.log("TEST Progress");
+        this._userService.GetAll().subscribe(function (data) {
+            console.log("DATA: ", data);
+            _this.profile = data;
+        });
+        console.log("Result: ", this.profile);
     };
     DashboardComponent.prototype.startProgress = function () {
+        var _this = this;
         console.log("TEST Progress");
-        this._userService.GetAll();
+        this._userService.GetAll().subscribe(function (data) { return _this.profile = data; });
+        console.log("Result: ", this.profile);
     };
     return DashboardComponent;
 }());

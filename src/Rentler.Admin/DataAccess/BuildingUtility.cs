@@ -17,7 +17,16 @@ namespace Rentler.Admin.DataAccess
         public long BuildingId { get; set; }
         public string UtilityId { get; set; }
         public int UtilityCode { get; set; }
-    
+
+        public Common.Utility ToUtility()
+        {
+            return new Common.Utility()
+            {
+                UtilityId = this.UtilityId,
+                UtilityCode = (Common.UtilityCode)this.UtilityCode
+            };
+        }
+
         public virtual Building Building { get; set; }
     }
 }

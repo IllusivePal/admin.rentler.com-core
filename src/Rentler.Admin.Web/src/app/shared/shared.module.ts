@@ -22,7 +22,7 @@ import { HttpService } from '../Services/http.service';
 import { httpServiceFactory } from '../factories/http-service.factories';
 //Guard
 import { AuthenticationGuard } from '../guard/authentication.guard';
-import { LoginGuard } from '../guard/login.guard';
+//import { LoginGuard } from '../guard/login.guard';
 
 //Component
 import { UnknownPageComponent } from '../shared/unknown-page/unknown-page.component';

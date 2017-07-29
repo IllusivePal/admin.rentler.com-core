@@ -17,7 +17,16 @@ namespace Rentler.Admin.DataAccess
         public int FeaturedCommunityId { get; set; }
         public long CommunityId { get; set; }
         public System.DateTime ScheduledDate { get; set; }
-    
+
+        public Common.FeaturedCommunity ToFeaturedCommunity()
+        {
+            return new Common.FeaturedCommunity
+            {
+                FeaturedCommunityId = this.FeaturedCommunityId,
+                CommunityId = this.CommunityId,
+                ScheduledDate = this.ScheduledDate
+            };
+        }
         public virtual Community Community { get; set; }
     }
 }

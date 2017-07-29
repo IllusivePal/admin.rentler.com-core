@@ -11,7 +11,8 @@ namespace Rentler.Admin.DataAccess
 {
     using System;
     using System.Collections.Generic;
-    
+    using Rentler.Admin.Common;
+    using System.Linq;
     public partial class Order
     {
         public Order()
@@ -20,7 +21,33 @@ namespace Rentler.Admin.DataAccess
             this.Buildings = new HashSet<Building>();
             this.Screenings = new HashSet<Screening>();
         }
-    
+        public Common.Order ToOrder()
+        {
+            Common.Order order = new Common.Order
+            {
+                OrderId = this.OrderId,
+                BuildingId = this.BuildingId,
+                UserId = this.UserId,
+                OrderTotal = this.OrderTotal,
+                OrderSubTotal = this.OrderSubTotal,
+                CreateDate = this.CreateDate,
+                PromoDiscountTotal = this.PromoDiscountTotal
+            };
+
+            if (this.Building != null)
+                order.Building = this.Building.ToBuildingPreview();
+
+            if (this.User != null)
+                order.User = this.User.ToUser();
+
+            order.OrderItems = this.OrderItems
+                .Select(i => i.ToOrderItem())
+                .ToList();
+
+            return order;
+        }
+
+
         public int OrderId { get; set; }
         public Nullable<long> BuildingId { get; set; }
         public int UserId { get; set; }

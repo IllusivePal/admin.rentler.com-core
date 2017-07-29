@@ -91,6 +91,8 @@ namespace Rentler.Admin.Web
                 var connectionString = Configuration.GetConnectionString("ConnectionString");
                                   service.AddDbContext<RentlerEntities>(opt => opt.UseSqlServer(connectionString))
                                           .AddScoped<IEntityMapper, RentlerEntityMapper>();
+                service.AddTransient<IUserAdapter, UserAdapter>();
+                
           }
 
           // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

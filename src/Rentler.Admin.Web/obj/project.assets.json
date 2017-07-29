@@ -4745,6 +4745,7 @@
           "MongoDB.Driver": "2.4.4",
           "MongoDB.Driver.Core": "2.4.4",
           "NEST": "5.4.0",
+          "Rentler.Cache": "1.0.0",
           "ServiceStack.Redis.Core": "1.0.43",
           "Stripe.net": "10.3.0",
           "System.Reflection.Extensions": "4.3.0",

@@ -19,6 +19,7 @@ export class DashboardComponent implements OnInit {
     displayedColumns = ['userId', 'userName', 'progress', 'color'];
     exampleDatabase = new ExampleDatabase();
     dataSource: ExampleDataSource | null;
+    profile = {};
 
     @ViewChild(MdPaginator) paginator: MdPaginator;
     constructor(private _userService: UsersService,
@@ -29,13 +30,20 @@ export class DashboardComponent implements OnInit {
         //this._userService.GetAll().subscribe((res) => {
            // console.log("THIS IS AWESOME SUBSCRIBE", res);
         //});
-        this._userService.GetAll();
+        //this._userService.GetAll();
+        console.log("TEST Progress");
+        this._userService.GetAll().subscribe(data => {
+            console.log("DATA: ", data);
+            this.profile = data
+        });
+        console.log("Result: ", this.profile);
     }
 
     startProgress()
     {
         console.log("TEST Progress");
-        this._userService.GetAll();
+        this._userService.GetAll().subscribe(data => this.profile = data);
+        console.log("Result: ", this.profile);
     }
 
 }
