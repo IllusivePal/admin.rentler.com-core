@@ -1,0 +1,9 @@
+C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Admin\bin\Debug\netstandard2.0\Rentler.Admin.deps.json
+C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Admin\bin\Debug\netstandard2.0\Rentler.Admin.dll
+C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Admin\bin\Debug\netstandard2.0\Rentler.Admin.pdb
+C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Admin\obj\Debug\netstandard2.0\Rentler.Admin.csprojResolveAssemblyReference.cache
+C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Admin\obj\Debug\netstandard2.0\Rentler.Admin.csproj.CoreCompileInputs.cache
+C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Admin\obj\Debug\netstandard2.0\Rentler.Admin.AssemblyInfoInputs.cache
+C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Admin\obj\Debug\netstandard2.0\Rentler.Admin.AssemblyInfo.cs
+C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Admin\obj\Debug\netstandard2.0\Rentler.Admin.dll
+C:\Users\Kyamc\rentler-app\kyamctesting\admin.rentler.com-core\src\Rentler.Admin\obj\Debug\netstandard2.0\Rentler.Admin.pdb

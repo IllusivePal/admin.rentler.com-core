@@ -1,19 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.15
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rentler.Admin.Web", "Rentler.Admin.Web\Rentler.Admin.Web.csproj", "{A3FDAC78-C061-470B-AD5B-4467842A170E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rentler.Admin.Web", "Rentler.Admin.Web\Rentler.Admin.Web.csproj", "{23C4E2A6-806B-4082-8288-5F6C0C645163}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rentler.Admin", "Rentler.Admin\Rentler.Admin.csproj", "{F7111237-2FB9-4A03-9EC3-8308D2C2EF93}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Temp", "Temp", "{FC6ABEC2-1AFB-42E3-876E-EB3784B3F41C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rentler.Cache", "Rentler.Cache\Rentler.Cache.csproj", "{53D38497-0BD1-497B-9BE5-2447A3F0C211}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rentler.Screen", "Rentler.Screen\Rentler.Screen.csproj", "{B6E4A952-3CEC-496E-8A96-25445CC2C93D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rentler.Telephony", "Rentler.Telephony\Rentler.Telephony.csproj", "{3FE4AC81-BA66-4015-BF66-3F5F037770DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rentler.Admin", "Rentler.Admin\Rentler.Admin.csproj", "{E727FBF9-EBBB-4D38-90D4-82028994A74F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,33 +13,19 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A3FDAC78-C061-470B-AD5B-4467842A170E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A3FDAC78-C061-470B-AD5B-4467842A170E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A3FDAC78-C061-470B-AD5B-4467842A170E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A3FDAC78-C061-470B-AD5B-4467842A170E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F7111237-2FB9-4A03-9EC3-8308D2C2EF93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F7111237-2FB9-4A03-9EC3-8308D2C2EF93}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F7111237-2FB9-4A03-9EC3-8308D2C2EF93}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F7111237-2FB9-4A03-9EC3-8308D2C2EF93}.Release|Any CPU.Build.0 = Release|Any CPU
-		{53D38497-0BD1-497B-9BE5-2447A3F0C211}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{53D38497-0BD1-497B-9BE5-2447A3F0C211}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{53D38497-0BD1-497B-9BE5-2447A3F0C211}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{53D38497-0BD1-497B-9BE5-2447A3F0C211}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B6E4A952-3CEC-496E-8A96-25445CC2C93D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B6E4A952-3CEC-496E-8A96-25445CC2C93D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B6E4A952-3CEC-496E-8A96-25445CC2C93D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B6E4A952-3CEC-496E-8A96-25445CC2C93D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3FE4AC81-BA66-4015-BF66-3F5F037770DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3FE4AC81-BA66-4015-BF66-3F5F037770DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3FE4AC81-BA66-4015-BF66-3F5F037770DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3FE4AC81-BA66-4015-BF66-3F5F037770DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23C4E2A6-806B-4082-8288-5F6C0C645163}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23C4E2A6-806B-4082-8288-5F6C0C645163}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23C4E2A6-806B-4082-8288-5F6C0C645163}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23C4E2A6-806B-4082-8288-5F6C0C645163}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E727FBF9-EBBB-4D38-90D4-82028994A74F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E727FBF9-EBBB-4D38-90D4-82028994A74F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E727FBF9-EBBB-4D38-90D4-82028994A74F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E727FBF9-EBBB-4D38-90D4-82028994A74F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{53D38497-0BD1-497B-9BE5-2447A3F0C211} = {FC6ABEC2-1AFB-42E3-876E-EB3784B3F41C}
-		{B6E4A952-3CEC-496E-8A96-25445CC2C93D} = {FC6ABEC2-1AFB-42E3-876E-EB3784B3F41C}
-		{3FE4AC81-BA66-4015-BF66-3F5F037770DE} = {FC6ABEC2-1AFB-42E3-876E-EB3784B3F41C}
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4E28EF9D-3E3F-4F45-82F8-72F62C33392D}
 	EndGlobalSection
 EndGlobal

@@ -9,9 +9,7 @@ var del = require('del');
 // Defining some handy paths
 var paths = {
     npmInstall: "./node_modules/",
-    npmClient: "./src/libs/",
-    appDevelopment: ['./Scripts/**/*.html', './Scripts/**/*.css'],
-    appClient: "./wwwroot/app/"
+    npmClient: "wwwroot/libs/"
 };
 
 gulp.task('npmCopyToLibs', ['GulpClean'], function () {

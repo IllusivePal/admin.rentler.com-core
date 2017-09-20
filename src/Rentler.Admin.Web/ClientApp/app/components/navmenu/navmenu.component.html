@@ -1,0 +1,271 @@
+
+            <ul class='sidebar'>
+                <li class="brand">
+                    <a href="/">
+                        <i class="fa fa-rentler-plus"></i>
+                        <span class="sidebar-label">admin</span>
+                    </a>
+
+                
+                </li>
+                <li>
+                    <a href="">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                </li>
+               <!--<li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/counter']">
+                        <span class='glyphicon glyphicon-education'></span> Counter
+                    </a>
+                </li>-->
+                <li [class.active]="_routes.url=='/dashboard'">
+                    <a [routerLink]="['/dashboard']">
+                        <i class="fa fa-dashboard"></i>
+                        <span class='sidebar-label'>dashboard</span>
+                    </a>
+                </li>
+                <li [class.active]="_routes.url=='/dashboard/subscriptions'">
+                    <a [routerLink]="['dashboard/subscriptions']">
+                        <i class="fa fa-group"></i>
+                        <span class='sidebar-label'>subscriptions</span>
+                    </a>
+                </li>
+                <li [class.active]="_routes.url=='/dashboard/users' || _routes.url=='/dashboard/scammer' || _routes.url=='/dashboard/role'">
+                    <input type="checkbox" id="sidebar-users" />
+                    <label for="sidebar-users">
+                        <i class="fa fa-user"></i>
+                        <span class="sidebar-label">users</span>
+                    </label>
+
+                    <ul class="sidebar-submenu">
+                        <li>
+                            <a [routerLink]="['/dashboard/users']">
+                                <i class="fa fa-list"></i>
+                                <span class="sidebar-label">all users</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/dashboard/scammer']">
+                                <i class="fa fa-ban"></i>
+                                <span class="sidebar-label">watch list</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/dashboard/role']">
+                                <i class="fa fa-eye"></i>
+                                <span class="sidebar-label">roles</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a [routerLink]="['/application']">
+                        <i class="fa fa-file"></i>
+                        <span class="sidebar-label">applications</span>
+                    </a>
+                </li>
+                <li>
+                    <a [routerLink]="['/community']">
+                        <i class="fa fa-building-o"></i>
+                        <span class="sidebar-label">communities</span>
+                    </a>
+                </li>
+                <li>
+                    <input type="checkbox" id="sidebar-buildings" />
+                    <label for="sidebar-buildings">
+                        <i class="fa fa-building-o"></i>
+                        <span class="sidebar-label">buildings</span>
+                    </label>
+                    <ul class="sidebar-submenu">
+                        <li>
+                            <a [routerLink]="['/building']">
+                                <i class="fa fa-list"></i>
+                                <span class="sidebar-label">all buildings</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/reported']">
+                                <i class="fa fa-flag"></i>
+                                <span class="sidebar-label">reported</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/premier']">
+                                <i class="fa fa-trophy"></i>
+                                <span class="sidebar-label">premier</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/nonupgraded']">
+                                <i class="fa fa-flag"></i>
+                                <span class="sidebar-label">non upgraded apt.,</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <input type="checkbox" id="sidebar-forms" />
+                    <label for="sidebar-forms">
+                        <i class="fa fa-file"></i>
+                        <span class="sidebar-label">forms</span>
+                    </label>
+                    <ul class="sidebar-submenu">
+                        <li>
+                            <a [routerLink]="['/form/category']">
+                                <i class="fa fa-folder-open"></i>
+                                <span class="sidebar-label">categories</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/form']">
+                                <i class="fa fa-file-text"></i>
+                                <span class="sidebar-label">providers</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a [routerLink]="['/screening']">
+                        <i class="fa fa-rentler-id"></i>
+                        <span class="sidebar-label">credit/background</span>
+                    </a>
+
+                </li>
+                <li>
+                    <a [routerLink]="['/idverify']">
+                        <i class="fa fa-rentler-id"></i>
+                        <span class="sidebar-label">ID Verify</span>
+                    </a>
+
+                </li>
+                <li>
+                    <input type="checkbox" id="sidebar-payments" />
+                    <label for="sidebar-payments">
+                        <i class="fa fa-money"></i>
+                        <span class="sidebar-label">payments</span>
+                    </label>
+                    <ul class="sidebar-submenu">
+                        <li>
+                            <a [routerLink]="['/paymentinvites']">
+                                <i class="fa fa-envelope"></i>
+                                <span class="sidebar-label">payment invites</span>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a [routerLink]="['/payments']">
+                                <i class="fa fa-calendar"></i>
+                                <span class="sidebar-label">recurring payments</span>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a [routerLink]="['/bankaccounts']">
+                                <i class="fa fa-money"></i>
+                                <span class="sidebar-label">bank accounts</span>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a [routerLink]="['/paymentseries']">
+                                <i class="fa fa-money"></i>
+                                <span class="sidebar-label">payment series</span>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a [routerLink]="['/transactions']">
+                                <i class="fa fa-money"></i>
+                                <span class="sidebar-label">transactions</span>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a [routerLink]="['/legalentities']">
+                                <i class="fa fa-money"></i>
+                                <span class="sidebar-label">legal entities</span>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a [routerLink]="['/merchantaccounts']">
+                                <i class="fa fa-money"></i>
+                                <span class="sidebar-label">merchant accounts</span>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a [routerLink]="['/paymentcaps']">
+                                <i class="fa fa-money"></i>
+                                <span class="sidebar-label">payment caps</span>
+                            </a>
+
+                        </li>
+                    </ul>
+
+                </li>
+                <li>
+                    <input type="checkbox" id="sidebar-sales" />
+                    <label for="sidebar-sales">
+                        <i class="fa fa-dollar"></i>
+                        <span class="sidebar-label">sales</span>
+                    </label>
+                    <ul class="sidebar-submenu">
+                        <li>
+                            <a [routerLink]="['/order']">
+                                <i class="fa fa-shopping-cart"></i>
+                                <span class="sidebar-label">orders</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/promo']">
+                                <i class="fa fa-barcode"></i>
+                                <span class="sidebar-label">promo codes</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <input type="checkbox" id="sidebar-content" />
+                    <label for="sidebar-content">
+                        <i class="fa fa-font"></i>
+                        <span class="sidebar-label">content</span>
+                    </label>
+                    <ul class="sidebar-submenu">
+                        <li>
+                            <a [routerLink]="['/page']">
+                                <i class="fa fa-file-o"></i>
+                                <span class="sidebar-label">pages</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/blog']">
+                                <i class="fa fa-comment"></i>
+                                <span class="sidebar-label">blogs</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a [routerLink]="['/login']">
+                        <i class="fa fa-user"></i>
+                        <span class="sidebar-label">login</span>
+                    </a>
+                </li>
+                <li>
+                    <input type="checkbox" id="sidebar-cleanup" />
+                    <label for="sidebar-cleanup">
+                        <i class="fa fa-rocket"></i>
+                        <span class="sidebar-label">cleanup</span>
+                    </label>
+                    <ul class="sidebar-submenu">
+                        <li>
+                            <a [routerLink]="['/cleanup/community']">
+                                <i class="fa fa-beer"></i>
+                                <span class="sidebar-label">communities</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+

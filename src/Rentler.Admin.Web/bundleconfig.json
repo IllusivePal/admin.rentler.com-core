@@ -1,0 +1,32 @@
+[
+  {
+    "outputFileName": "wwwroot/rentler.style.min.css",
+    "inputFiles": [
+      "wwwroot/Content/metro-bootstrap.css",
+      "wwwroot/Content/font-awesome.css",
+      "wwwroot/Content/wysihtml5/bootstrap-wysihtml5.css",
+      "wwwroot/Css/rentlerawesome.css",
+      "wwwroot/Css/crocodoc.viewer.css",
+      "wwwroot/Css/admin.css",
+      "wwwroot/libs/@angular/material/prebuilt-themes/indigo-pink.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/rentler.script.min.js",
+    "inputFiles": [
+      "wwwroot/scripts/jquery-2.1.0.js",
+      "wwwroot/scripts/jquery.validate.js",
+      "wwwroot/scripts/jquery.validate.unobtrusive.js",
+      "wwwroot/scripts/jquery-ui-1.10.4.js",
+      "wwwroot/scripts/bootstrap.js",
+      "wwwroot/Content/wysihtml5/wysihtml5-0.3.0.js",
+      "wwwroot/Content/wysihtml5/bootstrap3-wysihtml5.js",
+      "wwwroot/scripts/ui-bootstrap-0.10.0.js",
+      "wwwroot/scripts/ui-bootstrap-tpls-0.10.0.js",
+      "wwwroot/scripts/d3.v3.js",
+      "wwwroot/scripts/crocodoc.viewer.js",
+      "wwwroot/scripts/masks.js",
+      "wwwroot/scripts/moment.min.js"
+    ]
+  }
+]
