@@ -1,0 +1,51 @@
+﻿<link href="/css/account/login.css" rel="stylesheet" asp-append-version="true" />
+<form method="post" class="well login-well" *ngIf="isShowAuthenticationLogin">
+        <div class="form-group">
+            <!--<img src="/images/logo.png" class="logo" />-->
+            <h1 class="text-center">Admin Login</h1>
+        </div>
+
+        <div class="form-group">
+            <div class="left-inner-addon addon-lg">
+                <i class="fa fa-user"></i>
+
+                <input type="text" class="form-control input-lg" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="left-inner-addon addon-lg">
+                <i class="fa fa-lock"></i>
+                <input type="text" class="form-control input-lg" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control checkbox">
+                <input type="checkbox" />
+                <span class="checkbox-label">Remember Me</span>
+            </label>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-default btn-lg" style="width: 100%;">Login</button>
+            <button class="btn btn-default btn-lg" style="width: 100%;" (click)="hideLoginForm()">
+                Back
+            </button>
+        </div>
+        <div class="form-group">
+
+        </div>
+
+    </form>
+    <div class="login-conent" *ngIf="isShowLogin">
+
+
+        <button md-raised-button color="warn" style="width: 100%;" (click)="showLoginForm()">
+            Rentler Authentication Login
+        </button>
+        <div class="spacing"></div>
+        <button md-raised-button color="primary" style="width: 100%;">
+            Auth Server Login
+        </button>
+
+    </div>
+
+

@@ -1,0 +1,215 @@
+﻿@media (min-width: 0px) {
+    .container {
+        max-width: 1920px;
+        max-height: 1080px;
+    }
+}
+
+.page-header {
+    border-bottom: none;
+}
+
+.page-header h1 {
+    font-size: 5em;
+}
+
+*:focus
+{
+    outline: none;
+}
+
+.list-group-item {
+    background-color: #101010;
+    border: none;
+}
+
+    .list-group-item:first-child {
+        border-top-right-radius: 0px;
+        border-top-left-radius: 0px;
+    }
+
+    .list-group-item:last-child {
+        border-bottom-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+    }
+
+.grey {
+    color: #808080;
+}
+
+/* Glow Colors */
+
+.blue {
+    color: #00AFFE;
+    text-shadow: 0px 0px 10px #00AFFE;
+}
+
+.white {
+    color: #fff;
+    text-shadow: 0px 0px 10px #fff;
+}
+
+.green {
+    color: #58e668;
+    text-shadow: 0px 0px 10px #58e668;
+}
+
+.yellow {
+    color: #ffd800;
+    text-shadow: 0px 0px 10px #ffd800;
+}
+
+.red {
+    color: #D15159;
+    text-shadow: 0px 0px 10px #D15159;
+}
+
+/* Pulse Blue */
+
+@-webkit-keyframes pulse-blue {
+    0%, 100% {
+        color: #00AFFE;
+        text-shadow: 0px 0px 5px #00AFFE;
+        opacity: .2;
+    }
+    50% {
+        color: #00AFFE;
+        text-shadow: 0px 0px 50px #00AFFE;
+        opacity: 1;
+    }
+}
+
+.pulse-blue {
+    -webkit-animation: pulse-blue 5s ease-in infinite;
+}
+
+.pulse-blue-fast {
+    -webkit-animation: pulse-blue 1s ease-in infinite;
+}
+
+/* Pulse Green */
+
+@-webkit-keyframes pulse-green {
+    0%, 100% {
+        color: #58e668;
+        text-shadow: 0px 0px 5px #58e668;
+        opacity: .2;
+    }
+    50% {
+        color: #58e668;
+        text-shadow: 0px 0px 50px #58e668;
+        opacity: 1;
+    }
+}
+
+.pulse-green {
+    -webkit-animation: pulse-green 5s ease-in infinite;
+}
+
+.pulse-green-fast {
+    -webkit-animation: pulse-green 1s ease-in infinite;
+}
+
+/* Pulse Red */
+
+@-webkit-keyframes pulse-red {
+    0%, 100% {
+        color: #D15159;
+        text-shadow: 0px 0px 5px #D15159;
+        opacity: .2;
+    }
+    50% {
+        color: #D15159;
+        text-shadow: 0px 0px 50px #D15159;
+        opacity: 1;
+    }
+}
+
+.pulse-red {
+    -webkit-animation: pulse-red 5s ease-in infinite;
+}
+
+.pulse-red-fast {
+    -webkit-animation: pulse-red 1s ease-in infinite;
+}
+
+
+/*body {
+    background: url('/images/status/txture.png');
+    color: #efefef;
+    font-family: "Lucida Sans","Lucida Sans Unicode","Lucida Grande",Verdana,Arial,Helvetica,sans-serif;
+    font-family: "Segoe UI", "Segoe WP", "Helvetica Neue", sans-serif;
+    font-size: 14px;
+}
+h1, h2, h3, h4, h5 {
+    color: #57ffff;
+}
+a {
+    color: #57ffff;
+}
+.logo {
+    position: fixed;
+    top: 0px;
+    left: 50%;
+    margin-left: -77px;
+    background: url('http://www.rentler.com/images/rentler-icons.png') no-repeat;
+    width: 114px;
+    height: 66px;
+    display: block;
+    text-indent: -9999px;
+    opacity: .1;
+}
+.green {
+    color: #57FF57;
+    text-shadow: 0px 0px 10px #57FF57;
+}
+.right {
+    text-align: right;
+}
+
+
+
+.stat-head {
+    font-size: .9em;
+    text-align: center;
+    margin-bottom: 6px;
+}
+.stat-icon {
+    text-align: center;
+}
+
+.table thead > tr > th, .table tbody > tr > th, .table tfoot > tr > th, .table thead > tr > td, .table tbody > tr > td, .table tfoot > tr > td {
+    border-top: solid 1px #aaa;
+}
+
+
+
+.stat {
+    
+}
+    .stat .stat-value {
+        font-size: 4em;
+        color: #fff;
+    }
+    .stat .stat-label {
+        color: #bbb;
+        margin-top: -11px;
+        padding-left: 5px;
+    }
+
+
+.update-container {
+    margin-top: 80px;
+}
+
+.update {
+    border-top: solid 1px #aaa;
+    padding: 5px 0px;
+}
+
+.update-title {
+    
+}
+.update-date {
+    color: #bbb;
+}*/
